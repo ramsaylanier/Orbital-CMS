@@ -570,3 +570,18 @@ p + .drop-cap {
   background-color: black;
   padding: .5rem;
 }
+
+/* line 37, scss/main.min.scss */
+.add-page-container, .add-post-container {
+  opacity: 1.0;
+  -webkit-transition: all 1000ms ease-out;
+  -webkit-transition-delay: 100ms;
+  -moz-transition: all 1000ms ease-out 100ms;
+  -o-transition: all 1000ms ease-out 100ms;
+  transition: all 1000ms ease-out 100ms;
+}
+
+/* line 42, scss/main.min.scss */
+.add-page-container.off-page, .add-post-container.off-page {
+  opacity: 0.0;
+}

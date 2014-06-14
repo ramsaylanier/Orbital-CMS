@@ -33,3 +33,12 @@
 	background-color: black;
 	padding: .5rem;
 }
+
+.add-page-container, .add-post-container{
+	opacity: 1.0;
+	@include transition(all 1000ms ease-out 100ms);
+}
+
+.add-page-container.off-page, .add-post-container.off-page{
+	opacity: 0.0;
+}
