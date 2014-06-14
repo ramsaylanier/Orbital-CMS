@@ -1,0 +1,22 @@
+.form-control{
+	margin-bottom: 10px;
+}
+
+
+input[type=text], input[type=password], input[type=email]{
+	border: none;
+	padding: .25rem;
+
+	&:focus{
+		outline: none;
+	}
+}
+
+input[type=submit]{
+	border: none;
+	padding: .5rem;
+	font-size: 1rem;
+	cursor: pointer;
+
+	@include transition(all 300ms ease-in-out);
+}

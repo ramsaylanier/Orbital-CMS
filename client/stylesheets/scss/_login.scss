@@ -1,0 +1,50 @@
+.login, .register{
+	position: relative;
+	margin: 3rem auto;
+	background-color: $light-blue;
+	padding: 2rem;
+
+
+	label{
+		width: 30%;
+		float: left;
+		padding: 5px 0px;
+	}
+
+	input[type=text], input[type=password], input[type=email]{
+		width: 70%;
+		font-size: 1.3rem;
+	}
+
+	input[type=submit]{
+		background-color: white;
+		position: relative;
+		text-align: right;
+		background-color: white;
+		color: $blue;
+		font-size: 1.2rem;
+
+		&:hover{
+			background-color: white;
+			color: $blue;
+			background-color: $blue;
+			color: white;
+		}
+	}
+}
+
+.login{
+	max-width: 400px;
+}
+
+.register{
+	max-width: 600px;
+
+	label{
+		width: 40%
+	}
+
+	input[type=text], input[type=password], input[type=email]{
+		width: 60%;
+	}
+}

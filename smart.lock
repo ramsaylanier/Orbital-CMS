@@ -1,0 +1,15 @@
+{
+  "meteor": {},
+  "dependencies": {
+    "basePackages": {
+      "subs-manager": {}
+    },
+    "packages": {
+      "subs-manager": {
+        "git": "https://github.com/meteorhacks/subs-manager.git",
+        "tag": "v1.0.0",
+        "commit": "e01b87ac004ef114f882a73549ba38f64709649e"
+      }
+    }
+  }
+}

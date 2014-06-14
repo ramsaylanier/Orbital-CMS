@@ -1,0 +1,35 @@
+@import "compass/css3";
+@import "compass/reset";
+@import "colors";
+@import "login";
+@import "forms";
+@import "typeplate";
+
+*{
+	@include box-sizing(border-box);
+}
+
+.left-align{
+	text-align: left;
+}
+
+.right-align{
+	text-align: right;
+}
+
+
+.header{
+	height: 50px;
+	width: 100%;
+	position: relative;
+	background-color: grey;
+	padding: .5rem;
+}
+
+.admin-header{
+	position: relative;
+	height: 50px;
+	width: 100%;
+	background-color: black;
+	padding: .5rem;
+}

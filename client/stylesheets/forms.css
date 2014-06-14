@@ -1,0 +1,9 @@
+/* line 1, scss/forms.scss */
+input[type=text], input[type=password], input[type=email] {
+  border: 1px solid grey;
+  padding: .25rem;
+}
+/* line 5, scss/forms.scss */
+input[type=text]:focus, input[type=password]:focus, input[type=email]:focus {
+  outline: none;
+}

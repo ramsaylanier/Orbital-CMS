@@ -1,0 +1,16 @@
+<head>
+	<title>Orbital CMS</title>
+	  <script type="text/javascript" src="//use.typekit.net/sau6dnt.js"></script>
+	  <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+</head>
+
+<template name="layout">
+	{{#if isInRole 'admin'}}
+		{{> adminHeader}}
+	{{/if}}
+
+	{{> header}}
+	<div class="container">
+		{{> yield}}
+	</div>
+</template>
