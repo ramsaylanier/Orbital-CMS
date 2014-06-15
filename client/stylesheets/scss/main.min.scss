@@ -4,6 +4,7 @@
 @import "login";
 @import "forms";
 @import "typeplate";
+@import "pages";
 
 *{
 	@include box-sizing(border-box);
@@ -38,28 +39,46 @@ b{
 	padding: .5rem;
 }
 
+.container{
+	width: 100%;
+	height: 100%;
+	position: relative;
+	overflow: auto;
+}
+
+.add-page-modal{
+	position: fixed;
+	padding: 1rem;
+	width: 100vw;
+	height: 100vh;
+	top: 0px;
+	left: 0px;
+	overflow: auto;
+	background-color: rgba(255,255,255,.90);
+	@include scale3d(1, 1, 1);
+	@include transition(all 300ms cubic-bezier(.49,.14,.61,1.16) 100ms);
+	z-index: 999;
+}
+
+.add-page-modal.off-page{
+	@include scale3d(2.5, 2.5, 1.5);
+	z-index: -1;
+	opacity: 0.0;
+}
+
 .add-page-container, .add-post-container{
 	max-width: 980px;
 	margin: 0 auto;
 	position: relative;
 	padding: 1rem;
 	background-color: silver;
-	@include scale3d(1, 1, 1);
 	@include transition(all 300ms cubic-bezier(.49,.14,.61,1.16) 100ms);
-	z-index: 800;
-}
-
-.add-page-container.off-page, .add-post-container.off-page{
-	z-index: -1;
-	opacity: 0.0;
-	@include scale3d(2.5, 2.5, 1.5);
 }
 
 .sidebar-editor{
 	position: fixed;
-	left: 0px;
+	top: 120px;
 	width: 170px;
-	height: 100%;
 	padding: .5rem;
 	background-color: silver;
 

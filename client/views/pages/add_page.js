@@ -3,7 +3,7 @@ Template.addPage.created = function(){
 	if (val == undefined){
 		val = "";
 	}
-	console.log(val);
+	
 	Session.set('slug', encodeURI(val).toLowerCase());
 }
 
@@ -13,7 +13,7 @@ Template.addPage.destroyed = function(){
 }
 
 Template.addPage.rendered = function(){
-	var $item = $(this.find('.add-page-container'));
+	var $item = $(this.find('.add-page-modal'));
 	Meteor.defer(function() {
 		$item.removeClass('off-page');
 	});
@@ -26,8 +26,6 @@ Template.addPage.events({
 		var page ={
 			title: $(e.target).find('[name=title]').val(),
 			slug: Session.get('slug'),
-			hideTitle: checkOptions($('#show-title')),
-			pageTemplate: $(e.target).find('[name=template-type]').val().replace(/_/g, ' '),
 			content: $(e.target).find('[name=editor]').val()
 		}
 
@@ -36,7 +34,8 @@ Template.addPage.events({
 				//call custom throwError function
 				throwError(error.reason, 'error');
 			} else {
-				Router.go('/admin/pages', page);
+				$('.add-page-modal').addClass('off-page');
+				Router.go('/' + page.slug);
 			}
 		});
 	},

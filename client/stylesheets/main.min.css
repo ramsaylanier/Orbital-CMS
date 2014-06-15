@@ -537,29 +537,52 @@ p + .drop-cap {
  * Extend this object into your markup.
  *
  */
-/* line 8, scss/main.min.scss */
+/* line 1, scss/_pages.scss */
+.page-container {
+  opacity: 1.0;
+  z-index: 100;
+  position: relative;
+  -webkit-transition: all 300ms ease-out;
+  -webkit-transition-delay: 100ms;
+  -moz-transition: all 300ms ease-out 100ms;
+  -o-transition: all 300ms ease-out 100ms;
+  transition: all 300ms ease-out 100ms;
+}
+
+/* line 8, scss/_pages.scss */
+.page-container.off-page {
+  -webkit-transform: translate3d(-3000px, 0px, 0px);
+  -moz-transform: translate3d(-3000px, 0px, 0px);
+  -ms-transform: translate3d(-3000px, 0px, 0px);
+  -o-transform: translate3d(-3000px, 0px, 0px);
+  transform: translate3d(-3000px, 0px, 0px);
+  z-index: -1;
+  opacity: 0.0;
+}
+
+/* line 9, scss/main.min.scss */
 * {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
 
-/* line 12, scss/main.min.scss */
+/* line 13, scss/main.min.scss */
 b {
   font-weight: 900;
 }
 
-/* line 16, scss/main.min.scss */
+/* line 17, scss/main.min.scss */
 .left-align {
   text-align: left;
 }
 
-/* line 20, scss/main.min.scss */
+/* line 21, scss/main.min.scss */
 .right-align {
   text-align: right;
 }
 
-/* line 25, scss/main.min.scss */
+/* line 26, scss/main.min.scss */
 .header {
   height: 50px;
   width: 100%;
@@ -568,7 +591,7 @@ b {
   padding: .5rem;
 }
 
-/* line 33, scss/main.min.scss */
+/* line 34, scss/main.min.scss */
 .admin-header {
   position: relative;
   height: 50px;
@@ -577,13 +600,24 @@ b {
   padding: .5rem;
 }
 
-/* line 41, scss/main.min.scss */
-.add-page-container, .add-post-container {
-  max-width: 980px;
-  margin: 0 auto;
+/* line 42, scss/main.min.scss */
+.container {
+  width: 100%;
+  height: 100%;
   position: relative;
+  overflow: auto;
+}
+
+/* line 49, scss/main.min.scss */
+.add-page-modal {
+  position: fixed;
   padding: 1rem;
-  background-color: silver;
+  width: 100vw;
+  height: 100vh;
+  top: 0px;
+  left: 0px;
+  overflow: auto;
+  background-color: rgba(255, 255, 255, 0.9);
   -webkit-transform: scale3d(1, 1, 1);
   -moz-transform: scale3d(1, 1, 1);
   -ms-transform: scale3d(1, 1, 1);
@@ -594,30 +628,43 @@ b {
   -moz-transition: all 300ms cubic-bezier(0.49, 0.14, 0.61, 1.16) 100ms;
   -o-transition: all 300ms cubic-bezier(0.49, 0.14, 0.61, 1.16) 100ms;
   transition: all 300ms cubic-bezier(0.49, 0.14, 0.61, 1.16) 100ms;
-  z-index: 800;
+  z-index: 999;
 }
 
-/* line 52, scss/main.min.scss */
-.add-page-container.off-page, .add-post-container.off-page {
-  z-index: -1;
-  opacity: 0.0;
+/* line 63, scss/main.min.scss */
+.add-page-modal.off-page {
   -webkit-transform: scale3d(2.5, 2.5, 1.5);
   -moz-transform: scale3d(2.5, 2.5, 1.5);
   -ms-transform: scale3d(2.5, 2.5, 1.5);
   -o-transform: scale3d(2.5, 2.5, 1.5);
   transform: scale3d(2.5, 2.5, 1.5);
+  z-index: -1;
+  opacity: 0.0;
 }
 
-/* line 58, scss/main.min.scss */
+/* line 69, scss/main.min.scss */
+.add-page-container, .add-post-container {
+  max-width: 980px;
+  margin: 0 auto;
+  position: relative;
+  padding: 1rem;
+  background-color: silver;
+  -webkit-transition: all 300ms cubic-bezier(0.49, 0.14, 0.61, 1.16);
+  -webkit-transition-delay: 100ms;
+  -moz-transition: all 300ms cubic-bezier(0.49, 0.14, 0.61, 1.16) 100ms;
+  -o-transition: all 300ms cubic-bezier(0.49, 0.14, 0.61, 1.16) 100ms;
+  transition: all 300ms cubic-bezier(0.49, 0.14, 0.61, 1.16) 100ms;
+}
+
+/* line 78, scss/main.min.scss */
 .sidebar-editor {
   position: fixed;
-  left: 0px;
+  top: 120px;
   width: 170px;
-  height: 100%;
   padding: .5rem;
   background-color: silver;
 }
-/* line 66, scss/main.min.scss */
+/* line 85, scss/main.min.scss */
 .sidebar-editor a {
   display: inline-block;
   padding: .25rem;
@@ -627,17 +674,17 @@ b {
   text-align: center;
   margin-bottom: .25rem;
 }
-/* line 76, scss/main.min.scss */
+/* line 95, scss/main.min.scss */
 .sidebar-editor .toolbar-section {
   padding: 1rem 0rem;
   border-bottom: 1px solid grey;
 }
-/* line 80, scss/main.min.scss */
+/* line 99, scss/main.min.scss */
 .sidebar-editor .toolbar-section:last-of-type {
   border: none;
 }
 
-/* line 86, scss/main.min.scss */
+/* line 105, scss/main.min.scss */
 .text-view, .markup-view {
   background-color: white;
   width: 100%;
@@ -652,26 +699,26 @@ b {
   -o-transition: all 300ms ease-out 0ms;
   transition: all 300ms ease-out 0ms;
 }
-/* line 96, scss/main.min.scss */
+/* line 115, scss/main.min.scss */
 .text-view:focus, .markup-view:focus {
   outline: none;
 }
 
-/* line 101, scss/main.min.scss */
+/* line 120, scss/main.min.scss */
 .text-view.visible, .markup-view.visible {
   position: relative;
   z-index: 10;
   opacity: 1.0;
 }
 
-/* line 107, scss/main.min.scss */
+/* line 126, scss/main.min.scss */
 .markup-view, .text-view {
   position: absolute;
   z-index: -1;
   opacity: 0.0;
 }
 
-/* line 113, scss/main.min.scss */
+/* line 132, scss/main.min.scss */
 #body-output {
   height: 0px;
   overflow: hidden;

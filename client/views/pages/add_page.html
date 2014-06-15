@@ -1,35 +1,40 @@
 <template name="addPage">
-{{> editor}}
-	<div class="add-page-container off-page">
-		<h3>Add New Page</h3>
+	<div class="add-page-modal off-page">
+		{{> editor}}
+		<div class="add-page-container off-page">
+			{{> errors}}
+			<h3>Add New Page</h3>
 
-		<form class="form" name="new-page-form">
-			<div class="page-content">
-				<div class="form-control">
-					<label class="label" for="title">Title</label>
-					<input id="title" name="title" type="text" value="{{title}}"/>
-				</div>
-
-				<div class="edit-slug-box">
-					<span class="sample-slug">
-						Permalink: {{url}}<span class="editable-slug">{{value}}</span>
-						<input id="slug" class="hidden" name="slug" type="text" value="{{slug}}"/>
-					</span>
-				</div>
-
-				<div class="editor form-control">
-					<a href="#" class="text-view-toggle">Text</a>
-					<a href="#" class="markup-view-toggle ">Markup</a>
-					<div id="page-body" class="output text-view visible" contenteditable>
-						<p>Enter page content here</p>
+			<form class="form" name="new-page-form">
+				<div class="page-content">
+					<div class="form-control">
+						<label class="label" for="title">Title</label>
+						<input id="title" name="title" type="text" value="{{title}}"/>
 					</div>
 
-					<div class="markup-view" contenteditable></div>
+					<div class="edit-slug-box">
+						<span class="sample-slug">
+							Permalink: {{url}}<span class="editable-slug">{{value}}</span>
+							<input id="slug" class="hidden" name="slug" type="text" value="{{slug}}"/>
+						</span>
+					</div>
 
-					<textarea id="body-output" name="editor"></textarea>
-				</div>	
-			</div>
-		</form>
+					<div class="editor form-control">
+						<a href="#" class="text-view-toggle">Text</a>
+						<a href="#" class="markup-view-toggle ">Markup</a>
+						<div id="page-body" class="output text-view visible" contenteditable>
+							<p>Enter page content here</p>
+						</div>
+
+						<div class="markup-view" contenteditable></div>
+
+						<textarea id="body-output" name="editor"></textarea>
+					</div>	
+
+					<input type="submit" value="Save Page"/>
+				</div>
+			</form>
+		</div>
 	</div>
 </template>
 

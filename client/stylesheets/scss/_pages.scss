@@ -1,0 +1,12 @@
+.page-container{
+	opacity: 1.0;
+	z-index: 100;
+	position: relative;
+	@include transition(all 300ms ease-out 100ms);
+}
+
+.page-container.off-page{
+	@include translate3d(-3000px, 0px, 0px);
+	z-index: -1;
+	opacity: 0.0;
+}
