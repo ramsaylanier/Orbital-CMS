@@ -56,7 +56,7 @@ Template.addPage.events({
 		$('.text-view').removeClass('visible');
 		$('.markup-view').addClass('visible');
 	},
-
+	//something
 	'blur, keyup, paste, copy, cut, mouseup .text-view': function(e){
 		if ($('.text-view').hasClass('visible')){
 			$('.markup-view').text($('.text-view').html());
