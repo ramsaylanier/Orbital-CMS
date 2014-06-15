@@ -120,19 +120,20 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 /* line 1, scss/_forms.scss */
 .form-control {
   margin-bottom: 10px;
+  position: relative;
 }
 
-/* line 6, scss/_forms.scss */
+/* line 7, scss/_forms.scss */
 input[type=text], input[type=password], input[type=email] {
   border: none;
   padding: .25rem;
 }
-/* line 10, scss/_forms.scss */
+/* line 11, scss/_forms.scss */
 input[type=text]:focus, input[type=password]:focus, input[type=email]:focus {
   outline: none;
 }
 
-/* line 15, scss/_forms.scss */
+/* line 16, scss/_forms.scss */
 input[type=submit] {
   border: none;
   padding: .5rem;
@@ -544,16 +545,21 @@ p + .drop-cap {
 }
 
 /* line 12, scss/main.min.scss */
+b {
+  font-weight: 900;
+}
+
+/* line 16, scss/main.min.scss */
 .left-align {
   text-align: left;
 }
 
-/* line 16, scss/main.min.scss */
+/* line 20, scss/main.min.scss */
 .right-align {
   text-align: right;
 }
 
-/* line 21, scss/main.min.scss */
+/* line 25, scss/main.min.scss */
 .header {
   height: 50px;
   width: 100%;
@@ -562,7 +568,7 @@ p + .drop-cap {
   padding: .5rem;
 }
 
-/* line 29, scss/main.min.scss */
+/* line 33, scss/main.min.scss */
 .admin-header {
   position: relative;
   height: 50px;
@@ -571,17 +577,104 @@ p + .drop-cap {
   padding: .5rem;
 }
 
-/* line 37, scss/main.min.scss */
+/* line 41, scss/main.min.scss */
 .add-page-container, .add-post-container {
-  opacity: 1.0;
-  -webkit-transition: all 1000ms ease-out;
+  max-width: 980px;
+  margin: 0 auto;
+  position: relative;
+  padding: 1rem;
+  background-color: silver;
+  -webkit-transform: scale3d(1, 1, 1);
+  -moz-transform: scale3d(1, 1, 1);
+  -ms-transform: scale3d(1, 1, 1);
+  -o-transform: scale3d(1, 1, 1);
+  transform: scale3d(1, 1, 1);
+  -webkit-transition: all 300ms cubic-bezier(0.49, 0.14, 0.61, 1.16);
   -webkit-transition-delay: 100ms;
-  -moz-transition: all 1000ms ease-out 100ms;
-  -o-transition: all 1000ms ease-out 100ms;
-  transition: all 1000ms ease-out 100ms;
+  -moz-transition: all 300ms cubic-bezier(0.49, 0.14, 0.61, 1.16) 100ms;
+  -o-transition: all 300ms cubic-bezier(0.49, 0.14, 0.61, 1.16) 100ms;
+  transition: all 300ms cubic-bezier(0.49, 0.14, 0.61, 1.16) 100ms;
+  z-index: 800;
 }
 
-/* line 42, scss/main.min.scss */
+/* line 52, scss/main.min.scss */
 .add-page-container.off-page, .add-post-container.off-page {
+  z-index: -1;
   opacity: 0.0;
+  -webkit-transform: scale3d(2.5, 2.5, 1.5);
+  -moz-transform: scale3d(2.5, 2.5, 1.5);
+  -ms-transform: scale3d(2.5, 2.5, 1.5);
+  -o-transform: scale3d(2.5, 2.5, 1.5);
+  transform: scale3d(2.5, 2.5, 1.5);
+}
+
+/* line 58, scss/main.min.scss */
+.sidebar-editor {
+  position: fixed;
+  left: 0px;
+  width: 170px;
+  height: 100%;
+  padding: .5rem;
+  background-color: silver;
+}
+/* line 66, scss/main.min.scss */
+.sidebar-editor a {
+  display: inline-block;
+  padding: .25rem;
+  width: 30px;
+  background-color: white;
+  color: black;
+  text-align: center;
+  margin-bottom: .25rem;
+}
+/* line 76, scss/main.min.scss */
+.sidebar-editor .toolbar-section {
+  padding: 1rem 0rem;
+  border-bottom: 1px solid grey;
+}
+/* line 80, scss/main.min.scss */
+.sidebar-editor .toolbar-section:last-of-type {
+  border: none;
+}
+
+/* line 86, scss/main.min.scss */
+.text-view, .markup-view {
+  background-color: white;
+  width: 100%;
+  max-width: 100%;
+  min-height: 500px;
+  padding: 1rem;
+  top: 0px;
+  left: 0px;
+  -webkit-transition: all 300ms ease-out;
+  -webkit-transition-delay: 0ms;
+  -moz-transition: all 300ms ease-out 0ms;
+  -o-transition: all 300ms ease-out 0ms;
+  transition: all 300ms ease-out 0ms;
+}
+/* line 96, scss/main.min.scss */
+.text-view:focus, .markup-view:focus {
+  outline: none;
+}
+
+/* line 101, scss/main.min.scss */
+.text-view.visible, .markup-view.visible {
+  position: relative;
+  z-index: 10;
+  opacity: 1.0;
+}
+
+/* line 107, scss/main.min.scss */
+.markup-view, .text-view {
+  position: absolute;
+  z-index: -1;
+  opacity: 0.0;
+}
+
+/* line 113, scss/main.min.scss */
+#body-output {
+  height: 0px;
+  overflow: hidden;
+  border: none;
+  padding: 0px;
 }

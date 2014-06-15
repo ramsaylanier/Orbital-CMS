@@ -9,6 +9,10 @@
 	@include box-sizing(border-box);
 }
 
+b{
+	font-weight: 900;
+}
+
 .left-align{
 	text-align: left;
 }
@@ -35,10 +39,81 @@
 }
 
 .add-page-container, .add-post-container{
-	opacity: 1.0;
-	@include transition(all 1000ms ease-out 100ms);
+	max-width: 980px;
+	margin: 0 auto;
+	position: relative;
+	padding: 1rem;
+	background-color: silver;
+	@include scale3d(1, 1, 1);
+	@include transition(all 300ms cubic-bezier(.49,.14,.61,1.16) 100ms);
+	z-index: 800;
 }
 
 .add-page-container.off-page, .add-post-container.off-page{
+	z-index: -1;
 	opacity: 0.0;
+	@include scale3d(2.5, 2.5, 1.5);
+}
+
+.sidebar-editor{
+	position: fixed;
+	left: 0px;
+	width: 170px;
+	height: 100%;
+	padding: .5rem;
+	background-color: silver;
+
+	a{
+		display: inline-block;
+		padding: .25rem;
+		width: 30px;
+		background-color: white;
+		color: black;
+		text-align: center;
+		margin-bottom: .25rem;
+	}
+
+	.toolbar-section{
+		padding: 1rem 0rem;
+		border-bottom: 1px solid grey;
+
+		&:last-of-type{
+			border: none;
+		}
+	}
+}
+
+.text-view, .markup-view{
+	background-color: white;
+	width: 100%;
+	max-width: 100%;
+	min-height: 500px;
+	padding: 1rem;
+	top: 0px;
+	left: 0px;
+	@include transition(all 300ms ease-out 0ms);
+
+	&:focus{
+		outline: none;
+	}
+}
+
+.text-view.visible, .markup-view.visible{
+	position: relative;
+	z-index: 10;
+	opacity: 1.0;
+}
+
+.markup-view, .text-view{
+	position: absolute;
+	z-index: -1;
+	opacity: 0.0;
+}
+
+#body-output{
+	height: 0px;
+	overflow: hidden;
+	border: none;
+	padding: 0px;
+
 }

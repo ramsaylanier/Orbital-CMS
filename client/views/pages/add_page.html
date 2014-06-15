@@ -1,5 +1,85 @@
 <template name="addPage">
+{{> editor}}
 	<div class="add-page-container off-page">
-		Add Page
+		<h3>Add New Page</h3>
+
+		<form class="form" name="new-page-form">
+			<div class="page-content">
+				<div class="form-control">
+					<label class="label" for="title">Title</label>
+					<input id="title" name="title" type="text" value="{{title}}"/>
+				</div>
+
+				<div class="edit-slug-box">
+					<span class="sample-slug">
+						Permalink: {{url}}<span class="editable-slug">{{value}}</span>
+						<input id="slug" class="hidden" name="slug" type="text" value="{{slug}}"/>
+					</span>
+				</div>
+
+				<div class="editor form-control">
+					<a href="#" class="text-view-toggle">Text</a>
+					<a href="#" class="markup-view-toggle ">Markup</a>
+					<div id="page-body" class="output text-view visible" contenteditable>
+						<p>Enter page content here</p>
+					</div>
+
+					<div class="markup-view" contenteditable></div>
+
+					<textarea id="body-output" name="editor"></textarea>
+				</div>	
+			</div>
+		</form>
 	</div>
 </template>
+
+
+<!-- <template name="displayPageAdmin">
+	<form class="form pure-g">
+		<div class="page-content block pure-u-2-3"> 
+			<div class="form-control">
+				<label class="label" for="title">Title</label>
+				<input id="title" name="title" type="text" value="{{title}}"/>
+			</div>
+
+			<div class="edit-slug-box">
+				<span class="sample-slug">
+					Permalink: {{url}}<span class="editable-slug">{{value}}</span>
+					<input id="slug" class="hidden" name="slug" type="text" value="{{slug}}"/>
+				</span>
+				<span class="edit-slug-btn">
+					<a href="#" class="edit-slug small-btn blue-btn">Edit</a>
+				</span>
+			</div>
+
+			<div class="form-control">
+				<button class="add-media-btn btn blue-btn">Add Media</button>
+			</div>
+
+			<div class="form-control">
+				<textarea id="editor" name="editor" rows="10" cols="80">{{{content}}}</textarea>
+			</div>	
+
+			<input type="submit" value="Publish" class="btn"/>
+
+		</div>
+
+		<div class="page-options block pure-u-1-3">
+			<h4>Page Options</h4>
+			<div class="form-control">
+				<input type="checkbox" name="hide-title" id="show-title" value="checked" {{hideTitle}}/>
+				<label class="label inline" for="hide-title">Hide Page Title</label>
+			</div>
+
+			<div class="form-control">
+				<label class="label" for="template-type">Select Template Type</label>
+				<select type="select" name="template-type" id="template-type">
+					{{#each getTemplates}}
+						<option value="{{this}}" selected={{isSelected this ../pageTemplate}}>{{this}}</option>
+					{{/each}}
+				</select>
+			</div>
+
+		</div>
+	</form>
+</template> -->
