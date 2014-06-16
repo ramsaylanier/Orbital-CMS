@@ -30,7 +30,8 @@ Template.adminHeader.events({
 		$('.container').addClass('scaled-back');
 
 		if ($('.settings-modal').length == 0){
-			UI.insert(UI.render(Template.settings), $('.container').get(0));
+			var settings = Settings.findOne();
+			UI.insert(UI.renderWithData(Template.settings, settings), $('.container').get(0));
 		}
 	}
 });

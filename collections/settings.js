@@ -6,7 +6,7 @@ Meteor.methods({
 
 		if (Roles.userIsInRole(loggedInUser, ['admin'])){
 
-			var settings = _.extend(_.pick(settings, 'landingPage'), {
+			var settings = _.extend(_.pick(settings, 'landingPage', 'siteTitle'), {
 				submitted: new Date().getTime()
 			});
 

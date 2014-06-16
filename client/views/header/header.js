@@ -7,6 +7,10 @@ Template.header.helpers({
 			landingPage = Settings.findOne().landingPage;
 			return Pages.findOne({title: landingPage}).slug;
 		}
+	},
+	siteTitle: function(){
+		if (Settings.findOne())
+			return Settings.findOne().siteTitle;
 	}
 })
 

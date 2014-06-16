@@ -15,7 +15,8 @@ Template.settings.events({
 		}
 
 		var settings = {
-			landingPage: $(e.target).find("[name=landing-page]").val()
+			landingPage: $(e.target).find("[name=landing-page]").val(),
+			siteTitle: $(e.target).find("[name=site-title]").val()
 		}
 
 		Meteor.call('settings', currentSettingsId, settings, function(error, id){
@@ -32,6 +33,7 @@ Template.settings.helpers({
 	pages: function(){
 		return Pages.find();
 	}
+
 })
 
 Template.settings.rendered = function(){
