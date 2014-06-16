@@ -6,6 +6,10 @@ Meteor.publish('pages', function(){
 	return Pages.find();
 })
 
+Meteor.publish('settings', function(){
+	return Settings.find();
+})
+
 Meteor.publish('adminRoleExists', function(){
 	return Meteor.users.find({roles: 'admin'},{fields: {'roles': 1}});
 })

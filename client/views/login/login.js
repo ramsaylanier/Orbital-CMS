@@ -49,9 +49,6 @@ Template.login.events({
 
 Template.login.helpers({
 	adminExists: function(users){
-		console.log('hey');
-		console.log(users);
-
 		if (users){
 			if (users.roles == 'admin'){
 				return true;

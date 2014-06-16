@@ -7,12 +7,16 @@
 </head>
 
 <template name="layout">
-	{{#if isInRole 'admin'}}
-		{{> adminHeader}}
-	{{/if}}
-
-	{{> header}}
 	<div class="container">
-		{{> yield}}
+		<header class="headers">
+			{{#if isInRole 'admin'}}
+				{{> adminHeader}}
+			{{/if}}
+
+			{{> header}}
+		</header>
+		<div class="main">
+			{{> yield}}
+		</div>
 	</div>
 </template>

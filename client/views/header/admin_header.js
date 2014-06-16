@@ -2,7 +2,9 @@ Template.adminHeader.events({
 	'click .add-page-btn': function(e, template){
 		e.preventDefault();
 
-		$('.add-post-modal').remove();
+		$('.modal').remove();
+		$('.add-page-modal').removeClass('off-page');
+		$('.container').addClass('scaled-back');
 
 		if ($('.add-page-modal').length == 0){
 			UI.insert(UI.render(Template.addPage), $('.container').get(0));
@@ -11,11 +13,24 @@ Template.adminHeader.events({
 
 	'click .add-post-btn': function(e){
 		e.preventDefault();
-		
+
 		$('.add-page-modal').remove();
+		$('.container').addClass('scaled-back');
 
 		if ($('.add-post-container').length == 0){
 			UI.insert(UI.render(Template.addPost), $('.container').get(0));
+		}
+	},
+
+	'click .settings-btn': function(e){
+		e.preventDefault();
+
+		$('.modal').remove();
+		$('.settings-modal').removeClass('off-page');
+		$('.container').addClass('scaled-back');
+
+		if ($('.settings-modal').length == 0){
+			UI.insert(UI.render(Template.settings), $('.container').get(0));
 		}
 	}
 });

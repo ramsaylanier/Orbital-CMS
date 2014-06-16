@@ -1,9 +1,9 @@
 <template name="header">
-	<header class="header">
-		<span class="logo">Orbital CMS</span>
+	<div class="main-header">
+		<a href="/" class="home-toggle page-toggle logo" data-slug="{{landingPage}}">Orbital CMS</a>
 
 		{{#each pages}}
-		<a href="/{{slug}}" class="{{title}}-toggle page-toggle">{{title}}</a>
+		<a href="{{pathFor 'showPage'}}" class="{{title}}-toggle page-toggle" data-slug="{{slug}}">{{title}}</a>
 		{{/each}}
-	</header>
+	</div>
 </template>

@@ -34,5 +34,22 @@ Meteor.methods({
 			return pageId;
 
 		}
+	},
+	updatePage: function(pageId, pageAttributes){
+
+		var loggedInUser = Meteor.user();
+
+		if (Roles.userIsInRole(loggedInUser, ['admin'])){
+
+			if (!pageAttributes.title){
+				throw new Meteor.Error(422, 'Please enter a page title');
+			}
+
+			var page = _.extend(_.pick(pageAttributes, 'title', 'content'), {
+				edited: new Date().getTime()
+			});
+
+			Pages.update({_id: pageId}, {$set: {title: page.title, content: page.content}});
+		}
 	}
 })

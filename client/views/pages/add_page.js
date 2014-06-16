@@ -34,6 +34,7 @@ Template.addPage.events({
 				//call custom throwError function
 				throwError(error.reason, 'error');
 			} else {
+				$('.container').removeClass('scaled-back');
 				$('.add-page-modal').addClass('off-page');
 				Router.go('/' + page.slug);
 			}
@@ -67,6 +68,11 @@ Template.addPage.events({
 			$('.text-view').html($.parseHTML($('.markup-view').text()));
 			$('#body-output').val($('.output').html());
 		}
+	},
+	'click .close-modal-btn': function(e){
+		e.preventDefault();
+		$('.container').removeClass('scaled-back');
+		$('.add-page-modal').addClass('off-page');
 	}
 })
 
