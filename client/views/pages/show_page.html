@@ -1,4 +1,7 @@
 <template name="showPage">
+	{{#if editMode}}
+		{{>editor}}
+	{{/if}}
 	<div class="page-container off-page">
 		{{#if isInRole 'admin'}}
 			<button class="edit-page-btn edit-btn btn">Edit</button>
@@ -7,20 +10,21 @@
 		{{#if editMode}}
 			{{> editPage}}
 		{{else}}
-		<div class="page-inner inner">
-			<h1 class="page-title title">{{title}}</h1>
+			<div class="page-inner inner">
+				<h1 class="page-title title">{{title}}</h1>
 
-			<div class="page-content">
-				{{{content}}}
+				<div class="page-content">
+					{{{content}}}
+				</div>
 			</div>
-		</div>
+		
 		{{/if}}
 	</div>
 </template>
 
 <template name="editPage">
-	{{> editor}}
 	<div class="page-inner inner edit-mode">
+		{{> errors}}
 		<form name="edit-page">
 			<h1 class="page-title title" contenteditable>{{title}}</h1>
 

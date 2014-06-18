@@ -73,6 +73,8 @@ Template.addPage.events({
 		e.preventDefault();
 		$('.container').removeClass('scaled-back');
 		$('.add-page-modal').addClass('off-page');
+		$('.admin-header').addClass('shown');
+		$('.admin-controls-btn').removeClass('off-page').addClass('admin-active');
 	}
 })
 

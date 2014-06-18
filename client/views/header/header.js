@@ -21,8 +21,8 @@ Template.header.events({
 			setTimeout(function(){
 				$('.page-container').remove();
 				var data = Pages.findOne({slug: $(e.target).data('slug')});
-				UI.insert(UI.renderWithData(Template.showPage, data), $('.main').get(0));
-			}, 450);
+				UI.insert(UI.renderWithData(Template.showPage, data), $('.container').get(0));
+			}, 600);
 		}
 	},
 	'click .home-toggle': function(e){

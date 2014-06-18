@@ -3,7 +3,9 @@ Template.settings.events({
 		e.preventDefault();
 
 		$('.modal').addClass('off-page');
-		$('.container').removeClass('scaled-back');	
+		$('.container').removeClass('scaled-back');
+		$('.admin-header').addClass('shown');
+		$('.admin-controls-btn').removeClass('off-page').addClass('admin-active');	
 	},
 	'submit form': function(e){
 		e.preventDefault();

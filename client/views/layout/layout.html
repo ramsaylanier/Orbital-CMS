@@ -6,16 +6,14 @@
 </head>
 
 <template name="layout">
-	<div class="container">
-		<header class="headers">
-			{{#if isInRole 'admin'}}
-				{{> adminHeader}}
-			{{/if}}
-
-			{{> header}}
-		</header>
-		<div class="main">
-			{{> yield}}
+	<div class="application">
+		{{#if isInRole 'admin'}}
+			<button class="admin-controls-btn btn">*</button>
+			{{> adminHeader}}
+		{{/if}}
+		<div class="container">
+				{{> header}}
+				{{> yield}}
 		</div>
 	</div>
 </template>

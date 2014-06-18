@@ -1,0 +1,33 @@
+.btn{
+	border: none;
+	border-radius: none;
+	padding: .5rem;
+	background-color: $dark-grey;
+	color: white;
+}
+
+.edit-btn{
+	position: absolute;
+	right: 20px;
+	top: 0px;
+	z-index: 300;
+	cursor: pointer;
+}
+
+.admin-controls-btn{
+	position: fixed;
+	top: 10px;
+	left: 10px;
+	z-index: 999;
+	cursor: pointer;
+	@include transition(all 400ms cubic-bezier(.35,-0.06,.15,1.10) 0ms);
+
+	&.admin-active{
+		background-color: white;
+		color: $dark-grey;
+	}
+
+	&.off-page{
+		left: -50px;
+	}
+}

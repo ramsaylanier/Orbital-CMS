@@ -33,5 +33,11 @@ Template.adminHeader.events({
 			var settings = Settings.findOne();
 			UI.insert(UI.renderWithData(Template.settings, settings), $('.container').get(0));
 		}
+	},
+
+	'click a': function(e){
+		console.log('yay');
+		$('.admin-header').removeClass('shown');
+		$('.admin-controls-btn').removeClass('admin-active').addClass('off-page');
 	}
 });

@@ -539,72 +539,212 @@ p + .drop-cap {
  */
 /* line 1, scss/_pages.scss */
 .page-container {
-  height: 100%;
-  opacity: 1.0;
-  z-index: 100;
-  position: relative;
-  -webkit-perspective: 500;
-  -moz-perspective: 500;
-  -ms-perspective: 500;
-  -o-perspective: 500;
-  perspective: 500;
-  -webkit-transform-origin: center center;
-  -moz-transform-origin: center center;
-  -ms-transform-origin: center center;
-  -o-transform-origin: center center;
-  transform-origin: center center;
-  -webkit-backface-visibility: hidden;
-  -moz-backface-visibility: hidden;
-  -ms-backface-visibility: hidden;
-  -o-backface-visibility: hidden;
-  backface-visibility: hidden;
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  padding: 1rem;
+  overflow: auto;
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
+  opacity: 1;
   -webkit-transition: all 400ms cubic-bezier(0.35, -0.06, 0.15, 1.1);
   -webkit-transition-delay: 0ms;
   -moz-transition: all 400ms cubic-bezier(0.35, -0.06, 0.15, 1.1) 0ms;
   -o-transition: all 400ms cubic-bezier(0.35, -0.06, 0.15, 1.1) 0ms;
   transition: all 400ms cubic-bezier(0.35, -0.06, 0.15, 1.1) 0ms;
-  -webkit-transform: translate3d(0px, 0px, 0px) rotateY(0deg);
-  -moz-transform: translate3d(0px, 0px, 0px) rotateY(0deg);
-  -ms-transform: translate3d(0px, 0px, 0px) rotateY(0deg);
-  -o-transform: translate3d(0px, 0px, 0px) rotateY(0deg);
-  transform: translate3d(0px, 0px, 0px) rotateY(0deg);
+  z-index: 1;
+}
+/* line 11, scss/_pages.scss */
+.page-container .page-title {
+  margin-bottom: 1.5rem;
 }
 
-/* line 13, scss/_pages.scss */
+/* line 16, scss/_pages.scss */
 .page-inner {
+  position: relative;
   max-width: 980px;
   margin: 0 auto;
+}
+
+/* line 22, scss/_pages.scss */
+.page-inner.edit-mode {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+/* line 26, scss/_pages.scss */
+.page-container.off-page {
+  -webkit-transform: rotate3d(0, 1, 0, -15deg);
+  -moz-transform: rotate3d(0, 1, 0, -15deg);
+  -ms-transform: rotate3d(0, 1, 0, -15deg);
+  -o-transform: rotate3d(0, 1, 0, -15deg);
+  transform: rotate3d(0, 1, 0, -15deg);
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
+  opacity: 0;
+  -webkit-transform-origin: -300px bottom;
+  -moz-transform-origin: -300px bottom;
+  -ms-transform-origin: -300px bottom;
+  -o-transform-origin: -300px bottom;
+  transform-origin: -300px bottom;
+}
+
+/* line 1, scss/_header.scss */
+.main-header {
+  height: 50px;
+  width: 100%;
   position: relative;
-  padding: 1rem;
+  background-color: white;
+  text-align: center;
+  padding: .5rem;
+}
+/* line 9, scss/_header.scss */
+.main-header a {
+  padding: .25rem .5rem;
+  color: #57b0cc;
   -webkit-transition: all 300ms ease-out;
   -webkit-transition-delay: 100ms;
   -moz-transition: all 300ms ease-out 100ms;
   -o-transition: all 300ms ease-out 100ms;
   transition: all 300ms ease-out 100ms;
 }
-/* line 20, scss/_pages.scss */
-.page-inner .page-title {
-  margin-bottom: 1.5rem;
+/* line 14, scss/_header.scss */
+.main-header a:hover {
+  color: #342f2f;
 }
 
-/* line 25, scss/_pages.scss */
-.page-inner.edit-mode {
-  background-color: silver;
-}
-
-/* line 29, scss/_pages.scss */
-.page-container.off-page {
-  -webkit-transform: translate3d(-1000px, 0px, 0px) rotateY(90deg);
-  -moz-transform: translate3d(-1000px, 0px, 0px) rotateY(90deg);
-  -ms-transform: translate3d(-1000px, 0px, 0px) rotateY(90deg);
-  -o-transform: translate3d(-1000px, 0px, 0px) rotateY(90deg);
-  transform: translate3d(-1000px, 0px, 0px) rotateY(90deg);
-  opacity: 0.0;
+/* line 21, scss/_header.scss */
+.admin-header {
+  position: fixed;
+  height: 100vh;
+  width: 150px;
+  text-align: center;
+  -webkit-transition: all 400ms cubic-bezier(0.35, -0.06, 0.15, 1.1);
+  -webkit-transition-delay: 0ms;
+  -moz-transition: all 400ms cubic-bezier(0.35, -0.06, 0.15, 1.1) 0ms;
+  -o-transition: all 400ms cubic-bezier(0.35, -0.06, 0.15, 1.1) 0ms;
+  transition: all 400ms cubic-bezier(0.35, -0.06, 0.15, 1.1) 0ms;
+  -webkit-transform-origin: -150px top;
+  -moz-transform-origin: -150px top;
+  -ms-transform-origin: -150px top;
+  -o-transform-origin: -150px top;
+  transform-origin: -150px top;
+  -webkit-transform: rotate3d(0, 1, 0, 90deg) translate3d(0px, 0px, 0px);
+  -moz-transform: rotate3d(0, 1, 0, 90deg) translate3d(0px, 0px, 0px);
+  -ms-transform: rotate3d(0, 1, 0, 90deg) translate3d(0px, 0px, 0px);
+  -o-transform: rotate3d(0, 1, 0, 90deg) translate3d(0px, 0px, 0px);
+  transform: rotate3d(0, 1, 0, 90deg) translate3d(0px, 0px, 0px);
   z-index: -1;
+  margin-top: 3rem;
+}
+/* line 33, scss/_header.scss */
+.admin-header.shown {
+  -webkit-transform: rotate3d(0, 0, 0, 0deg) translate3d(0px, 0px, 0px);
+  -moz-transform: rotate3d(0, 0, 0, 0deg) translate3d(0px, 0px, 0px);
+  -ms-transform: rotate3d(0, 0, 0, 0deg) translate3d(0px, 0px, 0px);
+  -o-transform: rotate3d(0, 0, 0, 0deg) translate3d(0px, 0px, 0px);
+  transform: rotate3d(0, 0, 0, 0deg) translate3d(0px, 0px, 0px);
+  -webkit-transition: all 400ms cubic-bezier(0.35, -0.06, 0.15, 1.1);
+  -webkit-transition-delay: 200ms;
+  -moz-transition: all 400ms cubic-bezier(0.35, -0.06, 0.15, 1.1) 200ms;
+  -o-transition: all 400ms cubic-bezier(0.35, -0.06, 0.15, 1.1) 200ms;
+  transition: all 400ms cubic-bezier(0.35, -0.06, 0.15, 1.1) 200ms;
+  z-index: 99;
+}
+/* line 39, scss/_header.scss */
+.admin-header a {
+  display: block;
+  color: white;
+  position: relative;
+  height: 50px;
+  margin-bottom: 5px;
+  -webkit-perspective: 300px;
+  -moz-perspective: 300px;
+  -ms-perspective: 300px;
+  -o-perspective: 300px;
+  perspective: 300px;
+}
+/* line 48, scss/_header.scss */
+.admin-header a:hover .hover-item-1 {
+  -webkit-transform: rotate3d(0, 1, 0, 90deg);
+  -moz-transform: rotate3d(0, 1, 0, 90deg);
+  -ms-transform: rotate3d(0, 1, 0, 90deg);
+  -o-transform: rotate3d(0, 1, 0, 90deg);
+  transform: rotate3d(0, 1, 0, 90deg);
+  border-right: 3px solid #57b0cc;
+  opacity: 0.0;
+}
+/* line 56, scss/_header.scss */
+.admin-header .hover {
+  position: absolute;
+  padding: 10px 0px;
+  height: 100%;
+  width: 100%;
+  opacity: 1.0;
+  -webkit-transform-origin: 0px center;
+  -moz-transform-origin: 0px center;
+  -ms-transform-origin: 0px center;
+  -o-transform-origin: 0px center;
+  transform-origin: 0px center;
+  -webkit-transition: all 300ms cubic-bezier(0, -0.21, 0.95, -0.25);
+  -webkit-transition-delay: 0ms;
+  -moz-transition: all 300ms cubic-bezier(0, -0.21, 0.95, -0.25) 0ms;
+  -o-transition: all 300ms cubic-bezier(0, -0.21, 0.95, -0.25) 0ms;
+  transition: all 300ms cubic-bezier(0, -0.21, 0.95, -0.25) 0ms;
+}
+/* line 68, scss/_header.scss */
+.admin-header .hover-item-1 {
+  color: #342f2f;
   background-color: white;
+  z-index: 2;
+}
+/* line 74, scss/_header.scss */
+.admin-header .hover-item-2 {
+  color: white;
+  border-right: 3px solid white;
+  background-color: #342f2f;
+  z-index: 1;
 }
 
-/* line 9, scss/main.min.scss */
+/* line 1, scss/_buttons.scss */
+.btn {
+  border: none;
+  border-radius: none;
+  padding: .5rem;
+  background-color: #342f2f;
+  color: white;
+}
+
+/* line 9, scss/_buttons.scss */
+.edit-btn {
+  position: absolute;
+  right: 20px;
+  top: 0px;
+  z-index: 300;
+  cursor: pointer;
+}
+
+/* line 17, scss/_buttons.scss */
+.admin-controls-btn {
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  z-index: 999;
+  cursor: pointer;
+  -webkit-transition: all 400ms cubic-bezier(0.35, -0.06, 0.15, 1.1);
+  -webkit-transition-delay: 0ms;
+  -moz-transition: all 400ms cubic-bezier(0.35, -0.06, 0.15, 1.1) 0ms;
+  -o-transition: all 400ms cubic-bezier(0.35, -0.06, 0.15, 1.1) 0ms;
+  transition: all 400ms cubic-bezier(0.35, -0.06, 0.15, 1.1) 0ms;
+}
+/* line 25, scss/_buttons.scss */
+.admin-controls-btn.admin-active {
+  background-color: white;
+  color: #342f2f;
+}
+/* line 30, scss/_buttons.scss */
+.admin-controls-btn.off-page {
+  left: -50px;
+}
+
+/* line 11, scss/main.min.scss */
 * {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -612,88 +752,85 @@ p + .drop-cap {
   outline: none;
 }
 
-/* line 14, scss/main.min.scss */
+/* line 16, scss/main.min.scss */
 b {
   font-weight: 900;
 }
 
-/* line 18, scss/main.min.scss */
+/* line 20, scss/main.min.scss */
+a {
+  text-decoration: none;
+}
+
+/* line 24, scss/main.min.scss */
+body {
+  background-color: #342f2f;
+}
+
+/* line 28, scss/main.min.scss */
+.application {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  -webkit-perspective: 2000px;
+  -moz-perspective: 2000px;
+  -ms-perspective: 2000px;
+  -o-perspective: 2000px;
+  perspective: 2000px;
+  -webkit-transform-style: preserve-3d;
+  -moz-transform-style: preserve-3d;
+  -ms-transform-style: preserve-3d;
+  -o-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+}
+
+/* line 37, scss/main.min.scss */
 .left-align {
   text-align: left;
 }
 
-/* line 22, scss/main.min.scss */
+/* line 41, scss/main.min.scss */
 .right-align {
   text-align: right;
 }
 
-/* line 27, scss/main.min.scss */
-.main-header {
-  height: 50px;
-  width: 100%;
-  position: relative;
-  background-color: grey;
-  padding: .5rem;
-}
-
-/* line 35, scss/main.min.scss */
-.admin-header {
-  position: relative;
-  height: 50px;
-  width: 100%;
-  background-color: black;
-  padding: .5rem;
-}
-
-/* line 43, scss/main.min.scss */
-.headers {
-  -webkit-transform: scale3d(1, 1, 1);
-  -moz-transform: scale3d(1, 1, 1);
-  -ms-transform: scale3d(1, 1, 1);
-  -o-transform: scale3d(1, 1, 1);
-  transform: scale3d(1, 1, 1);
-  -webkit-transition: all 400ms cubic-bezier(0.49, 0.14, 0.31, 1.25);
-  -webkit-transition-delay: 0ms;
-  -moz-transition: all 400ms cubic-bezier(0.49, 0.14, 0.31, 1.25) 0ms;
-  -o-transition: all 400ms cubic-bezier(0.49, 0.14, 0.31, 1.25) 0ms;
-  transition: all 400ms cubic-bezier(0.49, 0.14, 0.31, 1.25) 0ms;
-}
-
-/* line 48, scss/main.min.scss */
+/* line 45, scss/main.min.scss */
 .container {
-  width: 100%;
-  height: 100%;
-  position: relative;
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  background-color: white;
+  -webkit-transition: all 400ms cubic-bezier(0.49, 0.14, 0.31, 1.25);
+  -webkit-transition-delay: 100ms;
+  -moz-transition: all 400ms cubic-bezier(0.49, 0.14, 0.31, 1.25) 100ms;
+  -o-transition: all 400ms cubic-bezier(0.49, 0.14, 0.31, 1.25) 100ms;
+  transition: all 400ms cubic-bezier(0.49, 0.14, 0.31, 1.25) 100ms;
+}
+/* line 52, scss/main.min.scss */
+.container.admin-controls {
+  -webkit-transform: rotateY(-20deg) translate3d(200px, 0px, 0px);
+  -moz-transform: rotateY(-20deg) translate3d(200px, 0px, 0px);
+  -ms-transform: rotateY(-20deg) translate3d(200px, 0px, 0px);
+  -o-transform: rotateY(-20deg) translate3d(200px, 0px, 0px);
+  transform: rotateY(-20deg) translate3d(200px, 0px, 0px);
+  -webkit-transition: all 800ms cubic-bezier(0.35, -0.06, 0.15, 1.1);
+  -webkit-transition-delay: 0ms;
+  -moz-transition: all 800ms cubic-bezier(0.35, -0.06, 0.15, 1.1) 0ms;
+  -o-transition: all 800ms cubic-bezier(0.35, -0.06, 0.15, 1.1) 0ms;
+  transition: all 800ms cubic-bezier(0.35, -0.06, 0.15, 1.1) 0ms;
+}
+
+/* line 58, scss/main.min.scss */
+.container.scaled-back {
   -webkit-transform: scale3d(1, 1, 1);
   -moz-transform: scale3d(1, 1, 1);
   -ms-transform: scale3d(1, 1, 1);
   -o-transform: scale3d(1, 1, 1);
   transform: scale3d(1, 1, 1);
-  -webkit-transition: all 400ms cubic-bezier(0.49, 0.14, 0.31, 1.25);
-  -webkit-transition-delay: 0ms;
-  -moz-transition: all 400ms cubic-bezier(0.49, 0.14, 0.31, 1.25) 0ms;
-  -o-transition: all 400ms cubic-bezier(0.49, 0.14, 0.31, 1.25) 0ms;
-  transition: all 400ms cubic-bezier(0.49, 0.14, 0.31, 1.25) 0ms;
 }
 
-/* line 56, scss/main.min.scss */
-.container.scaled-back {
-  -webkit-transform: scale3d(0.85, 0.85, 1);
-  -moz-transform: scale3d(0.85, 0.85, 1);
-  -ms-transform: scale3d(0.85, 0.85, 1);
-  -o-transform: scale3d(0.85, 0.85, 1);
-  transform: scale3d(0.85, 0.85, 1);
-}
-/* line 59, scss/main.min.scss */
-.container.scaled-back .headers {
-  -webkit-transform: scale3d(0.85, 0.85, 1);
-  -moz-transform: scale3d(0.85, 0.85, 1);
-  -ms-transform: scale3d(0.85, 0.85, 1);
-  -o-transform: scale3d(0.85, 0.85, 1);
-  transform: scale3d(0.85, 0.85, 1);
-}
-
-/* line 65, scss/main.min.scss */
+/* line 62, scss/main.min.scss */
 .modal {
   position: fixed;
   padding: 1rem;
@@ -722,7 +859,7 @@ b {
   z-index: 999;
 }
 
-/* line 81, scss/main.min.scss */
+/* line 78, scss/main.min.scss */
 .add-page-modal.off-page, .settings-modal.off-page {
   -webkit-transform: scale3d(1.5, 1.5, 1.5);
   -moz-transform: scale3d(1.5, 1.5, 1.5);
@@ -733,22 +870,25 @@ b {
   opacity: 0.0;
 }
 
-/* line 87, scss/main.min.scss */
+/* line 84, scss/main.min.scss */
 .add-page-container, .add-post-container, .settings-container {
   max-width: 980px;
-  margin: 0 auto;
+  width: 80%;
+  left: 20%;
   position: relative;
   padding: 1rem;
   background-color: silver;
 }
 
-/* line 95, scss/main.min.scss */
+/* line 93, scss/main.min.scss */
 .sidebar-editor {
   position: fixed;
-  top: 120px;
-  width: 170px;
+  top: 50px;
+  max-width: 170px;
+  width: 20%;
+  left: 10px;
   padding: .5rem;
-  background-color: silver;
+  background-color: white;
 }
 /* line 102, scss/main.min.scss */
 .sidebar-editor a {
@@ -769,8 +909,12 @@ b {
 .sidebar-editor .toolbar-section:last-of-type {
   border: none;
 }
+/* line 120, scss/main.min.scss */
+.sidebar-editor .toolbar-section:first-of-type {
+  padding: 0rem 0rem 1rem 0rem;
+}
 
-/* line 122, scss/main.min.scss */
+/* line 126, scss/main.min.scss */
 .text-view, .markup-view {
   background-color: white;
   width: 100%;
@@ -785,26 +929,26 @@ b {
   -o-transition: all 300ms ease-out 0ms;
   transition: all 300ms ease-out 0ms;
 }
-/* line 132, scss/main.min.scss */
+/* line 136, scss/main.min.scss */
 .text-view:focus, .markup-view:focus {
   outline: none;
 }
 
-/* line 137, scss/main.min.scss */
+/* line 141, scss/main.min.scss */
 .text-view.visible, .markup-view.visible {
   position: relative;
   z-index: 10;
   opacity: 1.0;
 }
 
-/* line 143, scss/main.min.scss */
+/* line 147, scss/main.min.scss */
 .markup-view, .text-view {
   position: absolute;
   z-index: -1;
   opacity: 0.0;
 }
 
-/* line 149, scss/main.min.scss */
+/* line 153, scss/main.min.scss */
 #body-output {
   height: 0px;
   overflow: hidden;
