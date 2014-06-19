@@ -3,7 +3,6 @@ Template.adminHeader.events({
 		e.preventDefault();
 
 		$('.modal').remove();
-		$('.add-page-modal').removeClass('off-page');
 		$('.container').addClass('scaled-back');
 
 		if ($('.add-page-modal').length == 0){
@@ -14,7 +13,7 @@ Template.adminHeader.events({
 	'click .add-post-btn': function(e){
 		e.preventDefault();
 
-		$('.add-page-modal').remove();
+		$('.modal').remove();
 		$('.container').addClass('scaled-back');
 
 		if ($('.add-post-container').length == 0){
@@ -22,11 +21,22 @@ Template.adminHeader.events({
 		}
 	},
 
+	'click .add-media-btn': function(e){
+		e.preventDefault();
+
+		$('.modal').remove();
+		$('.container').addClass('scaled-back');
+
+		if ($('.add-media-modal').length == 0){
+			var media = Media.find();
+			UI.insert(UI.renderWithData(Template.addMedia, media), $('.container').get(0));
+		}
+	},
+
 	'click .settings-btn': function(e){
 		e.preventDefault();
 
 		$('.modal').remove();
-		$('.settings-modal').removeClass('off-page');
 		$('.container').addClass('scaled-back');
 
 		if ($('.settings-modal').length == 0){

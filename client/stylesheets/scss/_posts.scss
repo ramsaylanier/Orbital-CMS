@@ -1,0 +1,30 @@
+.post-container{
+	width: 100vw;
+	height: 100vh;
+	position: absolute;
+	padding: 1rem;
+	overflow: auto;
+	@include opacity(1.0);
+	@include transition(all 400ms cubic-bezier(.35,-0.06,.15,1.10) 0ms);
+	z-index: 1;
+
+	.page-title{
+		margin-bottom: 1.5rem;
+	}
+}
+
+.post-inner{
+	position: relative;
+	max-width: 980px;
+	margin: 0 auto;
+}
+
+.post-inner.edit-mode{
+	background-color: rgba(0,0,0,.1);
+}
+
+.post-container.off-page{
+	@include transform(rotate3d(0,1,0,-15deg));
+	@include opacity(0.0);
+	@include transform-origin(-300px, bottom);
+}

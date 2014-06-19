@@ -586,6 +586,55 @@ p + .drop-cap {
   transform-origin: -300px bottom;
 }
 
+/* line 1, scss/_posts.scss */
+.post-container {
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  padding: 1rem;
+  overflow: auto;
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
+  opacity: 1;
+  -webkit-transition: all 400ms cubic-bezier(0.35, -0.06, 0.15, 1.1);
+  -webkit-transition-delay: 0ms;
+  -moz-transition: all 400ms cubic-bezier(0.35, -0.06, 0.15, 1.1) 0ms;
+  -o-transition: all 400ms cubic-bezier(0.35, -0.06, 0.15, 1.1) 0ms;
+  transition: all 400ms cubic-bezier(0.35, -0.06, 0.15, 1.1) 0ms;
+  z-index: 1;
+}
+/* line 11, scss/_posts.scss */
+.post-container .page-title {
+  margin-bottom: 1.5rem;
+}
+
+/* line 16, scss/_posts.scss */
+.post-inner {
+  position: relative;
+  max-width: 980px;
+  margin: 0 auto;
+}
+
+/* line 22, scss/_posts.scss */
+.post-inner.edit-mode {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+/* line 26, scss/_posts.scss */
+.post-container.off-page {
+  -webkit-transform: rotate3d(0, 1, 0, -15deg);
+  -moz-transform: rotate3d(0, 1, 0, -15deg);
+  -ms-transform: rotate3d(0, 1, 0, -15deg);
+  -o-transform: rotate3d(0, 1, 0, -15deg);
+  transform: rotate3d(0, 1, 0, -15deg);
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
+  opacity: 0;
+  -webkit-transform-origin: -300px bottom;
+  -moz-transform-origin: -300px bottom;
+  -ms-transform-origin: -300px bottom;
+  -o-transform-origin: -300px bottom;
+  transform-origin: -300px bottom;
+}
+
 /* line 1, scss/_header.scss */
 .main-header {
   height: 50px;
@@ -722,6 +771,13 @@ p + .drop-cap {
 }
 
 /* line 17, scss/_buttons.scss */
+.submit-btn {
+  position: fixed;
+  top: 500px;
+  left: 20px;
+}
+
+/* line 23, scss/_buttons.scss */
 .admin-controls-btn {
   position: fixed;
   top: 10px;
@@ -734,17 +790,67 @@ p + .drop-cap {
   -o-transition: all 400ms cubic-bezier(0.35, -0.06, 0.15, 1.1) 0ms;
   transition: all 400ms cubic-bezier(0.35, -0.06, 0.15, 1.1) 0ms;
 }
-/* line 25, scss/_buttons.scss */
+/* line 31, scss/_buttons.scss */
 .admin-controls-btn.admin-active {
   background-color: white;
   color: #342f2f;
 }
-/* line 30, scss/_buttons.scss */
+/* line 36, scss/_buttons.scss */
 .admin-controls-btn.off-page {
   left: -50px;
 }
 
-/* line 11, scss/main.min.scss */
+/* line 41, scss/_buttons.scss */
+.page-btn {
+  position: absolute;
+  overflow: hidden;
+  height: 30px;
+  width: 30px;
+  -webkit-transition: all 400ms cubic-bezier(0.35, -0.06, 0.15, 1.1);
+  -webkit-transition-delay: 0ms;
+  -moz-transition: all 400ms cubic-bezier(0.35, -0.06, 0.15, 1.1) 0ms;
+  -o-transition: all 400ms cubic-bezier(0.35, -0.06, 0.15, 1.1) 0ms;
+  transition: all 400ms cubic-bezier(0.35, -0.06, 0.15, 1.1) 0ms;
+}
+/* line 48, scss/_buttons.scss */
+.page-btn img {
+  width: 30px;
+  height: 30px;
+  float: right;
+  border: 2px solid #342f2f;
+}
+/* line 55, scss/_buttons.scss */
+.page-btn .save-text {
+  height: 30px;
+  color: #342f2f;
+  line-height: 1.8rem;
+  background-color: white;
+  text-align: left;
+  padding: 0px 6px;
+  display: block;
+}
+
+/* line 66, scss/_buttons.scss */
+.save-page-btn {
+  top: 10px;
+  right: 10px;
+}
+/* line 70, scss/_buttons.scss */
+.save-page-btn:hover {
+  width: 90px;
+}
+
+/* line 75, scss/_buttons.scss */
+.delete-page-btn {
+  top: 50px;
+  right: 10px;
+}
+/* line 79, scss/_buttons.scss */
+.delete-page-btn:hover {
+  width: 110px;
+}
+
+/* line 12, scss/main.min.scss */
 * {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -752,22 +858,22 @@ p + .drop-cap {
   outline: none;
 }
 
-/* line 16, scss/main.min.scss */
+/* line 17, scss/main.min.scss */
 b {
   font-weight: 900;
 }
 
-/* line 20, scss/main.min.scss */
+/* line 21, scss/main.min.scss */
 a {
   text-decoration: none;
 }
 
-/* line 24, scss/main.min.scss */
+/* line 25, scss/main.min.scss */
 body {
   background-color: #342f2f;
 }
 
-/* line 28, scss/main.min.scss */
+/* line 29, scss/main.min.scss */
 .application {
   position: relative;
   width: 100vw;
@@ -785,17 +891,17 @@ body {
   transform-style: preserve-3d;
 }
 
-/* line 37, scss/main.min.scss */
+/* line 38, scss/main.min.scss */
 .left-align {
   text-align: left;
 }
 
-/* line 41, scss/main.min.scss */
+/* line 42, scss/main.min.scss */
 .right-align {
   text-align: right;
 }
 
-/* line 45, scss/main.min.scss */
+/* line 46, scss/main.min.scss */
 .container {
   width: 100vw;
   height: 100vh;
@@ -807,7 +913,7 @@ body {
   -o-transition: all 400ms cubic-bezier(0.49, 0.14, 0.31, 1.25) 100ms;
   transition: all 400ms cubic-bezier(0.49, 0.14, 0.31, 1.25) 100ms;
 }
-/* line 52, scss/main.min.scss */
+/* line 53, scss/main.min.scss */
 .container.admin-controls {
   -webkit-transform: rotateY(-20deg) translate3d(200px, 0px, 0px);
   -moz-transform: rotateY(-20deg) translate3d(200px, 0px, 0px);
@@ -821,7 +927,7 @@ body {
   transition: all 800ms cubic-bezier(0.35, -0.06, 0.15, 1.1) 0ms;
 }
 
-/* line 58, scss/main.min.scss */
+/* line 59, scss/main.min.scss */
 .container.scaled-back {
   -webkit-transform: scale3d(1, 1, 1);
   -moz-transform: scale3d(1, 1, 1);
@@ -830,7 +936,7 @@ body {
   transform: scale3d(1, 1, 1);
 }
 
-/* line 62, scss/main.min.scss */
+/* line 63, scss/main.min.scss */
 .modal {
   position: fixed;
   padding: 1rem;
@@ -859,8 +965,8 @@ body {
   z-index: 999;
 }
 
-/* line 78, scss/main.min.scss */
-.add-page-modal.off-page, .settings-modal.off-page {
+/* line 79, scss/main.min.scss */
+.add-page-modal.off-page, .settings-modal.off-page, .add-post-modal.off-page, .add-media-modal.off-page {
   -webkit-transform: scale3d(1.5, 1.5, 1.5);
   -moz-transform: scale3d(1.5, 1.5, 1.5);
   -ms-transform: scale3d(1.5, 1.5, 1.5);
@@ -870,8 +976,8 @@ body {
   opacity: 0.0;
 }
 
-/* line 84, scss/main.min.scss */
-.add-page-container, .add-post-container, .settings-container {
+/* line 85, scss/main.min.scss */
+.add-page-container, .add-post-container, .settings-container, .add-media-container {
   max-width: 980px;
   width: 80%;
   left: 20%;
@@ -880,7 +986,7 @@ body {
   background-color: silver;
 }
 
-/* line 93, scss/main.min.scss */
+/* line 94, scss/main.min.scss */
 .sidebar-editor {
   position: fixed;
   top: 50px;
@@ -890,7 +996,7 @@ body {
   padding: .5rem;
   background-color: white;
 }
-/* line 102, scss/main.min.scss */
+/* line 103, scss/main.min.scss */
 .sidebar-editor a {
   display: inline-block;
   padding: .25rem;
@@ -900,21 +1006,21 @@ body {
   text-align: center;
   margin-bottom: .25rem;
 }
-/* line 112, scss/main.min.scss */
+/* line 113, scss/main.min.scss */
 .sidebar-editor .toolbar-section {
   padding: 1rem 0rem;
   border-bottom: 1px solid grey;
 }
-/* line 116, scss/main.min.scss */
+/* line 117, scss/main.min.scss */
 .sidebar-editor .toolbar-section:last-of-type {
   border: none;
 }
-/* line 120, scss/main.min.scss */
+/* line 121, scss/main.min.scss */
 .sidebar-editor .toolbar-section:first-of-type {
   padding: 0rem 0rem 1rem 0rem;
 }
 
-/* line 126, scss/main.min.scss */
+/* line 127, scss/main.min.scss */
 .text-view, .markup-view {
   background-color: white;
   width: 100%;
@@ -923,32 +1029,28 @@ body {
   padding: 1rem;
   top: 0px;
   left: 0px;
-  -webkit-transition: all 300ms ease-out;
+  position: absolute;
+  z-index: -1;
+  opacity: 0.0;
+  -webkit-transition: opacity 300ms ease-out;
   -webkit-transition-delay: 0ms;
-  -moz-transition: all 300ms ease-out 0ms;
-  -o-transition: all 300ms ease-out 0ms;
-  transition: all 300ms ease-out 0ms;
+  -moz-transition: opacity 300ms ease-out 0ms;
+  -o-transition: opacity 300ms ease-out 0ms;
+  transition: opacity 300ms ease-out 0ms;
 }
-/* line 136, scss/main.min.scss */
+/* line 140, scss/main.min.scss */
 .text-view:focus, .markup-view:focus {
   outline: none;
 }
 
-/* line 141, scss/main.min.scss */
+/* line 145, scss/main.min.scss */
 .text-view.visible, .markup-view.visible {
   position: relative;
   z-index: 10;
   opacity: 1.0;
 }
 
-/* line 147, scss/main.min.scss */
-.markup-view, .text-view {
-  position: absolute;
-  z-index: -1;
-  opacity: 0.0;
-}
-
-/* line 153, scss/main.min.scss */
+/* line 151, scss/main.min.scss */
 #body-output {
   height: 0px;
   overflow: hidden;

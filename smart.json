@@ -1,5 +1,6 @@
 {
   "packages": {
-    "subs-manager": {}
+    "subs-manager": {},
+    "collectionFS": {}
   }
 }

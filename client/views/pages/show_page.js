@@ -28,7 +28,7 @@ Template.showPage.helpers({
 
 
 Template.editPage.events({
-	'submit form': function(e, template){
+	'click .save-page-btn': function(e, template){
 		e.preventDefault();
 
 		var updatedPage = {
@@ -42,6 +42,18 @@ Template.editPage.events({
 				throwError(error.reason, 'error')
 			} else {
 				throwError('Page updated.', 'success')
+			}
+		})
+	},
+	'click .delete-page-btn': function(e, template){
+		var pageId = template.data._id;
+
+		Meteor.call('deletePage', pageId, function(error, id){
+			if (error){
+				throwError(error.reason, 'error')
+			} else {
+				Session.set('editMode', false);
+				Router.go('/');
 			}
 		})
 	}

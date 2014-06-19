@@ -5,6 +5,7 @@
 @import "forms";
 @import "typeplate";
 @import "pages";
+@import "posts";
 @import "header";
 @import "buttons";
 
@@ -75,13 +76,13 @@ body{
 	z-index: 999;
 }
 
-.add-page-modal.off-page, .settings-modal.off-page{
+.add-page-modal.off-page, .settings-modal.off-page, .add-post-modal.off-page, .add-media-modal.off-page{
 	@include scale3d(1.5, 1.5, 1.5);
 	z-index: -1;
 	opacity: 0.0;
 }
 
-.add-page-container, .add-post-container, .settings-container{
+.add-page-container, .add-post-container, .settings-container, .add-media-container{
 	max-width: 980px;
 	width: 80%;
 	left: 20%;
@@ -131,7 +132,10 @@ body{
 	padding: 1rem;
 	top: 0px;
 	left: 0px;
-	@include transition(all 300ms ease-out 0ms);
+	position: absolute;
+	z-index: -1;
+	opacity: 0.0;
+	@include transition(opacity 300ms ease-out 0ms);
 
 	&:focus{
 		outline: none;
@@ -142,12 +146,6 @@ body{
 	position: relative;
 	z-index: 10;
 	opacity: 1.0;
-}
-
-.markup-view, .text-view{
-	position: absolute;
-	z-index: -1;
-	opacity: 0.0;
 }
 
 #body-output{

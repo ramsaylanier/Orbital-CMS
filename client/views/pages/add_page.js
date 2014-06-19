@@ -31,10 +31,10 @@ Template.addPage.events({
 
 		Meteor.call('page', page, function(error, id) {
 			if (error){
-				//call custom throwError function
 				throwError(error.reason, 'error');
 			} else {
-				$('.container').removeClass('scaled-back');
+				$('.container').removeClass('scaled-back admin-controls');
+				$('.admin-controls-btn').removeClass('off-page');
 				$('.add-page-modal').addClass('off-page');
 				Router.go('/' + page.slug);
 			}
@@ -56,7 +56,6 @@ Template.addPage.events({
 		$('.text-view').removeClass('visible');
 		$('.markup-view').addClass('visible');
 	},
-	//something
 	'blur, keyup, paste, copy, cut, mouseup .text-view': function(e){
 		if ($('.text-view').hasClass('visible')){
 			$('.markup-view').text($('.text-view').html());

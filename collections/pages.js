@@ -51,5 +51,12 @@ Meteor.methods({
 
 			Pages.update({_id: pageId}, {$set: {title: page.title, content: page.content}});
 		}
+	},
+	deletePage: function(pageId){
+		var loggedInUser = Meteor.user();
+
+		if (Roles.userIsInRole(loggedInUser, ['admin'])){
+			Pages.remove({_id: pageId});
+		}
 	}
 })

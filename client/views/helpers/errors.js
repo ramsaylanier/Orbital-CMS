@@ -23,7 +23,7 @@ Template.error.rendered = function(){
 }
 
 Template.error.events({
-	'click .close-btn': function(e){
-		$(e.target).parent('.alert').remove();
+	'click .close-error-btn': function(e, template){
+		Errors.remove({_id: template.data._id});
 	}
 });
