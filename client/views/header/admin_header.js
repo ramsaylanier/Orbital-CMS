@@ -1,4 +1,15 @@
 Template.adminHeader.events({
+	'click .view-pages-btn': function(e, template){
+		e.preventDefault();
+
+		$('.modal').remove();
+		$('.container').addClass('scaled-back');
+
+		if ($('.add-page-modal').length == 0){
+			var data = Pages.find();
+			UI.insert(UI.renderWithData(Template.pagesList, data), $('.container').get(0));
+		}
+	},
 	'click .add-page-btn': function(e, template){
 		e.preventDefault();
 

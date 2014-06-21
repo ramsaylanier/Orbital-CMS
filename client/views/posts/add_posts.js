@@ -20,26 +20,26 @@ Template.addPost.rendered = function(){
 }
 
 Template.addPost.events({
-	// 'submit form': function(e){
-	// 	e.preventDefault();
+	'submit form': function(e){
+		e.preventDefault();
 
-	// 	var page ={
-	// 		title: $(e.target).find('[name=title]').val(),
-	// 		slug: Session.get('slug'),
-	// 		content: $(e.target).find('[name=editor]').val()
-	// 	}
+		var post ={
+			title: $(e.target).find('[name=title]').val(),
+			slug: Session.get('slug'),
+			content: $(e.target).find('[name=editor]').val()
+		}
 
-	// 	Meteor.call('page', page, function(error, id) {
-	// 		if (error){
-	// 			throwError(error.reason, 'error');
-	// 		} else {
-	// 			$('.container').removeClass('scaled-back admin-controls');
-	// 			$('.admin-controls-btn').removeClass('off-page');
-	// 			$('.add-page-modal').addClass('off-page');
-	// 			Router.go('/' + page.slug);
-	// 		}
-	// 	});
-	// },
+		Meteor.call('addPost', post, function(error, id) {
+			if (error){
+				throwError(error.reason, 'error');
+			} else {
+				$('.container').removeClass('scaled-back admin-controls');
+				$('.admin-controls-btn').removeClass('off-page');
+				$('.add-post-modal').addClass('off-page');
+				Router.go('/' + p.slug);
+			}
+		});
+	},
 	'keyup #title':function(e){
 		Session.set('slug', encodeURI(e.target.value.replace(/\s+/g, '-').toLowerCase()));
 	},
@@ -67,13 +67,6 @@ Template.addPost.events({
 			$('.text-view').html($.parseHTML($('.markup-view').text()));
 			$('#body-output').val($('.output').html());
 		}
-	},
-	'click .close-modal-btn': function(e){
-		e.preventDefault();
-		$('.container').removeClass('scaled-back');
-		$('.add-post-modal').addClass('off-page');
-		$('.admin-header').addClass('shown');
-		$('.admin-controls-btn').removeClass('off-page').addClass('admin-active');
 	}
 })
 
@@ -83,5 +76,5 @@ Template.addPost.helpers({
 	},
 	url: function(){
 		return Meteor.absoluteUrl();
-	},
+	}
 })

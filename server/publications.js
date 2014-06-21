@@ -6,6 +6,10 @@ Meteor.publish('pages', function(){
 	return Pages.find();
 })
 
+Meteor.publish('posts', function(){
+	return Posts.find();
+})
+
 Meteor.publish('settings', function(){
 	return Settings.find();
 })

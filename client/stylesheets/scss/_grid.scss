@@ -1,0 +1,97 @@
+.grid-1,
+.grid-1-1,
+.grid-1-2,
+.grid-1-3,
+.grid-2-3,
+.grid-1-4,
+.grid-3-4,
+.grid-1-6,
+.grid-5-6,
+.grid-1-12,
+.grid-2-12,
+.grid-3-12,
+.grid-4-12,
+.grid-5-12,
+.grid-6-12,
+.grid-7-12,
+.grid-8-12,
+.grid-9-12,
+.grid-10-12,
+.grid-11-12,
+.grid-12-12 {
+    float: left;
+    *display: inline;
+    zoom: 1;
+    letter-spacing: normal;
+    word-spacing: normal;
+    vertical-align: top;
+    text-rendering: auto;
+}
+
+.grid-1-12 {
+    width: 8.3333%;
+    *width: 8.3023%;
+}
+
+.grid-1-6,
+.grid-2-12 {
+    width: 16.6667%;
+    *width: 16.6357%;
+}
+
+.grid-1-4,
+.grid-3-12 {
+    width: 25%;
+    *width: 24.9690%;
+}
+
+.grid-1-3,
+.grid-4-12 {
+    width: 33.3333%;
+    *width: 33.3023%;
+}
+
+.grid-5-12 {
+    width: 41.6667%;
+    *width: 41.6357%;
+}
+
+.grid-1-2,
+.grid-6-12 {
+    width: 50%;
+    *width: 49.9690%;
+}
+
+.grid-7-12 {
+    width: 58.3333%;
+    *width: 58.3023%;
+}
+
+.grid-2-3,
+.grid-8-12 {
+    width: 66.6667%;
+    *width: 66.6357%;
+}
+
+.grid-3-4,
+.grid-9-12 {
+    width: 75%;
+    *width: 74.9690%;
+}
+
+.grid-5-6,
+.grid-10-12 {
+    width: 83.3333%;
+    *width: 83.3023%;
+}
+
+.grid-11-12 {
+    width: 91.6667%;
+    *width: 91.6357%;
+}
+
+.grid-1,
+.grid-1-1,
+.grid-12-12 {
+    width: 100%;
+}

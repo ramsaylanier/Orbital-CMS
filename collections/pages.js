@@ -25,7 +25,7 @@ Meteor.methods({
 				throw new Meteor.Error(302, 'This page already exists', pageWithSameTitle._id);
 			}
 
-			var page = _.extend(_.pick(pageAttributes, 'title', 'slug', 'content'), {
+			var page = _.extend(_.pick(pageAttributes, 'title', 'slug', 'content', 'pageTemplate'), {
 				submitted: new Date().getTime()
 			});
 
@@ -45,11 +45,16 @@ Meteor.methods({
 				throw new Meteor.Error(422, 'Please enter a page title');
 			}
 
-			var page = _.extend(_.pick(pageAttributes, 'title', 'content'), {
+			var page = _.extend(_.pick(pageAttributes, 'title', 'content', 'pageTemplate'), {
 				edited: new Date().getTime()
 			});
 
-			Pages.update({_id: pageId}, {$set: {title: page.title, content: page.content}});
+			Pages.update({_id: pageId}, {$set: {
+											title: page.title, 
+											content: page.content, 
+											pageTemplate: page.pageTemplate
+										}
+			});
 		}
 	},
 	deletePage: function(pageId){

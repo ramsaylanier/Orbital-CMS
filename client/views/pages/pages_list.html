@@ -1,0 +1,49 @@
+<template name="pagesList">
+<div class="page-list-modal modal off-page">
+	<button class="close-modal-btn btn">X</button>
+	<div class="modal-container clearfix">
+		<h3>Pages</h3>
+		<div class="page-table table grid-1">
+			<div class="table-headings grid-1">
+				<div class="title-heading heading grid-1-4">
+					Title
+				</div>
+
+				<div class="slug-heading heading grid-1-4">
+					Slug
+				</div>
+
+				<div class="template-heading heading grid-1-4">
+					Template
+				</div>
+			</div>
+
+			<div class="page-data table-data grid-1">
+				{{#each this}}
+					{{> pageRow}}
+				{{/each}}
+			</div>
+		</div>
+	</div>
+</div>
+</template>
+
+<template name="pageRow">
+	<div class="page-row table-row row grid-1">
+		<div class="page-title table-cell grid-1-4">
+			{{title}}
+		</div>
+
+		<div class="page-slug table-cell grid-1-4">
+			{{slug}}
+		</div>
+
+		<div class="page-template table-cell grid-1-4">
+			{{pageTemplate}}
+		</div>
+
+		<div class="edit-page-btn grid-1-4">
+			<a href="{{pathFor 'showPage'}}" class="edit-page-btn btn">Edit Page</a>
+		</div>
+	</div>
+</template>

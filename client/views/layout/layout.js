@@ -13,5 +13,12 @@ Template.layout.events({
 		$('.container').toggleClass('admin-controls');
 		$('.admin-header').toggleClass('shown');
 		$('.admin-controls-btn').toggleClass('admin-active');
+	},
+	'click .close-modal-btn': function(e){
+		e.preventDefault();
+		$('.container').removeClass('scaled-back');
+		$('.modal').addClass('off-page');
+		$('.admin-header').addClass('shown');
+		$('.admin-controls-btn').removeClass('off-page').addClass('admin-active');
 	}
 })

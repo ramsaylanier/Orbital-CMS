@@ -23,6 +23,10 @@ Template.showPage.events({
 Template.showPage.helpers({
 	editMode: function(){
 		return Session.get('editMode');
+	},
+	pageTemplate: function(){
+		var templateName = Pages.findOne({_id: this._id}).pageTemplate.replace(/ /g, '_');
+		return Template[templateName];
 	}
 });
 
@@ -31,9 +35,12 @@ Template.editPage.events({
 	'click .save-page-btn': function(e, template){
 		e.preventDefault();
 
+		console.log($('#template-type').val());
+
 		var updatedPage = {
 			title: $('.page-title').html(),
-			content: $('.page-content').html()
+			content: $('.page-content').html(),
+			pageTemplate: $('#template-type').val().replace(/_/g, ' ')
 		},
 			pageId = template.data._id;
 
@@ -56,5 +63,12 @@ Template.editPage.events({
 				Router.go('/');
 			}
 		})
+	}
+})
+
+Template.editPage.helpers({
+	getTemplates: function(){
+		var templates = _.filter(_.keys(Template), function(name){return name.match('template');});
+		return _.map(templates, function(name){ return name.replace(/_/g, ' ');});
 	}
 })

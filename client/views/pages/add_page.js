@@ -26,7 +26,8 @@ Template.addPage.events({
 		var page ={
 			title: $(e.target).find('[name=title]').val(),
 			slug: Session.get('slug'),
-			content: $(e.target).find('[name=editor]').val()
+			content: $(e.target).find('[name=editor]').val(),
+			pageTemplate: $('#template-type').val().replace(/_/g, ' ')
 		}
 
 		Meteor.call('page', page, function(error, id) {
@@ -67,13 +68,6 @@ Template.addPage.events({
 			$('.text-view').html($.parseHTML($('.markup-view').text()));
 			$('#body-output').val($('.output').html());
 		}
-	},
-	'click .close-modal-btn': function(e){
-		e.preventDefault();
-		$('.container').removeClass('scaled-back');
-		$('.add-page-modal').addClass('off-page');
-		$('.admin-header').addClass('shown');
-		$('.admin-controls-btn').removeClass('off-page').addClass('admin-active');
 	}
 })
 
@@ -84,4 +78,8 @@ Template.addPage.helpers({
 	url: function(){
 		return Meteor.absoluteUrl();
 	},
+	getTemplates: function(){
+		var templates = _.filter(_.keys(Template), function(name){return name.match('template');});
+		return _.map(templates, function(name){ return name.replace(/_/g, ' ');});
+	}
 })
