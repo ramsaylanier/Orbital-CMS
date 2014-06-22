@@ -36,7 +36,7 @@ Template.addPost.events({
 				$('.container').removeClass('scaled-back admin-controls');
 				$('.admin-controls-btn').removeClass('off-page');
 				$('.add-post-modal').addClass('off-page');
-				Router.go('/' + p.slug);
+				Router.go('/posts/' + post.slug);
 			}
 		});
 	},

@@ -1,4 +1,21 @@
 <template name="blog_template">
+	<div class="blog page-inner inner">
+		{{#each posts}}
+			{{> postViewExcerpt}}
+		{{/each}}
+	</div>
+</template>
 
 
+<template name="postViewExcerpt">
+	<article class="post off-page">
+		<h3 class="post-title title">
+			<a href="{{pathFor 'showPost'}}">{{title}}</a>
+		</h3>
+
+		<div class="post-content content">
+			{{{content}}}
+		</div>
+
+	</article>
 </template>

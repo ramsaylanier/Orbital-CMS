@@ -28,3 +28,15 @@
 	@include opacity(0.0);
 	@include transform-origin(-300px, bottom);
 }
+
+.post{
+	@include transition(all 300ms cubic-bezier(.35,-0.06,.15,.95) 100ms);
+	@include translate3d(0px, 0px, 0px);
+	opacity: 1.0;
+
+	&.off-page{
+		opacity: 0.0;
+		@include translate3d(-500px, 0px, 0px);
+
+	}
+}

@@ -6,6 +6,10 @@ UI.registerHelper('setTitle', function(title){
 	}
 });
 
+UI.registerHelper('posts', function(){
+	return Posts.find({},{sort: {submitted: -1}});
+})
+
 Template.layout.events({
 	'click .admin-controls-btn': function(e){
 		e.preventDefault();
@@ -22,3 +26,4 @@ Template.layout.events({
 		$('.admin-controls-btn').removeClass('off-page').addClass('admin-active');
 	}
 })
+
