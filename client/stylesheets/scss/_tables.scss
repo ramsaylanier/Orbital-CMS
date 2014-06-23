@@ -5,6 +5,17 @@
 .table-headings{
 
 	.heading{
-		
+		font-size: 1.3rem;
+		font-weight: 600;
+		padding-left: 1rem;	
+	}
+}
+
+.table-row{
+	margin-bottom: 1rem;
+	padding: 1rem;
+
+	&:nth-of-type(even){
+		background-color: $light-grey;
 	}
 }

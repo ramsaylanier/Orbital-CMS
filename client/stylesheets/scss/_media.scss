@@ -1,0 +1,35 @@
+.media-modal{
+	position: relative;
+	margin: 0 auto;
+	z-index: 999;
+	text-align: center;
+	opacity: 1.0;
+	@include transform-style(preserve-3d);
+	@include perspective(300px);
+	@include backface-visibility(hidden);
+	@include transform-origin(bottom, center);
+	@include transition(all 800ms cubic-bezier(.49,.14,.31,.8) 0ms);
+
+	img{
+		max-width: 100%;
+		max-height: 90%;
+		height: auto;
+		padding: 3rem;
+		background-color: $dark-grey;
+
+		&:hover{
+
+		}
+	}
+
+	&.off-page-below{
+		opacity: 0.0;
+		@include transition(all 100ms cubic-bezier(.49,.14,.31,.8) 0ms);
+		@include transform(rotateZ(10deg) rotateY(-45deg) rotateX(10deg) translate3d(0px, 300px, 0px));
+	}
+
+	.close-media-btn{
+	
+
+	}
+}

@@ -20,7 +20,17 @@ Template.adminHeader.events({
 			UI.insert(UI.render(Template.addPage), $('.container').get(0));
 		}
 	},
+	'click .view-posts-btn': function(e, template){
+		e.preventDefault();
 
+		$('.modal').remove();
+		$('.container').addClass('scaled-back');
+
+		if ($('.add-post-modal').length == 0){
+			var data = Posts.find();
+			UI.insert(UI.renderWithData(Template.postsList, data), $('.container').get(0));
+		}
+	},
 	'click .add-post-btn': function(e){
 		e.preventDefault();
 

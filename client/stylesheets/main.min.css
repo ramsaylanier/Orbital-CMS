@@ -300,12 +300,12 @@ p {
   unicode-range: U+270C;
 }
 
-/* line 396, scss/_typeplate.scss */
+/* line 397, scss/_typeplate.scss */
 body {
   word-wrap: break-word;
 }
 
-/* line 400, scss/_typeplate.scss */
+/* line 401, scss/_typeplate.scss */
 pre code {
   word-wrap: normal;
 }
@@ -319,12 +319,12 @@ pre code {
  * Extend this object into your custom stylesheet. Let the variables do the work.
  *
  */
-/* line 525, scss/_typeplate.scss */
+/* line 526, scss/_typeplate.scss */
 html {
   font: normal 112.5%/1.5 serif;
 }
 
-/* line 533, scss/_typeplate.scss */
+/* line 534, scss/_typeplate.scss */
 body {
   -webkit-hyphens: auto;
   -moz-hyphens: auto;
@@ -334,87 +334,87 @@ body {
   color: #444444;
 }
 
-/* line 544, scss/_typeplate.scss */
+/* line 545, scss/_typeplate.scss */
 small {
   font-size: 65%;
 }
 
-/* line 567, scss/_typeplate.scss */
+/* line 568, scss/_typeplate.scss */
 h1, h2, h3, h4, h5, h6 {
   text-rendering: optimizeLegibility;
   line-height: 1;
   margin-top: 0;
 }
 
-/* line 582, scss/_typeplate.scss */
+/* line 583, scss/_typeplate.scss */
 .tera {
   font-size: 117px;
   font-size: 6.5rem;
   margin-bottom: 0.23077rem;
 }
 
-/* line 582, scss/_typeplate.scss */
+/* line 583, scss/_typeplate.scss */
 .giga {
   font-size: 90px;
   font-size: 5rem;
   margin-bottom: 0.3rem;
 }
 
-/* line 582, scss/_typeplate.scss */
+/* line 583, scss/_typeplate.scss */
 .mega {
   font-size: 72px;
   font-size: 4rem;
   margin-bottom: 0.375rem;
 }
 
-/* line 582, scss/_typeplate.scss */
+/* line 583, scss/_typeplate.scss */
 .alpha, h1 {
   font-size: 60px;
   font-size: 3.33333rem;
   margin-bottom: 0.45rem;
 }
 
-/* line 582, scss/_typeplate.scss */
+/* line 583, scss/_typeplate.scss */
 .beta, h2 {
   font-size: 48px;
   font-size: 2.66667rem;
   margin-bottom: 0.5625rem;
 }
 
-/* line 582, scss/_typeplate.scss */
+/* line 583, scss/_typeplate.scss */
 .gamma, h3 {
   font-size: 36px;
   font-size: 2rem;
   margin-bottom: 0.75rem;
 }
 
-/* line 582, scss/_typeplate.scss */
+/* line 583, scss/_typeplate.scss */
 .delta, h4 {
   font-size: 24px;
   font-size: 1.33333rem;
   margin-bottom: 1.125rem;
 }
 
-/* line 582, scss/_typeplate.scss */
+/* line 583, scss/_typeplate.scss */
 .epsilon, h5 {
   font-size: 21px;
   font-size: 1.16667rem;
   margin-bottom: 1.28571rem;
 }
 
-/* line 582, scss/_typeplate.scss */
+/* line 583, scss/_typeplate.scss */
 .zeta, h6 {
   font-size: 18px;
   font-size: 1rem;
   margin-bottom: 1.5rem;
 }
 
-/* line 622, scss/_typeplate.scss */
+/* line 623, scss/_typeplate.scss */
 p {
   margin: auto auto 1.5rem;
 }
 
-/* line 648, scss/_typeplate.scss */
+/* line 649, scss/_typeplate.scss */
 abbr,
 acronym,
 blockquote,
@@ -435,18 +435,18 @@ xmp {
   hyphens: none;
 }
 
-/* line 656, scss/_typeplate.scss */
+/* line 657, scss/_typeplate.scss */
 pre code {
   white-space: -moz-pre-wrap;
   white-space: pre-wrap;
 }
 
-/* line 661, scss/_typeplate.scss */
+/* line 662, scss/_typeplate.scss */
 pre {
   white-space: pre;
 }
 
-/* line 665, scss/_typeplate.scss */
+/* line 666, scss/_typeplate.scss */
 code {
   white-space: pre;
   font-family: monospace;
@@ -460,19 +460,19 @@ code {
  * Extend this object into your markup.
  *
  */
-/* line 681, scss/_typeplate.scss */
+/* line 682, scss/_typeplate.scss */
 abbr {
   font-variant: small-caps;
   font-weight: 600;
   text-transform: lowercase;
   color: gray;
 }
-/* line 683, scss/_typeplate.scss */
+/* line 684, scss/_typeplate.scss */
 abbr[title]:hover {
   cursor: help;
 }
 
-/* line 697, scss/_typeplate.scss */
+/* line 698, scss/_typeplate.scss */
 h1,
 h2,
 h3,
@@ -481,15 +481,16 @@ h5,
 h6 {
   color: #222222;
   font-family: "jaf-bernino-sans", sans-serif;
+  font-weight: 600;
 }
 
-/* line 708, scss/_typeplate.scss */
+/* line 710, scss/_typeplate.scss */
 p + .drop-cap {
   text-indent: 0;
   margin-top: 0;
 }
 
-/* line 427, scss/_typeplate.scss */
+/* line 428, scss/_typeplate.scss */
 .drop-cap:first-letter {
   float: left;
   margin: inherit;
@@ -513,23 +514,23 @@ p + .drop-cap {
  * Extend this object into your markup.
  *
  */
-/* line 466, scss/_typeplate.scss */
+/* line 467, scss/_typeplate.scss */
 .lining dt,
 .lining dd {
   display: inline;
   margin: 0;
 }
-/* line 473, scss/_typeplate.scss */
+/* line 474, scss/_typeplate.scss */
 .lining dt + dt:before,
 .lining dd + dt:before {
   content: "\A";
   white-space: pre;
 }
-/* line 481, scss/_typeplate.scss */
+/* line 482, scss/_typeplate.scss */
 .lining dd + dd:before {
   content: ", ";
 }
-/* line 485, scss/_typeplate.scss */
+/* line 486, scss/_typeplate.scss */
 .lining dd:before {
   content: ": ";
   margin-left: -0.2rem;
@@ -546,22 +547,22 @@ p + .drop-cap {
  * Extend this object into your markup.
  *
  */
-/* line 493, scss/_typeplate.scss */
+/* line 494, scss/_typeplate.scss */
 .dictionary-style dt {
   display: inline;
   counter-reset: definitions;
 }
-/* line 497, scss/_typeplate.scss */
+/* line 498, scss/_typeplate.scss */
 .dictionary-style dt + dt:before {
   content: ", ";
   margin-left: -0.2rem;
 }
-/* line 503, scss/_typeplate.scss */
+/* line 504, scss/_typeplate.scss */
 .dictionary-style dd {
   display: block;
   counter-increment: definitions;
 }
-/* line 506, scss/_typeplate.scss */
+/* line 507, scss/_typeplate.scss */
 .dictionary-style dd:before {
   content: counter(definitions,decimal) ". ";
 }
@@ -595,12 +596,12 @@ p + .drop-cap {
  * Extend this object into your custom stylesheet.
  *
  */
-/* line 792, scss/_typeplate.scss */
+/* line 794, scss/_typeplate.scss */
 .pull-quote {
   position: relative;
   padding: 1em;
 }
-/* line 368, scss/_typeplate.scss */
+/* line 369, scss/_typeplate.scss */
 .pull-quote:before, .pull-quote:after {
   height: 1em;
   opacity: 0.5;
@@ -608,13 +609,13 @@ p + .drop-cap {
   font-size: 4em;
   color: #dc976e;
 }
-/* line 375, scss/_typeplate.scss */
+/* line 376, scss/_typeplate.scss */
 .pull-quote:before {
   content: '“';
   top: 0;
   left: 0;
 }
-/* line 380, scss/_typeplate.scss */
+/* line 381, scss/_typeplate.scss */
 .pull-quote:after {
   content: '”';
   bottom: 0;
@@ -649,6 +650,11 @@ p + .drop-cap {
  *
  */
 /* line 1, scss/_pages.scss */
+.add-page-container {
+  background-color: #d7d7d7;
+}
+
+/* line 5, scss/_pages.scss */
 .page-container {
   width: 100vw;
   height: 100vh;
@@ -664,24 +670,24 @@ p + .drop-cap {
   transition: all 400ms cubic-bezier(0.35, -0.06, 0.15, 1.1) 0ms;
   z-index: 1;
 }
-/* line 11, scss/_pages.scss */
+/* line 15, scss/_pages.scss */
 .page-container .page-title {
   margin-bottom: 1.5rem;
 }
 
-/* line 16, scss/_pages.scss */
+/* line 20, scss/_pages.scss */
 .page-inner {
   position: relative;
   max-width: 980px;
   margin: 0 auto;
 }
 
-/* line 22, scss/_pages.scss */
+/* line 26, scss/_pages.scss */
 .page-inner.edit-mode {
   background-color: rgba(0, 0, 0, 0.1);
 }
 
-/* line 26, scss/_pages.scss */
+/* line 30, scss/_pages.scss */
 .page-container.off-page {
   -webkit-transform: rotate3d(0, 1, 0, -15deg);
   -moz-transform: rotate3d(0, 1, 0, -15deg);
@@ -698,6 +704,11 @@ p + .drop-cap {
 }
 
 /* line 1, scss/_posts.scss */
+.add-post-container {
+  background-color: #d7d7d7;
+}
+
+/* line 5, scss/_posts.scss */
 .post-container {
   width: 100vw;
   height: 100vh;
@@ -713,24 +724,24 @@ p + .drop-cap {
   transition: all 400ms cubic-bezier(0.35, -0.06, 0.15, 1.1) 0ms;
   z-index: 1;
 }
-/* line 11, scss/_posts.scss */
+/* line 15, scss/_posts.scss */
 .post-container .page-title {
   margin-bottom: 1.5rem;
 }
 
-/* line 16, scss/_posts.scss */
+/* line 20, scss/_posts.scss */
 .post-inner {
   position: relative;
   max-width: 980px;
   margin: 0 auto;
 }
 
-/* line 22, scss/_posts.scss */
+/* line 26, scss/_posts.scss */
 .post-inner.edit-mode {
   background-color: rgba(0, 0, 0, 0.1);
 }
 
-/* line 26, scss/_posts.scss */
+/* line 30, scss/_posts.scss */
 .post-container.off-page {
   -webkit-transform: rotate3d(0, 1, 0, -15deg);
   -moz-transform: rotate3d(0, 1, 0, -15deg);
@@ -746,7 +757,7 @@ p + .drop-cap {
   transform-origin: -300px bottom;
 }
 
-/* line 32, scss/_posts.scss */
+/* line 36, scss/_posts.scss */
 .post {
   -webkit-transition: all 300ms cubic-bezier(0.35, -0.06, 0.15, 0.95);
   -webkit-transition-delay: 100ms;
@@ -760,7 +771,7 @@ p + .drop-cap {
   transform: translate3d(0px, 0px, 0px);
   opacity: 1.0;
 }
-/* line 37, scss/_posts.scss */
+/* line 41, scss/_posts.scss */
 .post.off-page {
   opacity: 0.0;
   -webkit-transform: translate3d(-500px, 0px, 0px);
@@ -768,6 +779,11 @@ p + .drop-cap {
   -ms-transform: translate3d(-500px, 0px, 0px);
   -o-transform: translate3d(-500px, 0px, 0px);
   transform: translate3d(-500px, 0px, 0px);
+}
+
+/* line 1, scss/_settings.scss */
+.settings-container {
+  background-color: #d7d7d7;
 }
 
 /* line 1, scss/_header.scss */
@@ -1056,7 +1072,80 @@ p + .drop-cap {
   width: 110px;
 }
 
-/* line 15, scss/main.min.scss */
+/* line 7, scss/_tables.scss */
+.table-headings .heading {
+  font-size: 1.3rem;
+  font-weight: 600;
+  padding-left: 1rem;
+}
+
+/* line 14, scss/_tables.scss */
+.table-row {
+  margin-bottom: 1rem;
+  padding: 1rem;
+}
+/* line 18, scss/_tables.scss */
+.table-row:nth-of-type(even) {
+  background-color: #d7d7d7;
+}
+
+/* line 1, scss/_media.scss */
+.media-modal {
+  position: relative;
+  margin: 0 auto;
+  z-index: 999;
+  text-align: center;
+  opacity: 1.0;
+  -webkit-transform-style: preserve-3d;
+  -moz-transform-style: preserve-3d;
+  -ms-transform-style: preserve-3d;
+  -o-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+  -webkit-perspective: 300px;
+  -moz-perspective: 300px;
+  -ms-perspective: 300px;
+  -o-perspective: 300px;
+  perspective: 300px;
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+  -ms-backface-visibility: hidden;
+  -o-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -webkit-transform-origin: bottom center;
+  -moz-transform-origin: bottom center;
+  -ms-transform-origin: bottom center;
+  -o-transform-origin: bottom center;
+  transform-origin: bottom center;
+  -webkit-transition: all 800ms cubic-bezier(0.49, 0.14, 0.31, 0.8);
+  -webkit-transition-delay: 0ms;
+  -moz-transition: all 800ms cubic-bezier(0.49, 0.14, 0.31, 0.8) 0ms;
+  -o-transition: all 800ms cubic-bezier(0.49, 0.14, 0.31, 0.8) 0ms;
+  transition: all 800ms cubic-bezier(0.49, 0.14, 0.31, 0.8) 0ms;
+}
+/* line 13, scss/_media.scss */
+.media-modal img {
+  max-width: 100%;
+  max-height: 90%;
+  height: auto;
+  padding: 3rem;
+  background-color: #342f2f;
+}
+/* line 25, scss/_media.scss */
+.media-modal.off-page-below {
+  opacity: 0.0;
+  -webkit-transition: all 100ms cubic-bezier(0.49, 0.14, 0.31, 0.8);
+  -webkit-transition-delay: 0ms;
+  -moz-transition: all 100ms cubic-bezier(0.49, 0.14, 0.31, 0.8) 0ms;
+  -o-transition: all 100ms cubic-bezier(0.49, 0.14, 0.31, 0.8) 0ms;
+  transition: all 100ms cubic-bezier(0.49, 0.14, 0.31, 0.8) 0ms;
+  -webkit-transform: rotateZ(10deg) rotateY(-45deg) rotateX(10deg) translate3d(0px, 300px, 0px);
+  -moz-transform: rotateZ(10deg) rotateY(-45deg) rotateX(10deg) translate3d(0px, 300px, 0px);
+  -ms-transform: rotateZ(10deg) rotateY(-45deg) rotateX(10deg) translate3d(0px, 300px, 0px);
+  -o-transform: rotateZ(10deg) rotateY(-45deg) rotateX(10deg) translate3d(0px, 300px, 0px);
+  transform: rotateZ(10deg) rotateY(-45deg) rotateX(10deg) translate3d(0px, 300px, 0px);
+}
+
+/* line 17, scss/main.min.scss */
 * {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -1064,22 +1153,27 @@ p + .drop-cap {
   outline: none;
 }
 
-/* line 20, scss/main.min.scss */
+/* line 22, scss/main.min.scss */
 b {
   font-weight: 900;
 }
 
-/* line 24, scss/main.min.scss */
+/* line 26, scss/main.min.scss */
 a {
   text-decoration: none;
 }
 
-/* line 28, scss/main.min.scss */
+/* line 30, scss/main.min.scss */
 body {
   background-color: #342f2f;
 }
 
-/* line 32, scss/main.min.scss */
+/* line 34, scss/main.min.scss */
+.hidden {
+  display: none;
+}
+
+/* line 38, scss/main.min.scss */
 .clearfix {
   *zoom: 1;
 }
@@ -1090,7 +1184,7 @@ body {
   clear: both;
 }
 
-/* line 36, scss/main.min.scss */
+/* line 42, scss/main.min.scss */
 .application {
   position: relative;
   width: 100vw;
@@ -1108,17 +1202,17 @@ body {
   transform-style: preserve-3d;
 }
 
-/* line 45, scss/main.min.scss */
+/* line 51, scss/main.min.scss */
 .left-align {
   text-align: left;
 }
 
-/* line 49, scss/main.min.scss */
+/* line 55, scss/main.min.scss */
 .right-align {
   text-align: right;
 }
 
-/* line 53, scss/main.min.scss */
+/* line 59, scss/main.min.scss */
 .container {
   width: 100vw;
   height: 100vh;
@@ -1130,7 +1224,7 @@ body {
   -o-transition: all 400ms cubic-bezier(0.49, 0.14, 0.31, 1.25) 100ms;
   transition: all 400ms cubic-bezier(0.49, 0.14, 0.31, 1.25) 100ms;
 }
-/* line 60, scss/main.min.scss */
+/* line 66, scss/main.min.scss */
 .container.admin-controls {
   -webkit-transform: rotateY(-20deg) translate3d(200px, 0px, 0px);
   -moz-transform: rotateY(-20deg) translate3d(200px, 0px, 0px);
@@ -1144,7 +1238,7 @@ body {
   transition: all 800ms cubic-bezier(0.35, -0.06, 0.15, 1.1) 0ms;
 }
 
-/* line 66, scss/main.min.scss */
+/* line 72, scss/main.min.scss */
 .container.scaled-back {
   -webkit-transform: scale3d(1, 1, 1);
   -moz-transform: scale3d(1, 1, 1);
@@ -1153,7 +1247,7 @@ body {
   transform: scale3d(1, 1, 1);
 }
 
-/* line 70, scss/main.min.scss */
+/* line 76, scss/main.min.scss */
 .modal {
   position: fixed;
   padding: 1rem;
@@ -1182,7 +1276,7 @@ body {
   z-index: 999;
 }
 
-/* line 86, scss/main.min.scss */
+/* line 92, scss/main.min.scss */
 .modal.off-page {
   -webkit-transform: scale3d(1.5, 1.5, 1.5);
   -moz-transform: scale3d(1.5, 1.5, 1.5);
@@ -1193,22 +1287,21 @@ body {
   opacity: 0.0;
 }
 
-/* line 92, scss/main.min.scss */
+/* line 98, scss/main.min.scss */
 .modal-container {
   max-width: 980px;
   margin: 0 auto;
   position: relative;
   padding: 1rem;
-  background-color: silver;
 }
-/* line 99, scss/main.min.scss */
+/* line 104, scss/main.min.scss */
 .modal-container.with-sidebar {
   width: 80%;
   left: 20%;
   margin: 0;
 }
 
-/* line 106, scss/main.min.scss */
+/* line 111, scss/main.min.scss */
 .sidebar-editor {
   position: fixed;
   top: 50px;
@@ -1218,7 +1311,7 @@ body {
   padding: .5rem;
   background-color: white;
 }
-/* line 115, scss/main.min.scss */
+/* line 120, scss/main.min.scss */
 .sidebar-editor a {
   display: inline-block;
   padding: .25rem;
@@ -1228,21 +1321,21 @@ body {
   text-align: center;
   margin-bottom: .25rem;
 }
-/* line 125, scss/main.min.scss */
+/* line 130, scss/main.min.scss */
 .sidebar-editor .toolbar-section {
   padding: 1rem 0rem;
   border-bottom: 1px solid grey;
 }
-/* line 129, scss/main.min.scss */
+/* line 134, scss/main.min.scss */
 .sidebar-editor .toolbar-section:last-of-type {
   border: none;
 }
-/* line 133, scss/main.min.scss */
+/* line 138, scss/main.min.scss */
 .sidebar-editor .toolbar-section:first-of-type {
   padding: 0rem 0rem 1rem 0rem;
 }
 
-/* line 139, scss/main.min.scss */
+/* line 144, scss/main.min.scss */
 .text-view, .markup-view {
   background-color: white;
   width: 100%;
@@ -1260,19 +1353,19 @@ body {
   -o-transition: opacity 300ms ease-out 0ms;
   transition: opacity 300ms ease-out 0ms;
 }
-/* line 152, scss/main.min.scss */
+/* line 157, scss/main.min.scss */
 .text-view:focus, .markup-view:focus {
   outline: none;
 }
 
-/* line 157, scss/main.min.scss */
+/* line 162, scss/main.min.scss */
 .text-view.visible, .markup-view.visible {
   position: relative;
   z-index: 10;
   opacity: 1.0;
 }
 
-/* line 163, scss/main.min.scss */
+/* line 168, scss/main.min.scss */
 #body-output {
   height: 0px;
   overflow: hidden;

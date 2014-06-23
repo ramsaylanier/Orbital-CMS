@@ -1,0 +1,45 @@
+<template name="postsList">
+	<div class="post-list-modal modal off-page">
+		<button class="close-modal-btn btn">X</button>
+		<div class="modal-container clearfix">
+			<h3>Posts</h3>
+			<div class="post-table table grid-1">
+				<div class="table-headings grid-1">
+					<div class="title-heading heading grid-1-4">
+						Title
+					</div>
+
+					<div class="slug-heading heading grid-1-4">
+						Slug
+					</div>
+				</div>
+
+				<div class="page-data table-data grid-1">
+					{{#each this}}
+						{{> postRow}}
+					{{/each}}
+				</div>
+			</div>
+		</div>
+	</div>
+</template>
+
+<template name="postRow">
+	<div class="post-row table-row row grid-1">
+		<div class="post-title table-cell grid-1-4">
+			{{title}}
+		</div>
+
+		<div class="post-slug table-cell grid-1-4">
+			{{slug}}
+		</div>
+
+		<div class="edit-post-btn grid-1-4">
+			<a href="{{pathFor 'showPost'}}" class="edit-post-btn btn">Edit Post</a>
+		</div>
+
+		<div class="delete-post-btn grid-1-4">
+			<a href="#" class="delete-post-btn btn">Delete Post</a>
+		</div>
+	</div>
+</template>

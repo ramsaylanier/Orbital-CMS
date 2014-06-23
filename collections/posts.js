@@ -22,5 +22,12 @@ Meteor.methods({
 
 			return postId;
 		}
+	},
+	'deletePost': function(postId){
+		var loggedInUser = Meteor.user();
+
+		if (Roles.userIsInRole(loggedInUser, ['admin'])){
+			Posts.remove(postId);
+		}
 	}
 });

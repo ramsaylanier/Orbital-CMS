@@ -14,6 +14,10 @@ Meteor.publish('settings', function(){
 	return Settings.find();
 })
 
+Meteor.publish('media', function(){
+	return Media.find();
+})
+
 Meteor.publish('adminRoleExists', function(){
 	return Meteor.users.find({roles: 'admin'},{fields: {'roles': 1}});
 })

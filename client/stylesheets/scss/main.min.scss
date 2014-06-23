@@ -8,9 +8,11 @@
 @import "typeplate";
 @import "pages";
 @import "posts";
+@import "settings";
 @import "header";
 @import "buttons";
 @import "tables";
+@import "media";
 
 *{
 	@include box-sizing(border-box);
@@ -27,6 +29,10 @@ a{
 
 body{
 	background-color: $dark-grey;
+}
+
+.hidden{
+	display: none;
 }
 
 .clearfix{
@@ -94,7 +100,6 @@ body{
 	margin: 0 auto;
 	position: relative;
 	padding: 1rem;
-	background-color: silver;
 
 	&.with-sidebar{
 		width: 80%;

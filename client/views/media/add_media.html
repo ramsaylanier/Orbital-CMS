@@ -6,8 +6,37 @@
 			<h3>Add Media</h3>
 
 			<form class="form" name="new-page-form">
-				
+				<input name="files" type="file" id="fileUploader" class="fileUploader hidden" multiple>
+				<a href="#" title="Upload Image" id="add-media-btn" class="btn blue-btn m-l-1 pull-left">Add Media</a>
 			</form>
+
+			{{> imageList}}
 		</div>
 	</div>
+</template>
+
+<template name="imageList">
+  <div class="image-list grid-1">
+    <ul class='file-list'>
+      {{#each files}}
+        <li class="file-row row grid-1">
+          <div class="grid-2-12">
+            <a href="#" class="media-modal-btn">
+              <img class="max-100 p-1" src="{{this.url store='thumbs'}}"/>
+            </a>
+
+          </div>
+          <div class="grid-4-12 p-1">
+            <a href="#" class="media-modal-btn">{{this.name}}</a>
+          </div>
+
+          <div class="grid-4-12 p-1">
+            <button class="alert button delete-file btn blue-btn">Delete</button>
+          </div>
+        </li>
+      {{else}}
+        <li class='no-files'>No images uploaded.</li>
+      {{/each}}
+    </ul>
+  </div>
 </template>
