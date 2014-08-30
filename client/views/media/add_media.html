@@ -40,3 +40,21 @@
     </ul>
   </div>
 </template>
+
+<template name="setFeaturedImage">
+  <div class="insert-image-modal modal off-page">
+    <div class="modal-container">
+      <ul class='file-list'>
+        {{#each this}}
+          <li class="file-item inline">
+              <a href="#" class="set-featured-image-btn">
+                <img class="max-100 p-1" src="{{this.url store='images'}}"/>
+              </a>
+          </li>
+        {{else}}
+          <li class='no-files'>No images uploaded.</li>
+        {{/each}}
+      </ul>
+    </div>
+  </div>
+</template>

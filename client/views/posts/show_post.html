@@ -1,3 +1,65 @@
 <template name="showPost">
-{{title}}
+{{#if editMode}}
+		{{>editor}}
+	{{/if}}
+	<div class="post-container off-page">
+		{{#if isInRole 'admin'}}
+			<button class="edit-post-btn edit-btn btn">Edit</button>
+		{{/if}}
+
+		{{#if editMode}}
+			{{> editPost}}
+		{{else}}
+			{{> postSingle}}
+		{{/if}}
+	</div>
+</template>
+
+<template name="editPost">
+	<div class="post-inner inner with-sidebar edit-mode">
+		{{> errors}}
+		<form name="edit-post editable">
+
+			<div class="featured-image-field">
+				{{#if featuredImage}}
+					<h4>Featured Image</h4>
+				{{/if}}
+					<img class="media-image full-width featured-image block" src="{{featuredImage}}"/>
+					<input type="text" name="featured-image" value="{{featuredImage}}" class="hidden"/>
+				{{#if featuredImage}}
+					<button class="featured-image-btn btn">Change Image</button>
+					<button class="remove-image-btn">Remove Featured Image</button>
+				{{else}}
+					<button class="featured-image-btn btn">Set Featured Image</button>
+				{{/if}}
+			</div>
+			
+			<h1 class="post-title title" contenteditable="true">{{title}}</h1>
+
+			<div class="post-content" contenteditable="true">
+				{{{content}}}
+			</div>
+
+			<a href="#" class="save-page-btn page-btn">
+				<img src="/images/check.svg"/>
+				<span class="save-text">SAVE</span>
+			</a>
+
+			<a href="#" class="delete-page-btn page-btn">
+				<img src="/images/x.svg"/>
+				<span class="save-text">DELETE</span>
+			</a>
+
+		</form>
+	</div>
+</template>
+
+<template name="postSingle">
+	<div class="post-inner inner">
+		<h1 class="post-title title">{{title}}</h1>
+
+		<div class="post-content content">
+			{{{content}}}
+		</div>
+	</div>
 </template>

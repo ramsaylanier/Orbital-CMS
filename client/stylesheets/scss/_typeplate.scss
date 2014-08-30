@@ -29,7 +29,7 @@
 //
 // .x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x //
 
-$heading-font: "jaf-bernino-sans",sans-serif;
+$heading-font: "ff-meta-serif-web-pro",serif;
 $copy-font: "jaf-bernino-sans",sans-serif;
 
 body{
@@ -38,6 +38,10 @@ body{
 
 p{
 	font-size: 1rem;
+}
+
+a{
+	color: $blue;
 }
 
 // $Variable $BaseType

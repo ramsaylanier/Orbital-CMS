@@ -1,10 +1,12 @@
 .main-header{
 	height: 50px;
 	width: 100%;
-	position: relative;
+	position: fixed;
+	top: 0px;
 	background-color: white;
 	text-align: center;
 	padding: .5rem;
+	z-index: 100;
 
 	a{
 		padding: .25rem .5rem;

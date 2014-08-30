@@ -31,6 +31,11 @@ Template.showPage.helpers({
 });
 
 
+Template.editPage.rendered = function(){
+	$('.title').focus();
+}
+
+
 Template.editPage.events({
 	'click .save-page-btn': function(e, template){
 		e.preventDefault();

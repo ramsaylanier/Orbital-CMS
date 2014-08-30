@@ -15,5 +15,8 @@ Template.editor.events({
 	      break;
 	    }
 	    $('#body-output').val($('.output').html());
+	},
+	'click .add-media-btn':function(){
+		 UI.insert(UI.render(Template.imageList), $('.container').get(0));
 	}
 })

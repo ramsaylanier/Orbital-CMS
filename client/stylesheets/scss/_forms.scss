@@ -21,3 +21,7 @@ input[type=submit]{
 
 	@include transition(all 300ms ease-in-out);
 }
+
+[contenteditable="true"]:focus{
+	background-color: silver !important;
+}

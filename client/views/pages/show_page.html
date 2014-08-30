@@ -18,10 +18,10 @@
 <template name="editPage">
 	<div class="page-inner inner edit-mode">
 		{{> errors}}
-		<form name="edit-page">
-			<h1 class="page-title title" contenteditable>{{title}}</h1>
+		<form name="edit-page editable">
+			<h1 class="page-title title" contenteditable="true">{{title}}</h1>
 
-			<div class="page-content" contenteditable>
+			<div class="page-content" contenteditable="true">
 				{{{content}}}
 			</div>
 

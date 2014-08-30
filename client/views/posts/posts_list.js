@@ -11,6 +11,7 @@ Template.postsList.events({
 		$('.admin-controls-btn').removeClass('off-page');
 		$('.container').removeClass('admin-controls scaled-back');
 		Session.set('editMode',true);
+		
 	},
 	'click .delete-post-btn': function(e, template){
 		e.preventDefault();
