@@ -23,6 +23,28 @@ Meteor.methods({
 			return postId;
 		}
 	},
+	updatePost: function(postId, postAttributes){
+
+		var loggedInUser = Meteor.user();
+
+		if (Roles.userIsInRole(loggedInUser, ['admin'])){
+
+			if (!postAttributes.title){
+				throw new Meteor.Error(422, 'Please enter a post title');
+			}
+
+			var post = _.extend(_.pick(postAttributes, 'title', 'content'), {
+				edited: new Date().getTime()
+			});
+
+			Posts.update({_id: postId}, {$set: {
+											title: post.title, 
+											content: post.content,
+											edited: post.edited
+										}
+			});
+		}
+	},
 	'deletePost': function(postId){
 		var loggedInUser = Meteor.user();
 

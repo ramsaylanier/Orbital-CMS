@@ -1,6 +1,11 @@
 {
   "packages": {
-    "subs-manager": {},
-    "collectionFS": {}
+    "collectionfs": {},
+    "cfs-gridfs": {},
+    "cfs-filesystem": {},
+    "cfs-s3": {},
+    "cfs-graphicsmagick": {},
+    "cfs-ui": {},
+    "ui-dropped-event": {}
   }
 }

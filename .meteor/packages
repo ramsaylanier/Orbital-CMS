@@ -4,13 +4,19 @@
 # but you can also edit it by hand.
 
 standard-app-packages
-iron-router
-spin
-roles
+iron:router
+sacha:spin
+alanning:roles
 accounts-password
 accounts-base
 accounts-ui-unstyled
-subs-manager
-collectionFS
+meteorhacks:fast-render
+meteorhacks:subs-manager
+collectionfs
+cfs-gridfs
 cfs-filesystem
+cfs-s3
 cfs-graphicsmagick
+cfs-ui
+ui-dropped-event
+

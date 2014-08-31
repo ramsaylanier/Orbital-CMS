@@ -34,3 +34,7 @@
 /cfs-filesystem
 /reactive-property
 /micro-queue
+/collectionfs
+/cfs-s3
+/cfs-ui
+/ui-dropped-event

@@ -41,25 +41,24 @@ Template.editPost.events({
 
 		console.log($('#template-type').val());
 
-		var updatedPage = {
-			title: $('.page-title').html(),
-			content: $('.page-content').html(),
-			pageTemplate: $('#template-type').val().replace(/_/g, ' ')
+		var updatedPost = {
+			title: $('.post-title').html(),
+			content: $('.post-content').html()
 		},
-			pageId = template.data._id;
+			postId = template.data._id;
 
-		Meteor.call('updatePage', pageId, updatedPage, function(error, id){
+		Meteor.call('updatePost', postId, updatedPost, function(error, id){
 			if (error){
 				throwError(error.reason, 'error')
 			} else {
-				throwError('Page updated.', 'success')
+				throwError('Post updated.', 'success')
 			}
 		})
 	},
-	'click .delete-page-btn': function(e, template){
-		var pageId = template.data._id;
+	'click .delete-post-btn': function(e, template){
+		var postId = template.data._id;
 
-		Meteor.call('deletePage', pageId, function(error, id){
+		Meteor.call('deletePost', postId, function(error, id){
 			if (error){
 				throwError(error.reason, 'error')
 			} else {
