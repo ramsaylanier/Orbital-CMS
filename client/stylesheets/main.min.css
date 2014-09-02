@@ -1155,7 +1155,7 @@ p + .drop-cap {
 /* line 1, scss/_editor.scss */
 .sidebar-editor {
   position: absolute;
-  padding: .5rem;
+  padding: 5px;
   z-index: -1;
   opacity: 0.0;
   background-color: #342f2f;
@@ -1178,26 +1178,25 @@ p + .drop-cap {
 /* line 17, scss/_editor.scss */
 .sidebar-editor a {
   display: inline-block;
-  padding: .25rem;
+  padding: 0px 2px;
   width: 30px;
   color: white;
   text-align: center;
-  margin-bottom: .25rem;
   font-family: "ff-meta-serif-web-pro", serif;
   font-weight: 600;
 }
-/* line 28, scss/_editor.scss */
+/* line 27, scss/_editor.scss */
 .sidebar-editor .toolbar-section {
-  padding: 1rem 0rem;
+  padding: 5px 0px;
   border-bottom: 1px solid grey;
   float: left;
   clear: both;
 }
-/* line 34, scss/_editor.scss */
+/* line 33, scss/_editor.scss */
 .sidebar-editor .toolbar-section:last-of-type {
   border: none;
 }
-/* line 38, scss/_editor.scss */
+/* line 37, scss/_editor.scss */
 .sidebar-editor .toolbar-section:first-of-type {
   padding: 0rem 0rem 1rem 0rem;
 }

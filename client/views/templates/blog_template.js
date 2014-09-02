@@ -14,7 +14,7 @@ Template.blog_template.rendered = function(){
 	});
 }
 
-Template.postViewExcerpt.events({
+Template.postView.events({
 	'click .post-link': function(e, template){
 		e.preventDefault();
 

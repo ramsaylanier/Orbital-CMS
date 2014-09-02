@@ -1,13 +1,13 @@
-<template name="blog_template">
+<template name="blog_excerpt_template">
 	<div class="blog page-inner inner">
 		{{#each posts}}
-			{{> postView}}
+			{{> postViewExcerpt}}
 		{{/each}}
 	</div>
 </template>
 
 
-<template name="postView">
+<template name="postViewExcerpt">
 	<article class="post off-page">
 		<h3 class="post-title title">
 			<a href="#" class="post-link">{{{title}}}</a>

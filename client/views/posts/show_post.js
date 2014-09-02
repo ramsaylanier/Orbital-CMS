@@ -39,8 +39,9 @@ Template.editPost.events({
 	'mouseup .post-content': function(event){
 		var editor = $('.sidebar-editor');
 		var selection = getSelected();
+		console.log(selection.getRangeAt(0).startContainer);
 		if (selection.type == 'Range'){
-			targetY = selection.anchorNode.parentNode.offsetTop - editor.outerHeight() - 40;
+			targetY = selection.anchorNode.parentNode.offsetTop - editor.outerHeight();
 			targetY = (targetY > 0) ? targetY : 0;
 			targetX = event.pageX - editor.outerWidth() / 2;
 			editor.css({
