@@ -10,6 +10,10 @@ UI.registerHelper('posts', function(){
 	return Posts.find({},{sort: {submitted: -1}});
 })
 
+UI.registerHelper('publishedDate', function(date){
+	return moment().calendar(date);
+})
+
 Template.layout.events({
 	'click .admin-controls-btn': function(e){
 		e.preventDefault();

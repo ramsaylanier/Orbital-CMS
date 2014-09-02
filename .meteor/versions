@@ -55,6 +55,7 @@ meteorhacks:subs-manager@1.1.0
 minifiers@1.0.2
 minimongo@1.0.1
 mongo-livedata@1.0.3
+mrt:moment@2.8.1
 npm-bcrypt@0.7.7
 observe-sequence@1.0.1
 ordered-dict@1.0.0

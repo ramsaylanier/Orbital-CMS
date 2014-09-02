@@ -715,9 +715,10 @@ p + .drop-cap {
   transition: all 400ms cubic-bezier(0.35, -0.06, 0.15, 1.1) 0ms;
   z-index: 1;
 }
-/* line 14, scss/_posts.scss */
-.post-container .page-title {
-  margin-bottom: 1.5rem;
+
+/* line 15, scss/_posts.scss */
+.post-date {
+  font-size: .8rem;
 }
 
 /* line 19, scss/_posts.scss */

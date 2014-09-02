@@ -15,7 +15,7 @@ Meteor.methods({
 			// }
 
 			var post = _.extend(_.pick(postAttributes, 'title', 'slug', 'content'), {
-				submitted: new Date().getTime()
+				submitted: moment()
 			});
 
 			var postId = Posts.insert(post);
@@ -34,7 +34,7 @@ Meteor.methods({
 			}
 
 			var post = _.extend(_.pick(postAttributes, 'title', 'content'), {
-				edited: new Date().getTime()
+				edited: moment()
 			});
 
 			Posts.update({_id: postId}, {$set: {

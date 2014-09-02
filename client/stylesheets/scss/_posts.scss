@@ -10,10 +10,10 @@
 	@include opacity(1.0);
 	@include transition(all 400ms cubic-bezier(.35,-0.06,.15,1.10) 0ms);
 	z-index: 1;
+}
 
-	.page-title{
-		margin-bottom: 1.5rem;
-	}
+.post-date{
+	font-size: .8rem;
 }
 
 .post-container.off-page{
@@ -40,4 +40,8 @@
 		@include transition(all 800ms cubic-bezier(.35,-0.06,.15,.95) 150ms);
 		top: -100px;
 	}
+}
+
+.post-date{
+
 }
