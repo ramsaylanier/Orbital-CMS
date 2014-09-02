@@ -23,6 +23,7 @@ cfs-ui@0.0.0
 cfs-upload-http@0.0.0
 cfs-worker@0.0.0
 check@1.0.0
+codepoet:medium-editor-npm@0.0.1
 collectionfs@0.0.0
 ctl-helper@1.0.2
 ctl@1.0.0

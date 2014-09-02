@@ -80,6 +80,6 @@ Template.addPage.helpers({
 	},
 	getTemplates: function(){
 		var templates = _.filter(_.keys(Template), function(name){return name.match('template');});
-		return _.map(templates, function(name){ return name.replace(/_/g, ' ');});
+		return _.map(templates, function(name){ return name.replace(/_/g, ' ')} );
 	}
 })

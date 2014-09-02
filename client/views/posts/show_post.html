@@ -1,7 +1,4 @@
 <template name="showPost">
-{{#if editMode}}
-		{{>editor}}
-	{{/if}}
 	<div class="post-container off-page">
 		{{#if isInRole 'admin'}}
 			<button class="edit-post-btn edit-btn btn">Edit</button>
@@ -16,6 +13,7 @@
 </template>
 
 <template name="editPost">
+	{{>editor}}
 	<div class="post-inner inner with-sidebar edit-mode">
 		{{> errors}}
 		<form name="edit-post editable">
@@ -34,7 +32,7 @@
 				{{/if}}
 			</div>
 			
-			<h1 class="post-title title" contenteditable="true">{{title}}</h1>
+			<h1 class="post-title title" contenteditable="true">{{{title}}}</h1>
 
 			<div class="post-content" contenteditable="true">
 				{{{content}}}
@@ -56,7 +54,7 @@
 
 <template name="postSingle">
 	<div class="post-inner inner">
-		<h1 class="post-title title">{{title}}</h1>
+		<h1 class="post-title title">{{{title}}}</h1>
 
 		<div class="post-content content">
 			{{{content}}}

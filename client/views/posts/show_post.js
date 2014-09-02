@@ -36,6 +36,22 @@ Template.editPost.rendered = function(){
 
 
 Template.editPost.events({
+	'mouseup .post-content': function(event){
+		var editor = $('.sidebar-editor');
+		var selection = getSelected();
+		if (selection.type == 'Range'){
+			targetY = selection.anchorNode.parentNode.offsetTop - editor.outerHeight() - 40;
+			targetY = (targetY > 0) ? targetY : 0;
+			targetX = event.pageX - editor.outerWidth() / 2;
+			editor.css({
+				"top": targetY,
+				"left": targetX
+			});
+			editor.addClass('shown');
+		} else {
+			editor.removeClass('shown');
+		}
+	},
 	'click .save-post-btn': function(e, template){
 		e.preventDefault();
 
@@ -51,7 +67,8 @@ Template.editPost.events({
 			if (error){
 				throwError(error.reason, 'error')
 			} else {
-				throwError('Post updated.', 'success')
+				Session.set('editMode', false);
+				throwError('Post updated.', 'success');
 			}
 		})
 	},
@@ -72,5 +89,26 @@ Template.editPost.events({
 		data = Media.find();
 		postId = this._id;
 	    UI.insert(UI.renderWithData(Template.setFeaturedImage, data, parent), $('.container').get(0));
+	},
+	'paste .post-content': function(e){
+		e.preventDefault();
+	    var text = (e.originalEvent || e).clipboardData.getData('text/plain') || prompt('Paste something..');
+	    document.execCommand('insertText', false, text);
 	}
 })
+
+function getSelected() {
+	if(window.getSelection)
+		return window.getSelection(); 
+	else if(document.getSelection)
+		return document.getSelection(); 
+	else {
+		var selection = document.selection && document.selection.createRange();
+        if(selection.text) { 
+        	return selection.text; 
+        }
+        
+        return false;
+    }
+        return false;
+}
