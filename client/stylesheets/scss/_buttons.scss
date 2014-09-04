@@ -14,6 +14,19 @@
 	cursor: pointer;
 }
 
+.insert-content-btn{
+	height: 35px;
+	width: 35px;
+	font-size: 1rem;
+	line-height: 0rem;
+	border: 1px solid $dark-grey;
+	@include border-radius(50%);
+	position: absolute;
+	left: -50px;
+	top: 0px;
+	@include transition(all 300ms ease-out);
+}
+
 .submit-btn{
 	position: fixed;
 	top: 500px;

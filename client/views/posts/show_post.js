@@ -53,6 +53,12 @@ Template.editPost.events({
 			editor.removeClass('shown');
 		}
 	},
+	'click .post-content': function(event){
+		console.log(event);
+		$('.insert-content-btn').css({
+			"top": event.pageY
+		})
+	},
 	'click .save-post-btn': function(e, template){
 		e.preventDefault();
 

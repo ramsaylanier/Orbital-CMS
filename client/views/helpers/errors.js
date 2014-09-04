@@ -20,10 +20,14 @@ Template.error.rendered = function(){
 	Meteor.defer(function(){
 		Errors.update(error._id, {$set: {seen: true}});
 	});
+
+	setTimeout(function(){
+		$('.alert').fadeOut(1500);
+	}, 1500);
 }
 
 Template.error.events({
-	'click .close-error-btn': function(e, template){
-		Errors.remove({_id: template.data._id});
+	'click .close-error-btn': function(e){	
+		$(e.target).parent('.alert').remove();
 	}
 });

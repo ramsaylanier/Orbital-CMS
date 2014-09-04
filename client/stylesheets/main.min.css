@@ -991,13 +991,34 @@ p + .drop-cap {
 }
 
 /* line 17, scss/_buttons.scss */
+.insert-content-btn {
+  height: 35px;
+  width: 35px;
+  font-size: 1rem;
+  line-height: 0rem;
+  border: 1px solid #342f2f;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+  border-radius: 50%;
+  position: absolute;
+  left: -50px;
+  top: 0px;
+  -webkit-transition: all 300ms ease-out;
+  -moz-transition: all 300ms ease-out;
+  -o-transition: all 300ms ease-out;
+  transition: all 300ms ease-out;
+}
+
+/* line 30, scss/_buttons.scss */
 .submit-btn {
   position: fixed;
   top: 500px;
   left: 20px;
 }
 
-/* line 23, scss/_buttons.scss */
+/* line 36, scss/_buttons.scss */
 .admin-controls-btn {
   position: fixed;
   top: 10px;
@@ -1010,17 +1031,17 @@ p + .drop-cap {
   -o-transition: all 400ms cubic-bezier(0.35, -0.06, 0.15, 1.1) 0ms;
   transition: all 400ms cubic-bezier(0.35, -0.06, 0.15, 1.1) 0ms;
 }
-/* line 31, scss/_buttons.scss */
+/* line 44, scss/_buttons.scss */
 .admin-controls-btn.admin-active {
   background-color: white;
   color: #342f2f;
 }
-/* line 36, scss/_buttons.scss */
+/* line 49, scss/_buttons.scss */
 .admin-controls-btn.off-page {
   left: -50px;
 }
 
-/* line 41, scss/_buttons.scss */
+/* line 54, scss/_buttons.scss */
 .page-btn {
   position: absolute;
   overflow: hidden;
@@ -1032,14 +1053,14 @@ p + .drop-cap {
   -o-transition: all 400ms cubic-bezier(0.35, -0.06, 0.15, 1.1) 0ms;
   transition: all 400ms cubic-bezier(0.35, -0.06, 0.15, 1.1) 0ms;
 }
-/* line 48, scss/_buttons.scss */
+/* line 61, scss/_buttons.scss */
 .page-btn img {
   width: 30px;
   height: 30px;
   float: right;
   border: 2px solid #342f2f;
 }
-/* line 55, scss/_buttons.scss */
+/* line 68, scss/_buttons.scss */
 .page-btn .save-text {
   height: 30px;
   color: #342f2f;
@@ -1050,22 +1071,22 @@ p + .drop-cap {
   display: block;
 }
 
-/* line 66, scss/_buttons.scss */
+/* line 79, scss/_buttons.scss */
 .save-page-btn, .save-post-btn {
   top: 10px;
   right: 10px;
 }
-/* line 70, scss/_buttons.scss */
+/* line 83, scss/_buttons.scss */
 .save-page-btn:hover, .save-post-btn:hover {
   width: 90px;
 }
 
-/* line 75, scss/_buttons.scss */
+/* line 88, scss/_buttons.scss */
 .delete-page-btn, .delete-post-btn {
   top: 50px;
   right: 10px;
 }
-/* line 79, scss/_buttons.scss */
+/* line 92, scss/_buttons.scss */
 .delete-page-btn:hover, .delete-post-btn:hover {
   width: 110px;
 }
@@ -1202,7 +1223,23 @@ p + .drop-cap {
   padding: 0rem 0rem 1rem 0rem;
 }
 
-/* line 18, scss/main.min.scss */
+/* line 1, scss/_alerts.scss */
+.alert {
+  position: fixed;
+  bottom: 0px;
+  width: 100%;
+  padding: 15px;
+  -webkit-transition: opacity 300ms ease-out;
+  -moz-transition: opacity 300ms ease-out;
+  -o-transition: opacity 300ms ease-out;
+  transition: opacity 300ms ease-out;
+  opacity: 1.0;
+  background-color: red;
+  color: white;
+  z-index: 1000;
+}
+
+/* line 19, scss/main.min.scss */
 * {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -1210,27 +1247,27 @@ p + .drop-cap {
   outline: none;
 }
 
-/* line 23, scss/main.min.scss */
+/* line 24, scss/main.min.scss */
 b {
   font-weight: 900;
 }
 
-/* line 27, scss/main.min.scss */
+/* line 28, scss/main.min.scss */
 a {
   text-decoration: none;
 }
 
-/* line 31, scss/main.min.scss */
+/* line 32, scss/main.min.scss */
 body {
   background-color: #342f2f;
 }
 
-/* line 35, scss/main.min.scss */
+/* line 36, scss/main.min.scss */
 .hidden {
   display: none;
 }
 
-/* line 39, scss/main.min.scss */
+/* line 40, scss/main.min.scss */
 .clearfix {
   *zoom: 1;
 }
@@ -1241,17 +1278,17 @@ body {
   clear: both;
 }
 
-/* line 43, scss/main.min.scss */
+/* line 44, scss/main.min.scss */
 .inline {
   display: inline-block;
 }
 
-/* line 47, scss/main.min.scss */
+/* line 48, scss/main.min.scss */
 .block {
   display: block;
 }
 
-/* line 51, scss/main.min.scss */
+/* line 52, scss/main.min.scss */
 .application {
   position: relative;
   -webkit-perspective: 2000px;
@@ -1266,21 +1303,20 @@ body {
   transform-style: preserve-3d;
 }
 
-/* line 57, scss/main.min.scss */
+/* line 58, scss/main.min.scss */
 .left-align {
   text-align: left;
 }
 
-/* line 61, scss/main.min.scss */
+/* line 62, scss/main.min.scss */
 .right-align {
   text-align: right;
 }
 
-/* line 65, scss/main.min.scss */
+/* line 66, scss/main.min.scss */
 .container {
   width: 100%;
   min-height: 100vh;
-  float: left;
   position: relative;
   background-color: white;
   overflow: auto;

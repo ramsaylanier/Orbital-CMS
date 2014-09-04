@@ -15,7 +15,6 @@
 <template name="editPost">
 	{{>editor}}
 	<div class="post-inner inner with-sidebar edit-mode">
-		{{> errors}}
 		<form name="edit-post editable">
 
 			<div class="featured-image-field">
@@ -36,6 +35,7 @@
 
 			<div class="post-content" contenteditable="true">
 				{{{content}}}
+				{{> insertContentButton}}
 			</div>
 
 			<a href="#" class="save-post-btn page-btn">
@@ -60,4 +60,8 @@
 			{{{content}}}
 		</div>
 	</div>
+</template>
+
+<template name="insertContentButton">
+	<button class="btn insert-content-btn">+</button>
 </template>

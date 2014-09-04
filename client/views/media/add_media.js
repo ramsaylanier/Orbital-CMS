@@ -19,7 +19,7 @@ Template.addMedia.events({
     e.preventDefault();
     $('.fileUploader').click();
   },
-  'click .delete-file': function(e) {
+  'click .delete-file-btn': function(e) {
     Media.remove(this._id);
   },
   'click .media-modal-btn': function(e){

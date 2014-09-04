@@ -1,0 +1,11 @@
+.alert{
+	position: fixed;
+	bottom: 0px;
+	width: 100%;
+	padding: 15px;
+	@include transition(opacity 300ms ease-out);
+	opacity: 1.0;
+	background-color: red;
+	color: white;
+	z-index: 1000;
+}
