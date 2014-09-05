@@ -1005,20 +1005,25 @@ p + .drop-cap {
   position: absolute;
   left: -50px;
   top: 0px;
+  opacity: 1.0;
   -webkit-transition: all 300ms ease-out;
   -moz-transition: all 300ms ease-out;
   -o-transition: all 300ms ease-out;
   transition: all 300ms ease-out;
 }
-
 /* line 30, scss/_buttons.scss */
+.insert-content-btn.off-page {
+  opacity: 0.0;
+}
+
+/* line 35, scss/_buttons.scss */
 .submit-btn {
   position: fixed;
   top: 500px;
   left: 20px;
 }
 
-/* line 36, scss/_buttons.scss */
+/* line 41, scss/_buttons.scss */
 .admin-controls-btn {
   position: fixed;
   top: 10px;
@@ -1031,17 +1036,17 @@ p + .drop-cap {
   -o-transition: all 400ms cubic-bezier(0.35, -0.06, 0.15, 1.1) 0ms;
   transition: all 400ms cubic-bezier(0.35, -0.06, 0.15, 1.1) 0ms;
 }
-/* line 44, scss/_buttons.scss */
+/* line 49, scss/_buttons.scss */
 .admin-controls-btn.admin-active {
   background-color: white;
   color: #342f2f;
 }
-/* line 49, scss/_buttons.scss */
+/* line 54, scss/_buttons.scss */
 .admin-controls-btn.off-page {
   left: -50px;
 }
 
-/* line 54, scss/_buttons.scss */
+/* line 59, scss/_buttons.scss */
 .page-btn {
   position: absolute;
   overflow: hidden;
@@ -1053,14 +1058,14 @@ p + .drop-cap {
   -o-transition: all 400ms cubic-bezier(0.35, -0.06, 0.15, 1.1) 0ms;
   transition: all 400ms cubic-bezier(0.35, -0.06, 0.15, 1.1) 0ms;
 }
-/* line 61, scss/_buttons.scss */
+/* line 66, scss/_buttons.scss */
 .page-btn img {
   width: 30px;
   height: 30px;
   float: right;
   border: 2px solid #342f2f;
 }
-/* line 68, scss/_buttons.scss */
+/* line 73, scss/_buttons.scss */
 .page-btn .save-text {
   height: 30px;
   color: #342f2f;
@@ -1071,22 +1076,22 @@ p + .drop-cap {
   display: block;
 }
 
-/* line 79, scss/_buttons.scss */
+/* line 84, scss/_buttons.scss */
 .save-page-btn, .save-post-btn {
   top: 10px;
   right: 10px;
 }
-/* line 83, scss/_buttons.scss */
+/* line 88, scss/_buttons.scss */
 .save-page-btn:hover, .save-post-btn:hover {
   width: 90px;
 }
 
-/* line 88, scss/_buttons.scss */
+/* line 93, scss/_buttons.scss */
 .delete-page-btn, .delete-post-btn {
   top: 50px;
   right: 10px;
 }
-/* line 92, scss/_buttons.scss */
+/* line 97, scss/_buttons.scss */
 .delete-page-btn:hover, .delete-post-btn:hover {
   width: 110px;
 }

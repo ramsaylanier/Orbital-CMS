@@ -32,6 +32,7 @@ Template.showPost.events({
 
 Template.editPost.rendered = function(){
 	$('.title').focus();
+	$('.insert-content-btn').addClass('off-page');
 }
 
 
@@ -39,7 +40,7 @@ Template.editPost.events({
 	'mouseup .post-content': function(event){
 		var editor = $('.sidebar-editor');
 		var selection = getSelected();
-		console.log(selection.getRangeAt(0).startContainer);
+
 		if (selection.type == 'Range'){
 			targetY = selection.anchorNode.parentNode.offsetTop - editor.outerHeight();
 			targetY = (targetY > 0) ? targetY : 0;
@@ -54,10 +55,15 @@ Template.editPost.events({
 		}
 	},
 	'click .post-content': function(event){
-		console.log(event);
-		$('.insert-content-btn').css({
-			"top": event.pageY
-		})
+		if (!($(event.target).hasClass('post-content'))){
+			$('.insert-content-btn').removeClass('off-page');
+			$('.insert-content-btn').css({
+				"top": event.target.offsetTop
+			})
+		}
+	},
+	'keydown .post-content': function(event){
+		$('.insert-content-btn').addClass('off-page');
 	},
 	'click .save-post-btn': function(e, template){
 		e.preventDefault();
@@ -119,3 +125,9 @@ function getSelected() {
     }
         return false;
 }
+
+Template.insertContentButton.events({
+	'click .insert-content-btn': function(event){
+		event.preventDefault();
+	}
+})
