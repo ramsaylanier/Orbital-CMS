@@ -39,3 +39,35 @@
 		}
 	}
 }
+
+.insert-content-menu{
+	position: absolute;
+	@include transition(all 300ms ease-out);
+
+	&.is-active{
+		.insert-content-menu-icons{
+			opacity: 1.0;
+		}
+	}
+}
+
+.insert-content-btn{
+	height: 35px;
+	width: 35px;
+	font-size: 1rem;
+	line-height: 0rem;
+	border: 1px solid $dark-grey;
+	@include border-radius(50%);
+	position: absolute;
+	left: -50px;
+	top: 0px;
+	opacity: 1.0;
+	@include transition(all 300ms ease-out);
+}
+
+.insert-content-menu-icons{
+	width: 200px;
+	height: 70px;
+	opacity: 0.0;
+	@include transition(all 300ms ease-out);
+}

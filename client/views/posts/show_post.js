@@ -56,8 +56,8 @@ Template.editPost.events({
 	},
 	'click .post-content': function(event){
 		if (!($(event.target).hasClass('post-content'))){
-			$('.insert-content-btn').removeClass('off-page');
-			$('.insert-content-btn').css({
+			$('.insert-content-menu').removeClass('off-page');
+			$('.insert-content-menu').css({
 				"top": event.target.offsetTop
 			})
 		}
@@ -129,5 +129,6 @@ function getSelected() {
 Template.insertContentButton.events({
 	'click .insert-content-btn': function(event){
 		event.preventDefault();
+		$('.insert-content-menu').toggleClass('is-active');
 	}
 })
