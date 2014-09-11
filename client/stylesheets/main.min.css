@@ -1205,17 +1205,36 @@ p + .drop-cap {
 /* line 43, scss/_editor.scss */
 .insert-content-menu {
   position: absolute;
+  height: 35px;
+  background-color: transparent;
   -webkit-transition: all 300ms ease-out;
   -moz-transition: all 300ms ease-out;
   -o-transition: all 300ms ease-out;
   transition: all 300ms ease-out;
 }
-/* line 48, scss/_editor.scss */
+/* line 49, scss/_editor.scss */
+.insert-content-menu.is-active {
+  background-color: #222222;
+}
+/* line 51, scss/_editor.scss */
 .insert-content-menu.is-active .insert-content-menu-icons {
-  opacity: 1.0;
+  max-width: 200px;
+}
+/* line 55, scss/_editor.scss */
+.insert-content-menu.is-active .insert-content-btn {
+  -webkit-transform: rotate(90deg);
+  -moz-transform: rotate(90deg);
+  -ms-transform: rotate(90deg);
+  -o-transform: rotate(90deg);
+  transform: rotate(90deg);
+  -webkit-border-radius: 0px;
+  -moz-border-radius: 0px;
+  -ms-border-radius: 0px;
+  -o-border-radius: 0px;
+  border-radius: 0px;
 }
 
-/* line 54, scss/_editor.scss */
+/* line 62, scss/_editor.scss */
 .insert-content-btn {
   height: 35px;
   width: 35px;
@@ -1228,7 +1247,7 @@ p + .drop-cap {
   -o-border-radius: 50%;
   border-radius: 50%;
   position: absolute;
-  left: -50px;
+  left: -35px;
   top: 0px;
   opacity: 1.0;
   -webkit-transition: all 300ms ease-out;
@@ -1237,11 +1256,11 @@ p + .drop-cap {
   transition: all 300ms ease-out;
 }
 
-/* line 68, scss/_editor.scss */
+/* line 76, scss/_editor.scss */
 .insert-content-menu-icons {
-  width: 200px;
-  height: 70px;
-  opacity: 0.0;
+  height: 35px;
+  max-width: 0px;
+  overflow: hidden;
   -webkit-transition: all 300ms ease-out;
   -moz-transition: all 300ms ease-out;
   -o-transition: all 300ms ease-out;
