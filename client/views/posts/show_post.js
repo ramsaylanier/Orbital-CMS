@@ -55,14 +55,21 @@ Template.editPost.events({
 		}
 	},
 	'click .post-content': function(event){
-		if (!($(event.target).hasClass('post-content'))){
-			$('.insert-content-menu').removeClass('off-page');
-			$('.insert-content-menu').css({
-				"top": event.target.offsetTop
-			})
+		if (!$(event.target).hasClass('post-content')){
+
+			if (event.target.innerHTML == "<br>"){
+				$('.insert-content-menu').removeClass('off-page');
+				$('.insert-content-menu').css({
+					"top": event.target.offsetTop
+				})
+			} else {
+				$('.insert-content-menu').addClass('off-page');
+			}
+	
 		}
 	},
 	'keydown .post-content': function(event){
+		console.log(event);
 		$('.insert-content-btn').addClass('off-page');
 	},
 	'click .save-post-btn': function(e, template){

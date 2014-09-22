@@ -47,7 +47,7 @@
 	left: -40px;
 	padding-top: 2px;
 	margin-top: -10px;
-	background-color: transparent;
+	background-color: $dark-grey;
 	overflow: hidden;
 	@include transition(all 300ms ease-out);
 
@@ -60,25 +60,45 @@
 
 		.insert-content-btn{
 			color: white;
-			@include rotate(45deg);
-			@include border-radius(0px);
+
+			&:after{
+				@include rotate(45deg);
+			}
 		}
+	}
+
+	&.off-page{
+		opacity: 0.0;
 	}
 }
 
 .insert-content-btn{
+	position: relative;
 	height: 39px;
 	width: 39px;
 	font-size: 1rem;
 	line-height: 0rem;
-	color: $blue;
-	font-weight: 900;
-	@include border-radius(50%);
+	color: white;
 	position: relative;
-	background-color: transparent;
+	background-color: $dark-grey;
+	z-index: 100;
 	left: 0;
 	top: 0;
 	@include transition(all 300ms ease-out);
+
+	&:after{
+		content: "+";
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		top: 0;
+		left: 0;
+		font-size: 1.2rem;
+		line-height: 2rem;
+		font-weight: 900;
+		@include rotate(0deg);
+		@include transition(all 300ms ease-out);
+	}
 }
 
 .insert-content-menu-icons{
@@ -88,7 +108,7 @@
 	height: 39px;
 	overflow: hidden;
 	@include transition(all 300ms ease-out);
-	@include translate3d(0px, -100px, 0px);
+	@include translate3d(-200px, 0px, 0px);
 }
 
 .add-content-icon{
