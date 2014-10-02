@@ -58,6 +58,10 @@ Template.editPost.events({
 		if (!$(event.target).hasClass('post-content')){
 
 			if (event.target.innerHTML == "<br>"){
+				$('p').removeClass('is-empty');
+
+				$(event.target).addClass('is-empty');
+
 				$('.insert-content-menu').removeClass('off-page');
 				$('.insert-content-menu').css({
 					"top": event.target.offsetTop
@@ -69,13 +73,10 @@ Template.editPost.events({
 		}
 	},
 	'keydown .post-content': function(event){
-		console.log(event);
 		$('.insert-content-btn').addClass('off-page');
 	},
 	'click .save-post-btn': function(e, template){
 		e.preventDefault();
-
-		console.log($('#template-type').val());
 
 		var updatedPost = {
 			title: $('.post-title').html(),
@@ -110,6 +111,7 @@ Template.editPost.events({
 		postId = this._id;
 	    UI.insert(UI.renderWithData(Template.setFeaturedImage, data, parent), $('.container').get(0));
 	},
+
 	'paste .post-content': function(e){
 		e.preventDefault();
 	    var text = (e.originalEvent || e).clipboardData.getData('text/plain') || prompt('Paste something..');
@@ -137,5 +139,10 @@ Template.insertContentButton.events({
 	'click .insert-content-btn': function(event){
 		event.preventDefault();
 		$('.insert-content-menu').toggleClass('is-active');
+	},
+
+	'click .add-hr-icon': function(event){
+		console.log(event);
+		$('.is-empty').html('<hr>');
 	}
 })
