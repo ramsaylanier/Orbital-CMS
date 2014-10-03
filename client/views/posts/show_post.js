@@ -58,7 +58,7 @@ Template.editPost.events({
 		if (!$(event.target).hasClass('post-content')){
 
 			if (event.target.innerHTML == "<br>"){
-				$('p').removeClass('is-empty');
+				$('*').removeClass('is-empty');
 
 				$(event.target).addClass('is-empty');
 
@@ -72,8 +72,25 @@ Template.editPost.events({
 	
 		}
 	},
-	'keydown .post-content': function(event){
+	'click .post-section-inner': function(event){
+		console.log('click');
+	},
+	'keydown .post-section': function(event){
 		$('.insert-content-btn').addClass('off-page');
+
+		if ($(event.target).children().length > 1)
+			$(event.target).parent().removeClass('empty-section');
+
+	    if (event.keyCode === 13) {
+	    	if ($(event.target).parent().hasClass('code-section')){
+	    		document.execCommand('insertHTML', false, '<code><br></code>');
+	    	} else {
+				document.execCommand('insertHTML', false, '<p><br></p>');
+			}
+
+		    // prevent the default behaviour of return key pressed
+		    return false;
+	    }
 	},
 	'click .save-post-btn': function(e, template){
 		e.preventDefault();
@@ -142,7 +159,31 @@ Template.insertContentButton.events({
 	},
 
 	'click .add-hr-icon': function(event){
-		console.log(event);
-		$('.is-empty').html('<hr>');
+		var parentPostSection = $('.is-empty').parent('.post-section-inner').parent('.post-section');
+		var hrSection = '<section class="post-section hr-section" contenteditable="false"><div class="post-section-inner" contenteditable="true"><hr></div></section>';
+		var emptySection = '<section class="post-section newest-section empty-section" contenteditable="false"><div class="post-section-inner" contenteditable="true"><p><br></p></div></section>';
+
+		checkForEmpty(parentPostSection, hrSection, emptySection);
+	},
+	'click .add-code-icon': function(event){
+		var parentPostSection = $('.is-empty').parent('.post-section-inner').parent('.post-section');
+		var codeSection = '<section class="post-section code-section" contenteditable="false"><div class="post-section-inner" contenteditable="true"><code><br></code></div></section>';
+		var emptySection = '<section class="post-section newest-section empty-section" contenteditable="false"><div class="post-section-inner" contenteditable="true"><p><br></p></div></section>';
+		
+		checkForEmpty(parentPostSection, codeSection, emptySection);
 	}
 })
+
+function checkForEmpty(parentSection, newSection, emptySection){
+	$('.insert-content-menu').toggleClass('is-active');
+	parentSection.removeClass('newest-section');
+	if (parentSection.text().length == 0){
+		parentSection.html(newSection);
+		parentSection.after(emptySection);
+	}
+	else {
+		parentSection.after(newSection + emptySection);
+	}
+
+	$('.is-empty').remove();
+}

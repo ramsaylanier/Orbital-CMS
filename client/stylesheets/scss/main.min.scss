@@ -29,6 +29,17 @@ a{
 	text-decoration: none;
 }
 
+hr{
+	margin-bottom: 1.5rem;
+}
+
+code{
+	background-color: $light-grey;
+	color: $dark-grey;
+	padding: 5px 15px;
+	display: block;
+}
+
 body{
 	background-color: $dark-grey;
 }
@@ -58,6 +69,7 @@ body{
 .left-align{
 	text-align: left;
 }
+
 
 .right-align{
 	text-align: right;
