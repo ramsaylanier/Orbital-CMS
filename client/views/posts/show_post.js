@@ -161,7 +161,7 @@ Template.insertContentButton.events({
 	'click .add-hr-icon': function(event){
 		var parentPostSection = $('.is-empty').parent('.post-section-inner').parent('.post-section');
 		var hrSection = '<section class="post-section hr-section" contenteditable="false"><div class="post-section-inner" contenteditable="true"><hr></div></section>';
-		var emptySection = '<section class="post-section newest-section empty-section" contenteditable="false"><div class="post-section-inner" contenteditable="true"><p><br></p></div></section>';
+		var emptySection = '<section class="post-section newest-section empty-section" contenteditable="false"><div class="post-section-inner" contenteditable="true"><p class="is-empty"><br></p></div></section>';
 
 		checkForEmpty(parentPostSection, hrSection, emptySection);
 	},
@@ -175,6 +175,7 @@ Template.insertContentButton.events({
 })
 
 function checkForEmpty(parentSection, newSection, emptySection){
+	$('.is-empty').remove();
 	$('.insert-content-menu').toggleClass('is-active');
 	parentSection.removeClass('newest-section');
 	if (parentSection.text().length == 0){
@@ -184,6 +185,4 @@ function checkForEmpty(parentSection, newSection, emptySection){
 	else {
 		parentSection.after(newSection + emptySection);
 	}
-
-	$('.is-empty').remove();
 }

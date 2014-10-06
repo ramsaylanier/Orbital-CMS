@@ -26,11 +26,18 @@
 	left: 10px;
 	z-index: 999;
 	cursor: pointer;
+	height: 30px;
+	width: 30px;
+	line-height: 0;
+	color: $dark-grey;
+	background-color: white;
+	@include transform(rotate(-45deg));
 	@include transition(all 400ms cubic-bezier(.35,-0.06,.15,1.10) 0ms);
 
 	&.admin-active{
 		background-color: white;
 		color: $dark-grey;
+		@include transform(rotate(0deg));
 	}
 
 	&.off-page{

@@ -1009,23 +1009,38 @@ p + .drop-cap {
   left: 10px;
   z-index: 999;
   cursor: pointer;
+  height: 30px;
+  width: 30px;
+  line-height: 0;
+  color: #342f2f;
+  background-color: white;
+  -webkit-transform: rotate(-45deg);
+  -moz-transform: rotate(-45deg);
+  -ms-transform: rotate(-45deg);
+  -o-transform: rotate(-45deg);
+  transform: rotate(-45deg);
   -webkit-transition: all 400ms cubic-bezier(0.35, -0.06, 0.15, 1.1);
   -webkit-transition-delay: 0ms;
   -moz-transition: all 400ms cubic-bezier(0.35, -0.06, 0.15, 1.1) 0ms;
   -o-transition: all 400ms cubic-bezier(0.35, -0.06, 0.15, 1.1) 0ms;
   transition: all 400ms cubic-bezier(0.35, -0.06, 0.15, 1.1) 0ms;
 }
-/* line 31, scss/_buttons.scss */
+/* line 37, scss/_buttons.scss */
 .admin-controls-btn.admin-active {
   background-color: white;
   color: #342f2f;
+  -webkit-transform: rotate(0deg);
+  -moz-transform: rotate(0deg);
+  -ms-transform: rotate(0deg);
+  -o-transform: rotate(0deg);
+  transform: rotate(0deg);
 }
-/* line 36, scss/_buttons.scss */
+/* line 43, scss/_buttons.scss */
 .admin-controls-btn.off-page {
   left: -50px;
 }
 
-/* line 41, scss/_buttons.scss */
+/* line 48, scss/_buttons.scss */
 .page-btn {
   position: absolute;
   overflow: hidden;
@@ -1037,14 +1052,14 @@ p + .drop-cap {
   -o-transition: all 400ms cubic-bezier(0.35, -0.06, 0.15, 1.1) 0ms;
   transition: all 400ms cubic-bezier(0.35, -0.06, 0.15, 1.1) 0ms;
 }
-/* line 48, scss/_buttons.scss */
+/* line 55, scss/_buttons.scss */
 .page-btn img {
   width: 30px;
   height: 30px;
   float: right;
   border: 2px solid #342f2f;
 }
-/* line 55, scss/_buttons.scss */
+/* line 62, scss/_buttons.scss */
 .page-btn .save-text {
   height: 30px;
   color: #342f2f;
@@ -1055,22 +1070,22 @@ p + .drop-cap {
   display: block;
 }
 
-/* line 66, scss/_buttons.scss */
+/* line 73, scss/_buttons.scss */
 .save-page-btn, .save-post-btn {
   top: 10px;
   right: 10px;
 }
-/* line 70, scss/_buttons.scss */
+/* line 77, scss/_buttons.scss */
 .save-page-btn:hover, .save-post-btn:hover {
   width: 90px;
 }
 
-/* line 75, scss/_buttons.scss */
+/* line 82, scss/_buttons.scss */
 .delete-page-btn, .delete-post-btn {
   top: 50px;
   right: 10px;
 }
-/* line 79, scss/_buttons.scss */
+/* line 86, scss/_buttons.scss */
 .delete-page-btn:hover, .delete-post-btn:hover {
   width: 110px;
 }
@@ -1211,48 +1226,46 @@ p + .drop-cap {
 .insert-content-menu {
   position: absolute;
   height: 43px;
-  width: 39px;
   left: -40px;
   padding-top: 2px;
   margin-top: -10px;
-  background-color: #342f2f;
-  overflow: hidden;
+  z-index: -1;
   -webkit-transition: all 300ms ease-out;
   -moz-transition: all 300ms ease-out;
   -o-transition: all 300ms ease-out;
   transition: all 300ms ease-out;
 }
-/* line 54, scss/_editor.scss */
+/* line 52, scss/_editor.scss */
 .insert-content-menu.is-active {
-  width: 202px;
-  background-color: #342f2f;
+  z-index: 100;
 }
-/* line 57, scss/_editor.scss */
-.insert-content-menu.is-active .insert-content-menu-icons {
-  -webkit-transform: translate3d(0px, 0px, 0px);
-  -moz-transform: translate3d(0px, 0px, 0px);
-  -ms-transform: translate3d(0px, 0px, 0px);
-  -o-transform: translate3d(0px, 0px, 0px);
-  transform: translate3d(0px, 0px, 0px);
+/* line 54, scss/_editor.scss */
+.insert-content-menu.is-active .add-content-icon {
+  opacity: 1.0;
+  -webkit-transform: scale(1);
+  -moz-transform: scale(1);
+  -ms-transform: scale(1);
+  -o-transform: scale(1);
+  transform: scale(1);
 }
-/* line 61, scss/_editor.scss */
+/* line 59, scss/_editor.scss */
 .insert-content-menu.is-active .insert-content-btn {
   color: white;
 }
-/* line 64, scss/_editor.scss */
+/* line 62, scss/_editor.scss */
 .insert-content-menu.is-active .insert-content-btn:after {
-  -webkit-transform: rotate(45deg);
-  -moz-transform: rotate(45deg);
-  -ms-transform: rotate(45deg);
-  -o-transform: rotate(45deg);
-  transform: rotate(45deg);
+  -webkit-transform: rotate(0deg);
+  -moz-transform: rotate(0deg);
+  -ms-transform: rotate(0deg);
+  -o-transform: rotate(0deg);
+  transform: rotate(0deg);
 }
-/* line 70, scss/_editor.scss */
+/* line 68, scss/_editor.scss */
 .insert-content-menu.off-page {
   opacity: 0.0;
 }
 
-/* line 75, scss/_editor.scss */
+/* line 73, scss/_editor.scss */
 .insert-content-btn {
   position: relative;
   height: 39px;
@@ -1261,10 +1274,12 @@ p + .drop-cap {
   line-height: 0rem;
   color: white;
   position: relative;
-  background-color: #342f2f;
   z-index: 100;
   left: 0;
-  top: 0;
+  top: -12px;
+  background-color: transparent;
+  border-radius: 50%;
+  border: 3px solid #342f2f;
   -webkit-transition: all 300ms ease-out;
   -moz-transition: all 300ms ease-out;
   -o-transition: all 300ms ease-out;
@@ -1272,20 +1287,20 @@ p + .drop-cap {
 }
 /* line 89, scss/_editor.scss */
 .insert-content-btn:after {
-  content: "+";
+  content: '\2716';
   position: absolute;
   width: 100%;
   height: 100%;
   top: 0;
   left: 0;
-  font-size: 1.2rem;
-  line-height: 2rem;
-  font-weight: 900;
-  -webkit-transform: rotate(0deg);
-  -moz-transform: rotate(0deg);
-  -ms-transform: rotate(0deg);
-  -o-transform: rotate(0deg);
-  transform: rotate(0deg);
+  font-size: .9rem;
+  line-height: 1.9rem;
+  color: #342f2f;
+  -webkit-transform: rotate(-45deg);
+  -moz-transform: rotate(-45deg);
+  -ms-transform: rotate(-45deg);
+  -o-transform: rotate(-45deg);
+  transform: rotate(-45deg);
   -webkit-transition: all 300ms ease-out;
   -moz-transition: all 300ms ease-out;
   -o-transition: all 300ms ease-out;
@@ -1293,24 +1308,26 @@ p + .drop-cap {
 }
 
 /* line 104, scss/_editor.scss */
-.insert-content-menu-icons {
-  position: absolute;
-  left: 40px;
-  top: 2px;
-  height: 39px;
-  overflow: hidden;
+.add-content-icon {
+  opacity: 0.0;
+  width: 100px;
+  height: 100px;
+  transform-origin: center center;
+  background-color: white;
+  border-radius: 50%;
+  cursor: pointer;
   -webkit-transition: all 300ms ease-out;
   -moz-transition: all 300ms ease-out;
   -o-transition: all 300ms ease-out;
   transition: all 300ms ease-out;
-  -webkit-transform: translate3d(-200px, 0px, 0px);
-  -moz-transform: translate3d(-200px, 0px, 0px);
-  -ms-transform: translate3d(-200px, 0px, 0px);
-  -o-transform: translate3d(-200px, 0px, 0px);
-  transform: translate3d(-200px, 0px, 0px);
+  -webkit-transform: scale(0);
+  -moz-transform: scale(0);
+  -ms-transform: scale(0);
+  -o-transform: scale(0);
+  transform: scale(0);
 }
 
-/* line 114, scss/_editor.scss */
+/* line 117, scss/_editor.scss */
 .add-content-icon {
   height: 39px;
   width: 39px;
