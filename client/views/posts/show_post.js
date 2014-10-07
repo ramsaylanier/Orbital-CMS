@@ -73,13 +73,13 @@ Template.editPost.events({
 		}
 	},
 	'click .post-section-inner': function(event){
-		console.log('click');
+	
 	},
 	'keydown .post-section': function(event){
 		$('.insert-content-btn').addClass('off-page');
 
-		if ($(event.target).children().length > 1)
-			$(event.target).parent().removeClass('empty-section');
+		// if ($(event.target).children().length > 1)
+		// 	$(event.target).parent().removeClass('empty-section');
 
 	    if (event.keyCode === 13) {
 	    	if ($(event.target).parent().hasClass('code-section')){
@@ -136,22 +136,6 @@ Template.editPost.events({
 	}
 })
 
-function getSelected() {
-	if(window.getSelection)
-		return window.getSelection(); 
-	else if(document.getSelection)
-		return document.getSelection(); 
-	else {
-		var selection = document.selection && document.selection.createRange();
-        if(selection.text) { 
-        	return selection.text; 
-        }
-        
-        return false;
-    }
-        return false;
-}
-
 Template.insertContentButton.events({
 	'click .insert-content-btn': function(event){
 		event.preventDefault();
@@ -161,14 +145,14 @@ Template.insertContentButton.events({
 	'click .add-hr-icon': function(event){
 		var parentPostSection = $('.is-empty').parent('.post-section-inner').parent('.post-section');
 		var hrSection = '<section class="post-section hr-section" contenteditable="false"><div class="post-section-inner" contenteditable="true"><hr></div></section>';
-		var emptySection = '<section class="post-section newest-section empty-section" contenteditable="false"><div class="post-section-inner" contenteditable="true"><p class="is-empty"><br></p></div></section>';
+		var emptySection = '<section class="post-section newest-section" contenteditable="false"><div class="post-section-inner" contenteditable="true"><p class="is-empty"><br></p></div></section>';
 
 		checkForEmpty(parentPostSection, hrSection, emptySection);
 	},
 	'click .add-code-icon': function(event){
 		var parentPostSection = $('.is-empty').parent('.post-section-inner').parent('.post-section');
 		var codeSection = '<section class="post-section code-section" contenteditable="false"><div class="post-section-inner" contenteditable="true"><code><br></code></div></section>';
-		var emptySection = '<section class="post-section newest-section empty-section" contenteditable="false"><div class="post-section-inner" contenteditable="true"><p><br></p></div></section>';
+		var emptySection = '<section class="post-section newest-section" contenteditable="false"><div class="post-section-inner" contenteditable="true"><p><br></p></div></section>';
 		
 		checkForEmpty(parentPostSection, codeSection, emptySection);
 	}
@@ -185,4 +169,20 @@ function checkForEmpty(parentSection, newSection, emptySection){
 	else {
 		parentSection.after(newSection + emptySection);
 	}
+}
+
+function getSelected() {
+	if(window.getSelection)
+		return window.getSelection(); 
+	else if(document.getSelection)
+		return document.getSelection(); 
+	else {
+		var selection = document.selection && document.selection.createRange();
+        if(selection.text) { 
+        	return selection.text; 
+        }
+        
+        return false;
+    }
+        return false;
 }
