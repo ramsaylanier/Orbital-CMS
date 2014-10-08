@@ -1,3 +1,45 @@
 .settings-container{
 	background-color: $light-grey;
+	@include legacy-pie-clearfix;
+}
+
+.settings-header{
+	position: relative;
+
+	&.has-toggle{
+		&:after{
+			content: '\2716';
+			position: absolute;
+			top: 0;
+			right: 20px;
+			font-size: 1rem;
+			line-height: 3.5rem;
+			color: $dark-grey;
+			@include rotate(-45deg);
+			@include transition(all 300ms ease-out);	
+		}
+	}
+
+	&.active{
+		&:after{
+			@include rotate(0deg);
+		}
+	}
+
+	.toggle{
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		display: block;
+		cursor: pointer;
+	}
+}
+
+.settings-content{
+	opacity: 1.0;
+	@include transition(opacity 300ms ease-out);
+
+	&.off-page{
+		opacity: 0.0;
+	}
 }

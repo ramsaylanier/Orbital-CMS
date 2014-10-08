@@ -6,6 +6,8 @@
 @import "login";
 @import "forms";
 @import "typeplate";
+@import "helpers";
+@import "lists";
 @import "pages";
 @import "posts";
 @import "settings";
@@ -44,35 +46,10 @@ body{
 	background-color: $dark-grey;
 }
 
-.hidden{
-	display: none;
-}
-
-.clearfix{
-	@include pie-clearfix;
-}
-
-.inline{
-	display: inline-block;
-}
-
-.block{
-	display: block;
-}
-
 .application{
 	position: relative;
     @include perspective(2000px);
 	@include transform-style(preserve-3d);
-}
-
-.left-align{
-	text-align: left;
-}
-
-
-.right-align{
-	text-align: right;
 }
 
 .container{

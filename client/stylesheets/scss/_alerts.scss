@@ -8,4 +8,8 @@
 	background-color: red;
 	color: white;
 	z-index: 1000;
+
+	&.success{
+		background-color: fade-out($green, .05);
+	}
 }

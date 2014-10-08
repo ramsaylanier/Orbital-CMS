@@ -21,3 +21,11 @@ Meteor.publish('media', function(){
 Meteor.publish('adminRoleExists', function(){
 	return Meteor.users.find({roles: 'admin'},{fields: {'roles': 1}});
 })
+
+Meteor.publish('menus', function(){
+	return Menus.find();
+})
+
+Meteor.publish('categories', function(){
+	return Categories.find();
+})
