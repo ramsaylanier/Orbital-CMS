@@ -1,5 +1,5 @@
 @charset "UTF-8";
-/* line 17, ../../../../.rvm/gems/ruby-2.1.2@global/gems/compass-0.12.7/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 17, ../../../../.rvm/gems/ruby-1.9.3-p547/gems/compass-0.12.7/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -21,50 +21,50 @@ time, mark, audio, video {
   vertical-align: baseline;
 }
 
-/* line 22, ../../../../.rvm/gems/ruby-2.1.2@global/gems/compass-0.12.7/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 22, ../../../../.rvm/gems/ruby-1.9.3-p547/gems/compass-0.12.7/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 html {
   line-height: 1;
 }
 
-/* line 24, ../../../../.rvm/gems/ruby-2.1.2@global/gems/compass-0.12.7/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 24, ../../../../.rvm/gems/ruby-1.9.3-p547/gems/compass-0.12.7/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 ol, ul {
   list-style: none;
 }
 
-/* line 26, ../../../../.rvm/gems/ruby-2.1.2@global/gems/compass-0.12.7/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 26, ../../../../.rvm/gems/ruby-1.9.3-p547/gems/compass-0.12.7/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 table {
   border-collapse: collapse;
   border-spacing: 0;
 }
 
-/* line 28, ../../../../.rvm/gems/ruby-2.1.2@global/gems/compass-0.12.7/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 28, ../../../../.rvm/gems/ruby-1.9.3-p547/gems/compass-0.12.7/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 caption, th, td {
   text-align: left;
   font-weight: normal;
   vertical-align: middle;
 }
 
-/* line 30, ../../../../.rvm/gems/ruby-2.1.2@global/gems/compass-0.12.7/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 30, ../../../../.rvm/gems/ruby-1.9.3-p547/gems/compass-0.12.7/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 q, blockquote {
   quotes: none;
 }
-/* line 103, ../../../../.rvm/gems/ruby-2.1.2@global/gems/compass-0.12.7/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 103, ../../../../.rvm/gems/ruby-1.9.3-p547/gems/compass-0.12.7/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 q:before, q:after, blockquote:before, blockquote:after {
   content: "";
   content: none;
 }
 
-/* line 32, ../../../../.rvm/gems/ruby-2.1.2@global/gems/compass-0.12.7/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 32, ../../../../.rvm/gems/ruby-1.9.3-p547/gems/compass-0.12.7/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 a img {
   border: none;
 }
 
-/* line 116, ../../../../.rvm/gems/ruby-2.1.2@global/gems/compass-0.12.7/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 116, ../../../../.rvm/gems/ruby-1.9.3-p547/gems/compass-0.12.7/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary {
   display: block;
 }
 
-/* line 7, scss/_colors.scss */
+/* line 8, scss/_colors.scss */
 .white-bg {
   background-color: white;
 }
@@ -648,7 +648,7 @@ p + .drop-cap {
 .clearfix {
   *zoom: 1;
 }
-/* line 38, ../../../../.rvm/gems/ruby-2.1.2@global/gems/compass-0.12.7/frameworks/compass/stylesheets/compass/utilities/general/_clearfix.scss */
+/* line 38, ../../../../.rvm/gems/ruby-1.9.3-p547/gems/compass-0.12.7/frameworks/compass/stylesheets/compass/utilities/general/_clearfix.scss */
 .clearfix:after {
   content: "";
   display: table;
@@ -843,7 +843,7 @@ p + .drop-cap {
   background-color: #d7d7d7;
   *zoom: 1;
 }
-/* line 22, ../../../../.rvm/gems/ruby-2.1.2@global/gems/compass-0.12.7/frameworks/compass/stylesheets/compass/utilities/general/_clearfix.scss */
+/* line 22, ../../../../.rvm/gems/ruby-1.9.3-p547/gems/compass-0.12.7/frameworks/compass/stylesheets/compass/utilities/general/_clearfix.scss */
 .settings-container:after {
   content: "\0020";
   display: block;
@@ -1103,8 +1103,12 @@ p + .drop-cap {
   background-color: #342f2f;
   color: white;
 }
+/* line 8, scss/_buttons.scss */
+.btn.red-btn {
+  background-color: #d93a3a;
+}
 
-/* line 9, scss/_buttons.scss */
+/* line 13, scss/_buttons.scss */
 .edit-btn {
   position: absolute;
   right: 20px;
@@ -1113,14 +1117,14 @@ p + .drop-cap {
   cursor: pointer;
 }
 
-/* line 17, scss/_buttons.scss */
+/* line 21, scss/_buttons.scss */
 .submit-btn {
   position: fixed;
   top: 500px;
   left: 20px;
 }
 
-/* line 23, scss/_buttons.scss */
+/* line 27, scss/_buttons.scss */
 .admin-controls-btn {
   position: fixed;
   top: 10px;
@@ -1143,7 +1147,7 @@ p + .drop-cap {
   -o-transition: all 400ms cubic-bezier(0.35, -0.06, 0.15, 1.1) 0ms;
   transition: all 400ms cubic-bezier(0.35, -0.06, 0.15, 1.1) 0ms;
 }
-/* line 37, scss/_buttons.scss */
+/* line 41, scss/_buttons.scss */
 .admin-controls-btn.admin-active {
   background-color: white;
   color: #342f2f;
@@ -1153,12 +1157,12 @@ p + .drop-cap {
   -o-transform: rotate(0deg);
   transform: rotate(0deg);
 }
-/* line 43, scss/_buttons.scss */
+/* line 47, scss/_buttons.scss */
 .admin-controls-btn.off-page {
   left: -50px;
 }
 
-/* line 48, scss/_buttons.scss */
+/* line 52, scss/_buttons.scss */
 .page-btn {
   position: absolute;
   overflow: hidden;
@@ -1170,14 +1174,14 @@ p + .drop-cap {
   -o-transition: all 400ms cubic-bezier(0.35, -0.06, 0.15, 1.1) 0ms;
   transition: all 400ms cubic-bezier(0.35, -0.06, 0.15, 1.1) 0ms;
 }
-/* line 55, scss/_buttons.scss */
+/* line 59, scss/_buttons.scss */
 .page-btn img {
   width: 30px;
   height: 30px;
   float: right;
   border: 2px solid #342f2f;
 }
-/* line 62, scss/_buttons.scss */
+/* line 66, scss/_buttons.scss */
 .page-btn .save-text {
   height: 30px;
   color: #342f2f;
@@ -1188,22 +1192,22 @@ p + .drop-cap {
   display: block;
 }
 
-/* line 73, scss/_buttons.scss */
+/* line 77, scss/_buttons.scss */
 .save-page-btn, .save-post-btn {
   top: 10px;
   right: 10px;
 }
-/* line 77, scss/_buttons.scss */
+/* line 81, scss/_buttons.scss */
 .save-page-btn:hover, .save-post-btn:hover {
   width: 90px;
 }
 
-/* line 82, scss/_buttons.scss */
+/* line 86, scss/_buttons.scss */
 .delete-page-btn, .delete-post-btn {
   top: 50px;
   right: 10px;
 }
-/* line 86, scss/_buttons.scss */
+/* line 90, scss/_buttons.scss */
 .delete-page-btn:hover, .delete-post-btn:hover {
   width: 110px;
 }

@@ -11,11 +11,11 @@
 						<option value="{{title}}" {{isSelected this.title}}>{{title}}</option>
 					{{/each}}
 				</select>
-				<span> or </span><button class="create-new-menu settings-header small-btn blue-btn">Create a new menu</button>	
+				<span> or </span><button class="create-new-menu settings-header btn small-btn blue-btn">Create a new menu</button>	
 				<div class="new-menu settings-content hidden">
 					<label class="label inline" for="new-menu-title">Menu Title</label>
 					<input type="text" name="new-menu-title" class="new-menu-title"/>
-					<button class="add-menu-button small-btn blue-btn">Add Menu</button>
+					<button class="add-menu-button btn small-btn blue-btn">Add Menu</button>
 				</div>
 			</div>
 
@@ -107,29 +107,23 @@
 				<ul class="pure-g">
 					{{#each menuLinks.links}}
 						{{#if this.linkTitle}}
-						<li class="full-width m-b-1 light-grey-bg">
-							<div class="settings-header">
-								<span>{{this.linkTitle}}<button class="remove-menu-link small-btn red-btn pull-right" data-link="{{this.linkTitle}}">remove</button> <span class="pull-right small m-r-1">{{this.linkType}}</span></span>
-							</div>
-							<div class="settings-content hidden">
-								<div class="form-control">
-									<label class="label" for="update-link-title">Link Title</label>
-									<input type="text" name="update-link-title" class="update-link-title" value="{{this.linkTitle}}"/>
-								</div>
-								<div class="form-control">
-									<label class="label" for="update-link-url">Link URL</label>
-									<input type="text" name="update-link-url" class="update-link-url" value="{{this.linkURL}}"/>
-									<input type="hidden" class="hidden update-link-type" value="{{this.linkType}}"/>
-								</div>
-								<button class="small-btn blue-btn update-link-button" data-title="{{this.linkTitle}}">Update Link</button>
-							</div>
+						<li class="menu-link-item full-width m-b-1 light-grey-bg" data-link-title="{{this.linkTitle}}" data-link-type="{{this.linkType}}" data-link-url="{{this.linkURL}}">
+							<span>
+								{{this.linkTitle}}
+								<button class="remove-menu-link small-btn red-btn pull-right" data-link="{{this.linkTitle}}">
+									remove
+								</button>
+								<span class="pull-right small m-r-1">
+									{{this.linkType}}
+								</span>
+							</span>
 						</li>
 						{{/if}}
 					{{/each}}
 				</ul>
 			</div>
-			<button class="btn blue-btn save-menu-button pull-left">Save Menu</button>
 			<button class="btn red-btn delete-menu-button pull-right">Delete Menu</button>
+			<button class="btn grey-btn save-menu-button pull-right">Save Menu</button>
 		</div>
 	</div>
 </template>

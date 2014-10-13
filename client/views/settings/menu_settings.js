@@ -1,3 +1,6 @@
+var typingTimer;
+var doneTypingInterval = 3000;
+
 Template.menuSettings.created = function(){
 	var title = Menus.findOne().title;
 	Session.set("currentMenuTitle", title);
@@ -32,20 +35,46 @@ Template.menuSettings.events({
 		e.preventDefault();
 
 		var link = $(e.target).html();
+		var existingLinks = $('.menu-link-item');
+		var linkExists = false;
 
-		var linkAttributes = {
-			link: link,
-			linkURL: "/" + encodeURI(link.replace(/\s+/g, '-')).toLowerCase(),
-			linkType: "Page"
+		_.each(existingLinks, function(existingLink){
+			if ($(existingLink).data('link-title') == link)
+				linkExists = true;
+		})
+
+		if (!linkExists){
+			var linkAttributes = {
+				link: link,
+				linkURL: "/" + encodeURI(link.replace(/\s+/g, '-')).toLowerCase()
+			}
+
+			var newLink = $("<li class='menu-link-item temporary-link-item full-width m-b-1 light-grey-bg'>" +
+					"<span class='new-link-title'>" + 
+						linkAttributes.link +
+						"<button class='remove-menu-link small-btn red-btn pull-right'>remove</button>" +
+						"<span class='pull-right small m-r-1'>Page</span>" +
+					"</span>" + 
+				"</li>");
+
+			newLink.attr({
+				"data-link-title": linkAttributes.link,
+				"data-link-type": "Page",
+				"data-link-url": linkAttributes.linkURL
+			})
+
+			$('.menu-links-list').children('ul').append(newLink);
+		} else {
+			throwError('This Link Already Exists', 'error');
 		}
 
-		var menuId = Menus.findOne({title: Session.get("currentMenuTitle")})._id;
+		// var menuId = Menus.findOne({title: Session.get("currentMenuTitle")})._id;
 
-		Meteor.call('addLinksToMenu', menuId, linkAttributes, function(error, result){
-			if (error){
-				throwError(error.reason, 'error');
-			}
-		} );
+		// // Meteor.call('addLinksToMenu', menuId, linkAttributes, function(error, result){
+		// // 	if (error){
+		// // 		throwError(error.reason, 'error');
+		// // 	}
+		// // } );
 	},
 	'click .categories-menu-option': function(e){
 		e.preventDefault();
@@ -55,8 +84,7 @@ Template.menuSettings.events({
 		Menus.update({_id: menu._id}, {$addToSet: {links: {linkTitle: link, linkURL: linkURL, linkType: "Category"}}});
 	},
 	'click .remove-menu-link': function(e){
-		e.preventDefault();
-		$(e.target).parents('li').remove();
+		$(e.target).parents('.menu-link-item').remove();
 	},
 	'click .add-link-button': function(e){
 		e.preventDefault();
@@ -72,7 +100,7 @@ Template.menuSettings.events({
 		Meteor.call('addLink', menu, linkAttributes, function(error, id){
 			if(error){
 				throwError(error.reason, 'error');
-			}
+			} 
 		});
 	},
 	'click .update-link-button': function(e){
@@ -92,6 +120,9 @@ Template.menuSettings.events({
 				throwError('Updated!', 'success');
 			}
 		});
+	},
+	'click .create-new-menu': function(e){
+		$('.new-menu').removeClass('hidden');
 	},
 	'click .add-menu-button': function(e){
 		e.preventDefault();
@@ -134,6 +165,7 @@ Template.menuLayout.helpers({
 		return Session.get("currentMenuTitle");
 	},
 	isSelected: function(location){
+		console.log(Session.get("currentMenuTitle"));
 		var menuLocation = Menus.findOne({title: Session.get("currentMenuTitle")}).location;
 		if (location == menuLocation){
 			return "selected";
@@ -142,36 +174,35 @@ Template.menuLayout.helpers({
 });
 
 Template.menuLayout.events({
-	'click .save-menu-button': function(e){
+	'click .delete-menu-button': function(e){
 		e.preventDefault();
 		var menu = Menus.findOne({title: Session.get("currentMenuTitle")});
+		Menus.remove(menu._id);
+	},
+	'click .save-menu-button': function(e){
+		var menuId = Menus.findOne({title: Session.get("currentMenuTitle")})._id;
+		var links = $('.menu-link-item');
+
+		console.log(links);
+
+		var linksArr = [];
+
+		_.each(links, function(link, index){
+			linksArr.push($(link).data());
+		});
+
 		var menuAttributes = {
 			title: $('.menu-name').val(),
 			location: $('.menu-location').val()
 		}
 
-		//get all the links and their attributes and store them as objects in an array
-		var links = [];
-		var i = 0;
-		$('.menu-links-list').children().children('li').each(function(){
-			links[i++] = {
-				linkTitle: $(this).find('.update-link-title').val(),
-				linkType: $(this).find('.update-link-type').val(),
-				linkURL: $(this).find('.update-link-url').val()
+		Meteor.call('updateMenu', menuId, menuAttributes, linksArr, function(error, id){
+			if (error)
+				throwError(error.reason, 'error')
+			else{
+				$('.temporary-link-item').remove();
+				throwError('Menu Updated!', 'success')
 			}
 		});
-
-		Meteor.call('updateMenu', menu._id, menuAttributes, links, function(error, id){
-			if(error){
-				throwError(error.reason, 'error');
-			} else{
-				throwError('Menu updated!', 'success');
-			}
-		});
-	},
-	'click .delete-menu-button': function(e){
-		e.preventDefault();
-		var menu = Menus.findOne({title: Session.get("currentMenuTitle")});
-		Menus.remove(menu._id);
 	}
 })

@@ -11,18 +11,20 @@ Template.header.helpers({
 	siteTitle: function(){
 		if (Settings.findOne())
 			return Settings.findOne().siteTitle;
+	},
+	headerMenu: function(){
+		var headerMenu = Menus.findOne({location: 'header'});
+
+		if (headerMenu){
+			Session.set('headerMenu', headerMenu);
+			return true;
+		}
+		else
+			return false;
+	},
+	menuLinks: function(){
+		var menu = Session.get('headerMenu');
+		return menu.links;
+
 	}
 })
-
-// Template.header.events({
-// 	'click .page-toggle': function(e){
-// 		if ($('.page-container').length > 0){
-// 			$('.page-container').addClass('off-page');
-// 			setTimeout(function(){
-// 				$('.page-container').remove();
-// 				var data = Pages.findOne({slug: $(e.target).data('slug')});
-// 				UI.insert(UI.renderWithData(Template.showPage, data), $('.container').get(0));
-// 			}, 600);
-// 		}
-// 	}
-// })

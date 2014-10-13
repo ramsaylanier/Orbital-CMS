@@ -4,6 +4,10 @@
 	padding: .5rem;
 	background-color: $dark-grey;
 	color: white;
+
+	&.red-btn{
+		background-color: $red;
+	}
 }
 
 .edit-btn{

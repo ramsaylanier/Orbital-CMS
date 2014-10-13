@@ -4,8 +4,10 @@
 	<div class="main-header">
 		<a href="/" class="home-toggle page-toggle logo" data-slug="{{landingPage}}">Orbital CMS</a>
 
-		{{#each pages}}
-		<a href="{{pathFor 'showPage'}}" class="{{title}}-toggle page-toggle" data-slug="{{slug}}">{{title}}</a>
-		{{/each}}
+		{{#if headerMenu}}
+			{{#each menuLinks}}
+				<a href="{{linkURL}}" class="{{linkTitle}}-toggle page-toggle" data-slug="{{slug}}">{{linkTitle}}</a>
+			{{/each}}
+		{{/if}}
 	</div>
 </template>
