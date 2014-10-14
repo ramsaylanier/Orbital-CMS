@@ -1,10 +1,5 @@
-Template.addPage.created = function(){
-	var val = $('#title').val();
-	if (val == undefined){
-		val = "";
-	}
-	
-	// Session.set('slug', encodeURI(val).toLowerCase());
+Template.addPage.created = function(){	
+	Session.set('slug');
 }
 
 
@@ -42,15 +37,11 @@ Template.addPage.events({
 		});
 	},
 	'keyup #title':function(e){
-		// Session.set('slug', encodeURI(e.target.value.replace(/\s+/g, '-').toLowerCase()));
-		currentSlug = $('#slug').text();
-		addedSlug = e.target.value.replace(/\s+/g, '-').toLowerCase();
-		$('#slug').text(currentSlug + addedSlug);
+		Session.set('slug', encodeURI(e.target.value.replace(/\s+/g, '-').toLowerCase() ) );
+	},
+	'keyup #slug':function(e){
+		Session.set('slug', encodeURI(e.target.value.replace(/\s+/g, '-').toLowerCase() ) );
 	}
-	// },
-	// 'keyup #slug':function(e){
-	// 	Session.set('slug', encodeURI($(e.target).text().replace(/\s+/g, '-').toLowerCase()));
-	// }
 })
 
 Template.addPage.helpers({

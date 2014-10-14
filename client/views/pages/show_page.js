@@ -40,8 +40,6 @@ Template.editPage.events({
 	'click .save-page-btn': function(e, template){
 		e.preventDefault();
 
-		console.log($('#template-type').val());
-
 		var updatedPage = {
 			title: $('.page-title').html(),
 			content: $('.page-content').html(),
@@ -59,13 +57,15 @@ Template.editPage.events({
 	},
 	'click .delete-page-btn': function(e, template){
 		var pageId = template.data._id;
+		var settings = Settings.findOne();
 
 		Meteor.call('deletePage', pageId, function(error, id){
 			if (error){
-				throwError(error.reason, 'error')
+				Blaze.renderWithData(Template.settings, settings, $('.container').get(0));
+				throwError(error.reason, 'error');
 			} else {
-				Session.set('editMode', false);
 				Router.go('/');
+				Session.set('editMode', false);
 			}
 		})
 	}
@@ -77,7 +77,8 @@ Template.editPage.helpers({
 		return _.map(templates, function(name){ return name.replace(/_/g, ' ');});
 	},
 	isSelected: function(currentTemplate){
-		console.log(this.template);
+		if (this.toString() == currentTemplate){
+			return "selected";
+		}
 	}
-
 })

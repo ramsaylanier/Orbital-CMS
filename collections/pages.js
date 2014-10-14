@@ -59,9 +59,24 @@ Meteor.methods({
 	},
 	deletePage: function(pageId){
 		var loggedInUser = Meteor.user();
+		var settings = Settings.findOne();
+		var landingPage = settings.landingPage;
+		var pageTitle = Pages.findOne({_id: pageId}).title;
+		var menus = Menus.find({"links.linkTitle": pageTitle}).fetch();
 
-		if (Roles.userIsInRole(loggedInUser, ['admin'])){
-			Pages.remove({_id: pageId});
+		_.each(menus, function(menu){
+			var menuId = menu._id;
+
+			console.log(menuId);
+			
+		})
+
+		if (pageTitle == landingPage){
+			throw new Meteor.Error(422, 'Before deleting this page, please select a new landing page.');
 		}
+
+		// if (Roles.userIsInRole(loggedInUser, ['admin'])){
+		// 	Pages.remove({_id: pageId});
+		// }
 	}
 })

@@ -165,7 +165,6 @@ Template.menuLayout.helpers({
 		return Session.get("currentMenuTitle");
 	},
 	isSelected: function(location){
-		console.log(Session.get("currentMenuTitle"));
 		var menuLocation = Menus.findOne({title: Session.get("currentMenuTitle")}).location;
 		if (location == menuLocation){
 			return "selected";
@@ -183,8 +182,6 @@ Template.menuLayout.events({
 		var menuId = Menus.findOne({title: Session.get("currentMenuTitle")})._id;
 		var links = $('.menu-link-item');
 
-		console.log(links);
-
 		var linksArr = [];
 
 		_.each(links, function(link, index){
@@ -200,8 +197,8 @@ Template.menuLayout.events({
 			if (error)
 				throwError(error.reason, 'error')
 			else{
-				$('.temporary-link-item').remove();
-				throwError('Menu Updated!', 'success')
+				throwError('Menu Updated!', 'success');
+				// $('.temporary-link-item').remove();
 			}
 		});
 	}
