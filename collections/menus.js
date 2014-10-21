@@ -36,31 +36,6 @@ Meteor.methods({
 
 		return menuId;
 	},
-	// updateMenuTitle: function(menuId, menuTitle){
-	// 	var user = Meteor.user();
-	
-	// 	//make sure used is logged in before adding pages
-	// 	if (!user)
-	// 		throw new Meteor.Error(401, "You need to login to add posts");
-
-	// 	if (!menuTitle)
-	// 		throw new Meteor.Error(422, 'Please enter a menu title');
-
-	// 	var menuId = Menus.update({_id: menuId}, {$set: {title: menuTitle}});
-
-	// 	return menuId;
-	// },
-	// updateMenuLocation: function(menuId, menuLocation){
-	// 	var user = Meteor.user();
-	
-	// 	//make sure used is logged in before adding pages
-	// 	if (!user)
-	// 		throw new Meteor.Error(401, "You need to login to add posts");
-
-	// 	var menuId = Menus.update({_id: menuId}, {$set: {location: menuLocation}});
-
-	// 	return menuId;
-	// },
 	addLinksToMenu: function(menuId, link){
 		var user = Meteor.user(),
 			menuLinks = Menus.findOne(menuId).links,

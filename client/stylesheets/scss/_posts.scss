@@ -6,7 +6,7 @@
 	width: 100%;
 	position: relative;
 	padding: 0rem 1rem;
-	margin-top: 50px;
+	margin-top: 100px;
 	@include opacity(1.0);
 	@include transition(all 400ms cubic-bezier(.35,-0.06,.15,1.10) 0ms);
 	z-index: 1;

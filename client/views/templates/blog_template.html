@@ -1,5 +1,9 @@
 <template name="blog_template">
 	<div class="blog page-inner inner">
+		{{#if showTitle}}
+			<h1 class="page-title title" contenteditable="true">{{title}}</h1>
+		{{/if}}
+
 		{{#each posts}}
 			{{> postView}}
 		{{/each}}

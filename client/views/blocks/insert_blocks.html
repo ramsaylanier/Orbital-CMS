@@ -1,0 +1,11 @@
+<template name="insertBlocks">
+	<div class="insert-blocks-modal modal off-page">
+		<button class="close-modal-btn btn">&#10006;</button>
+		<div class="modal-container grey-bg">
+			<h3> Insert A Block</h3>
+			{{#each blockTemplates}}
+				<a href="#" class="block-option" data-block-template="{{this}}">{{this}}</a>
+			{{/each}}
+		</div>
+	</div>
+</template>

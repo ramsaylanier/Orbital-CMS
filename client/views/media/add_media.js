@@ -29,12 +29,6 @@ Template.addMedia.events({
   }
 });
 
-Template.imageList.helpers({
-	files: function(){
-		return Media.find();
-	}
-})
-
 Template.setFeaturedImage.rendered = function(){
   var $item = $(this.find('.insert-image-modal'));
   Meteor.defer(function() {
@@ -46,10 +40,8 @@ Template.setFeaturedImage.events({
   'click .set-featured-image-btn': function(e, template){
     e.preventDefault();
 
-     var url = $(e.target).closest('img').attr('src');
-    $('body').find('[name=featured-image]').val(url);
-    $('.media-image').attr('src', url);
-    $('.modal').remove();
-
+    var url = $(e.target).closest('img').attr('src');
+    Session.set('featuredImage', url);    
+    $('.insert-image-modal').addClass('off-page');
   }
 })

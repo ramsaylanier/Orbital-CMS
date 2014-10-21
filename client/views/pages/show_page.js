@@ -40,10 +40,20 @@ Template.editPage.events({
 	'click .save-page-btn': function(e, template){
 		e.preventDefault();
 
+		var pageTitle = '',
+			pageId = template.data._id;
+
+		if ($('.page-title').length){
+			pageTitle = $('.page-title').text();
+		}
+		else 
+			pageTitle = Pages.findOne(pageId).title;
+
 		var updatedPage = {
-			title: $('.page-title').html(),
+			title: pageTitle,
 			content: $('.page-content').html(),
-			pageTemplate: $('#template-type').val().replace(/_/g, ' ')
+			pageTemplate: $('#template-type').val().replace(/_/g, ' '),
+			showTitle: $('#show-title').is(':checked')
 		},
 			pageId = template.data._id;
 
@@ -68,6 +78,18 @@ Template.editPage.events({
 				Session.set('editMode', false);
 			}
 		})
+	},
+	'click .page-settings-btn': function(e){
+		$(e.target).toggleClass('active');
+		$('.page-settings').toggleClass('is-active');
+	},
+	'click .insert-blocks-btn': function(){
+		var blocks = Blocks.find();
+		if ($('.insert-blocks-modal').length){
+			$('.insert-blocks-modal').removeClass('off-page');
+		} else {
+			Blaze.renderWithData(Template.insertBlocks, blocks, $('.container').get(0));
+		}
 	}
 })
 
@@ -76,9 +98,24 @@ Template.editPage.helpers({
 		var templates = _.filter(_.keys(Template), function(name){return name.match('template');});
 		return _.map(templates, function(name){ return name.replace(/_/g, ' ');});
 	},
+	pageTemplate: function(){
+		var templateName = Pages.findOne({_id: this._id}).pageTemplate.replace(/ /g, '_');
+		return Template[templateName];
+	},
 	isSelected: function(currentTemplate){
 		if (this.toString() == currentTemplate){
 			return "selected";
 		}
+	},
+	isChecked: function(currentSetting){
+		if (currentSetting)
+			return "checked"
+	}
+})
+
+Template.blocksMenu.helpers({
+	'blockTypes': function(){
+		var blockTypes = _.filter(_.keys(Template), function(name){return name.match('block_template')});
+		console.log(blockTypes);
 	}
 })

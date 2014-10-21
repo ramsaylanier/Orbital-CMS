@@ -35,6 +35,10 @@
 	}
 }
 
+.settings-header-image{
+		max-width: 300px;
+	}
+
 .settings-content{
 	opacity: 1.0;
 	@include transition(opacity 300ms ease-out);

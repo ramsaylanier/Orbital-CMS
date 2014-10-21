@@ -29,3 +29,7 @@ Meteor.publish('menus', function(){
 Meteor.publish('categories', function(){
 	return Categories.find();
 })
+
+Meteor.publish('blocks', function(){
+	return Blocks.find();
+})

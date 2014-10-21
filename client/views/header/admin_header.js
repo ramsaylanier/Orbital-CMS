@@ -36,7 +36,6 @@ Template.adminHeader.events({
 			Blaze.render(Template.addPost, $('.container').get(0));
 		}
 	},
-
 	'click .add-media-btn': function(e){
 		e.preventDefault();
 
@@ -45,7 +44,6 @@ Template.adminHeader.events({
 			Blaze.renderWithData(Template.addMedia, media, $('.container').get(0));
 		}
 	},
-
 	'click .settings-btn': function(e){
 		e.preventDefault();
 
@@ -60,6 +58,21 @@ Template.adminHeader.events({
 		if ($('.settings-modal').length == 0){
 			var settings = Settings.findOne();
 			Blaze.renderWithData(Template.menuSettings, settings, $('.container').get(0));
+		}
+	},
+	'click .view-blocks-btn': function(e){
+		e.preventDefault();
+
+		if ($('.view-blocks-container').length == 0){
+			var data = Blocks.find();
+			Blaze.renderWithData(Template.viewBlocks, data, $('.container').get(0));
+		}
+	},
+	'click .add-block-btn': function(e){
+		e.preventDefault();
+
+		if ($('.add-block-container').length == 0){
+			Blaze.render(Template.addBlock, $('.container').get(0));
 		}
 	}
 });

@@ -1,0 +1,24 @@
+<template name="addBlock">
+	<div class="add-block-modal modal off-page">
+		<button class="close-modal-btn btn">&#10006;</button>
+		<div class="add-block-container modal-container with-sidebar off-page">
+			<h3>Add New Block</h3>
+
+			<form class="form" name="new-block-form">
+				<div class="block-content">
+					<div class="form-control">
+						<label class="label" for="title">Block Name:</label>
+						<input id="block-name" name="block-name" type="text"/>
+					</div>
+
+					<div class="form-control">
+						<label class="label" for="template-type">Block Template</label>
+						<input type="text" id="template-type" value="{{this}}"/>
+					</div>
+
+					<input type="submit" value="Save Block"/>
+				</div>
+			</form>
+		</div>
+	</div>
+</template>

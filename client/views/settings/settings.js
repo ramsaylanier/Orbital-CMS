@@ -10,8 +10,11 @@ Template.settings.events({
 
 		var settings = {
 			landingPage: $(e.target).find("[name=landing-page]").val(),
-			siteTitle: $(e.target).find("[name=site-title]").val()
+			siteTitle: $(e.target).find("[name=site-title]").val(),
+			headerImage: $('.settings-header-image').attr('src')
 		}
+
+		console.log(settings.headerImage);
 
 		Meteor.call('settings', currentSettingsId, settings, function(error, id){
 			if (error){
@@ -26,13 +29,23 @@ Template.settings.events({
 Template.settings.helpers({
 	pages: function(){
 		return Pages.find();
+	},
+	featuredImage: function(){
+		if (Session.get('featuredImage')){
+			return Session.get('featuredImage');
+		} else 
+			return this.headerImage;
 	}
-
 })
 
 Template.settings.rendered = function(){
 	var $item = $(this.find('.settings-modal'));
+	Session.set('featuredImage', '');
 	Meteor.defer(function() {
 		$item.removeClass('off-page');
 	});
 }
+
+Template.settings.destroyed = function () {
+	Session.set('featuredImage', '');
+};

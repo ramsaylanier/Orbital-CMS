@@ -4,18 +4,61 @@
 	padding: .5rem;
 	background-color: $dark-grey;
 	color: white;
+	cursor: pointer;
 
-	&.red-btn{
+	&.red-btn, &.delete-page-btn{
 		background-color: $red;
+	}
+
+	&.plus-btn{
+		@include rotate(45deg);
+		width: 35px;
+		height: 35px;
+	}
+
+	&.round-btn{
+		border: 1px dashed $yellow;
+		background-color: white;
+		position: fixed;
+		color: $dark-grey;
+		width: 40px;
+		height: 40px;
+		@include border-radius(50%);
+
+		&:before{
+			content: '';
+			position: absolute;
+			height: 20px;
+			width: 20px;
+			background-color: $yellow;
+			top: 9px;
+			left: 9px;
+			@include border-radius(50%);
+			@include transition(all 300ms ease-out);
+		}
+
+		&:hover{
+			&:before{
+				top: -1px;
+				left: -1px;
+				height: 40px;
+				width: 40px;
+			}
+		}
 	}
 }
 
-.edit-btn{
+.page-settings-btn{
 	position: absolute;
 	right: 20px;
-	top: 0px;
+	top: 5px;
 	z-index: 300;
-	cursor: pointer;
+	@include transition(all 300ms ease-out);
+	@include rotate(45deg);
+
+	&.active{
+		@include rotate(0deg);
+	}
 }
 
 .submit-btn{
@@ -24,19 +67,31 @@
 	left: 20px
 }
 
+.admin-buttons{
+	position: fixed;
+	top: 90px;
+	right: 20px;
+	z-index: 999;
+
+	.btn{
+		position: relative;
+		display: block;
+		margin-bottom: 10px;
+	}
+}
+
 .admin-controls-btn{
 	position: fixed;
 	top: 10px;
 	left: 10px;
 	z-index: 999;
-	cursor: pointer;
 	height: 30px;
 	width: 30px;
 	line-height: 0;
 	color: $dark-grey;
 	background-color: white;
 	@include transform(rotate(-45deg));
-	@include transition(all 400ms cubic-bezier(.35,-0.06,.15,1.10) 0ms);
+	@include transition(transform 400ms cubic-bezier(.35,-0.06,.15,1.10) 0ms);
 
 	&.admin-active{
 		background-color: white;
@@ -49,45 +104,19 @@
 	}
 }
 
-.page-btn{
+.page-buttons{
 	position: absolute;
-	overflow: hidden;
-	height: 30px;
-	width: 30px;
-	@include transition(all 400ms cubic-bezier(.35,-0.06,.15,1.10) 0ms);
-
-	img{
-		width: 30px;
-		height: 30px;
-		float: right;
-		border: 2px solid $dark-grey;
-	}
-
-	.save-text{
-		height: 30px;
-		color: $dark-grey;
-		line-height: 1.8rem;
-		background-color: white;
-		text-align: left;
-		padding: 0px 6px;
-		display: block;
-	}
+	right: 70px;
+	top: 0;
 }
 
-.save-page-btn, .save-post-btn{
-	top: 10px;
-	right: 10px;
-	
-	&:hover{
-		width: 90px;
+.page-btn{
+	font-size: .9rem;
+	position: relative;
+	float: left;
+	display: block;
+	&:first-of-type{
+		margin-right: 10px;
 	}
-}
 
-.delete-page-btn, .delete-post-btn{
-	top: 50px;
-	right: 10px;
-
-	&:hover{
-		width: 110px;
-	}
 }

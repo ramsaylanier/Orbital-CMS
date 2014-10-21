@@ -99,7 +99,8 @@ Template.editPost.events({
 			title: $('.post-title').html(),
 			content: $('.post-content').html()
 		},
-			postId = template.data._id;
+		
+		postId = template.data._id;
 
 		Meteor.call('updatePost', postId, updatedPost, function(error, id){
 			if (error){
@@ -128,7 +129,6 @@ Template.editPost.events({
 		postId = this._id;
 	    UI.insert(UI.renderWithData(Template.setFeaturedImage, data, parent), $('.container').get(0));
 	},
-
 	'paste .post-content': function(e){
 		e.preventDefault();
 	    var text = (e.originalEvent || e).clipboardData.getData('text/plain') || prompt('Paste something..');

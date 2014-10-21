@@ -10,6 +10,7 @@
 @import "lists";
 @import "pages";
 @import "posts";
+@import "blocks";
 @import "settings";
 @import "header";
 @import "buttons";
@@ -48,8 +49,6 @@ body{
 
 .application{
 	position: relative;
-    @include perspective(2000px);
-	@include transform-style(preserve-3d);
 }
 
 .container{
@@ -61,7 +60,7 @@ body{
 	@include transition(all 400ms cubic-bezier(.49,.14,.31,1.25) 100ms);
 
 	&.admin-controls{
-		@include transform(rotateY(-20deg) translate3d(200px, 0px, 0px));
+		@include transform(translate3d(200px, 0px, 0px));
 		@include transition(all 800ms cubic-bezier(.35,-0.06,.15,1.10) 0ms);
 	}
 }
@@ -141,6 +140,6 @@ body{
 	position: relative;
 	max-width: 980px;
 	margin: 0 auto;
-	padding: 1rem;
+	@include legacy-pie-clearfix;
 }
 

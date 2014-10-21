@@ -1,5 +1,5 @@
 .main-header{
-	height: 50px;
+	height: 80px;
 	width: 100%;
 	position: fixed;
 	top: 0px;
@@ -7,15 +7,17 @@
 	text-align: center;
 	padding: .5rem;
 	z-index: 100;
+	border-bottom: 2px solid $yellow;
 
 	a{
-		padding: .25rem .5rem;
-		color: $blue;
+		display: block;
+		height: 100%;
+		float: left;
 		@include transition(all 300ms ease-out 100ms);
+	}
 
-		&:hover{
-			color: $dark-grey;
-		}
+	.header-image{
+		height: 100%;
 	}
 
 }

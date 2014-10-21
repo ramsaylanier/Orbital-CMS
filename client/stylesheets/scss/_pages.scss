@@ -6,13 +6,18 @@
 	width: 100%;
 	position: relative;
 	padding: 0rem 1rem;
-	margin-top: 50px;
+	margin-top: 100px;
 	@include opacity(1.0);
 	@include transition(all 400ms cubic-bezier(.35,-0.06,.15,1.10) 0ms);
 	z-index: 1;
 
 	.page-title{
 		margin-bottom: 1.5rem;
+		@include transition(all 300ms ease-out);
+
+		&.off-page{
+			display: none;
+		}
 	}
 }
 
@@ -21,4 +26,18 @@
 	@include transform(rotate3d(0,1,0,-15deg));
 	@include opacity(0.0);
 	@include transform-origin(-300px, bottom);
+}
+
+.page-settings{
+	position: fixed;
+	width: 100%;
+	height: 40px;
+	bottom: 0;
+	right: 0;
+	background-color: $dark-grey;
+	@include transition(all 300ms ease-out);
+
+	&.is-active{
+		height: 200px;
+	}
 }

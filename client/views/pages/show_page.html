@@ -1,45 +1,55 @@
 <template name="showPage">	
 	<div class="page-container off-page">
 		{{#if isInRole 'admin'}}
+		<div class="admin-buttons">
 			<button class="edit-page-btn edit-btn btn">Edit</button>
+		</div>
 		{{/if}}
 
 		{{#if editMode}}
 			{{> editPage}}
 		{{else}}
-			{{> pageTemplate}}
+			<div class="page">
+				{{> pageTemplate}}
+			</div>
 		{{/if}}
 	</div>
 </template>
 
 <template name="editPage">
-	<div class="page-inner inner edit-mode">
-		{{>editor}}
-		<form name="edit-page editable">
-			<h1 class="page-title title" contenteditable="true">{{title}}</h1>
+	<button class="insert-blocks-btn round-btn btn"></button>
+	{{>editor}}
 
-			<div class="page-content" contenteditable="true">
-				{{{content}}}
-			</div>
-
-			<a href="#" class="save-page-btn page-btn">
-				<img src="/images/check.svg"/>
-				<span class="save-text">SAVE</span>
-			</a>
-
-			<a href="#" class="delete-page-btn page-btn">
-				<img src="/images/x.svg"/>
-				<span class="save-text">DELETE</span>
-			</a>
-
-			<div class="form-control">
-				<label class="label" for="template-type">Select Template Type</label>
-				<select type="select" name="template-type" id="template-type">
-					{{#each getTemplates}}
-						<option value="{{this}}" selected={{isSelected ../pageTemplate}}>{{this}}</option>
-					{{/each}}
-				</select>
-			</div>
-		</form>
+	<div class="page" contenteditable="true">
+		{{> pageTemplate}}
 	</div>
+
+	<div class="page-settings is-active">
+		<div class="form-control pad-1">
+			<label class="label white" for="template-type">Template: </label>
+			<select type="select" name="template-type" id="template-type">
+				{{#each getTemplates}}
+					<option value="{{this}}" selected={{isSelected ../pageTemplate}}>{{this}}</option>
+				{{/each}}
+			</select>
+		</div>
+
+		<div class="form-control pad-1">
+			<label class="label white" for="template-type">Show Title: </label>
+			<input type="checkbox" name="show-title-checkbox" id="show-title" {{isChecked showTitle}}>
+		</div>
+		<div class="page-buttons">
+			<a href="#" class="save-page-btn page-btn btn">SAVE</a>
+			<a href="#" class="delete-page-btn page-btn btn">DELETE</a>
+		</div>
+		<button class="page-settings-btn btn active">&#10006;</button>
+	</div>
+</template>
+
+<template name="blocksMenu">
+	<ul class="blocks-list">
+		{{#each blocks}}
+			<button>{{blockName}}</button>
+		{{/each}}
+	</ul>
 </template>

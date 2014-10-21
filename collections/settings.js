@@ -6,14 +6,13 @@ Meteor.methods({
 
 		if (Roles.userIsInRole(loggedInUser, ['admin'])){
 
-			var settings = _.extend(_.pick(settings, 'landingPage', 'siteTitle'), {
+			var settings = _.extend(_.pick(settings, 'landingPage', 'siteTitle', 'headerImage'), {
 				submitted: new Date().getTime()
 			});
 
 			var settingsId = Settings.upsert(settingId, settings);
 
 			return settingsId;
-
 		}
 	}
 })

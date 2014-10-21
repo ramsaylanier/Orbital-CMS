@@ -1,13 +1,16 @@
 <template name="header">
 	{{setTitle siteTitle}}
-
 	<div class="main-header">
-		<a href="/" class="home-toggle page-toggle logo" data-slug="{{landingPage}}">Orbital CMS</a>
+		<div class="inner">
+			{{#if headerImage}}
+				<a href="/" class="home-toggle page-toggle logo" data-slug="{{landingPage}}"><img src="{{headerImage}}" class="header-image"/></a>
+			{{/if}}
 
-		{{#if headerMenu}}
-			{{#each menuLinks}}
-				<a href="{{linkUrl}}" class="{{linkTitle}}-toggle page-toggle" data-slug="{{slug}}">{{linkTitle}}</a>
-			{{/each}}
-		{{/if}}
+			{{#if headerMenu}}
+				{{#each menuLinks}}
+					<a href="{{linkUrl}}" class="{{linkTitle}}-toggle page-toggle" data-slug="{{slug}}">{{linkTitle}}</a>
+				{{/each}}
+			{{/if}}
+		</div>
 	</div>
 </template>

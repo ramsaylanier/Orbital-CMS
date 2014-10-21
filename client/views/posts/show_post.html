@@ -15,6 +15,12 @@
 <template name="editPost">
 	{{>editor}}
 	<div class="post-inner inner with-sidebar edit-mode">
+	
+		<div class="page-buttons">
+			<a href="#" class="save-page-btn page-btn btn">SAVE</a>
+			<a href="#" class="delete-page-btn page-btn btn">DELETE</a>
+		</div>
+
 		<form name="edit-post editable">
 
 			<div class="featured-image-field">
@@ -38,16 +44,6 @@
 			</div>
 			
 			{{> insertContentButton}}
-
-			<a href="#" class="save-post-btn page-btn">
-				<img src="/images/check.svg"/>
-				<span class="save-text">SAVE</span>
-			</a>
-
-			<a href="#" class="delete-post-btn page-btn">
-				<img src="/images/x.svg"/>
-				<span class="save-text">DELETE</span>
-			</a>
 
 		</form>
 	</div>

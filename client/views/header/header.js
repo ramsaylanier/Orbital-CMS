@@ -1,6 +1,6 @@
 Template.header.helpers({
-	pages: function(){
-		return Pages.find();
+	headerImage: function(){
+		return Settings.findOne().headerImage;
 	},
 	landingPage: function(){
 		if (Settings.findOne()){

@@ -1,5 +1,5 @@
 @charset "UTF-8";
-/* line 17, ../../../../.rvm/gems/ruby-1.9.3-p547/gems/compass-0.12.7/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 17, ../../../../.rvm/gems/ruby-2.1.2@global/gems/compass-0.12.7/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -21,52 +21,57 @@ time, mark, audio, video {
   vertical-align: baseline;
 }
 
-/* line 22, ../../../../.rvm/gems/ruby-1.9.3-p547/gems/compass-0.12.7/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 22, ../../../../.rvm/gems/ruby-2.1.2@global/gems/compass-0.12.7/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 html {
   line-height: 1;
 }
 
-/* line 24, ../../../../.rvm/gems/ruby-1.9.3-p547/gems/compass-0.12.7/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 24, ../../../../.rvm/gems/ruby-2.1.2@global/gems/compass-0.12.7/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 ol, ul {
   list-style: none;
 }
 
-/* line 26, ../../../../.rvm/gems/ruby-1.9.3-p547/gems/compass-0.12.7/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 26, ../../../../.rvm/gems/ruby-2.1.2@global/gems/compass-0.12.7/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 table {
   border-collapse: collapse;
   border-spacing: 0;
 }
 
-/* line 28, ../../../../.rvm/gems/ruby-1.9.3-p547/gems/compass-0.12.7/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 28, ../../../../.rvm/gems/ruby-2.1.2@global/gems/compass-0.12.7/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 caption, th, td {
   text-align: left;
   font-weight: normal;
   vertical-align: middle;
 }
 
-/* line 30, ../../../../.rvm/gems/ruby-1.9.3-p547/gems/compass-0.12.7/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 30, ../../../../.rvm/gems/ruby-2.1.2@global/gems/compass-0.12.7/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 q, blockquote {
   quotes: none;
 }
-/* line 103, ../../../../.rvm/gems/ruby-1.9.3-p547/gems/compass-0.12.7/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 103, ../../../../.rvm/gems/ruby-2.1.2@global/gems/compass-0.12.7/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 q:before, q:after, blockquote:before, blockquote:after {
   content: "";
   content: none;
 }
 
-/* line 32, ../../../../.rvm/gems/ruby-1.9.3-p547/gems/compass-0.12.7/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 32, ../../../../.rvm/gems/ruby-2.1.2@global/gems/compass-0.12.7/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 a img {
   border: none;
 }
 
-/* line 116, ../../../../.rvm/gems/ruby-1.9.3-p547/gems/compass-0.12.7/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 116, ../../../../.rvm/gems/ruby-2.1.2@global/gems/compass-0.12.7/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary {
   display: block;
 }
 
-/* line 8, scss/_colors.scss */
+/* line 9, scss/_colors.scss */
 .white-bg {
   background-color: white;
+}
+
+/* line 13, scss/_colors.scss */
+.white {
+  color: white;
 }
 
 /* line 1, scss/_grid.scss */
@@ -648,7 +653,7 @@ p + .drop-cap {
 .clearfix {
   *zoom: 1;
 }
-/* line 38, ../../../../.rvm/gems/ruby-1.9.3-p547/gems/compass-0.12.7/frameworks/compass/stylesheets/compass/utilities/general/_clearfix.scss */
+/* line 38, ../../../../.rvm/gems/ruby-2.1.2@global/gems/compass-0.12.7/frameworks/compass/stylesheets/compass/utilities/general/_clearfix.scss */
 .clearfix:after {
   content: "";
   display: table;
@@ -720,7 +725,7 @@ p + .drop-cap {
   width: 100%;
   position: relative;
   padding: 0rem 1rem;
-  margin-top: 50px;
+  margin-top: 100px;
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
   opacity: 1;
   -webkit-transition: all 400ms cubic-bezier(0.35, -0.06, 0.15, 1.1);
@@ -733,9 +738,17 @@ p + .drop-cap {
 /* line 14, scss/_pages.scss */
 .page-container .page-title {
   margin-bottom: 1.5rem;
+  -webkit-transition: all 300ms ease-out;
+  -moz-transition: all 300ms ease-out;
+  -o-transition: all 300ms ease-out;
+  transition: all 300ms ease-out;
+}
+/* line 18, scss/_pages.scss */
+.page-container .page-title.off-page {
+  display: none;
 }
 
-/* line 20, scss/_pages.scss */
+/* line 25, scss/_pages.scss */
 .page-container.off-page {
   -webkit-transform: rotate3d(0, 1, 0, -15deg);
   -moz-transform: rotate3d(0, 1, 0, -15deg);
@@ -751,6 +764,24 @@ p + .drop-cap {
   transform-origin: -300px bottom;
 }
 
+/* line 31, scss/_pages.scss */
+.page-settings {
+  position: fixed;
+  width: 100%;
+  height: 40px;
+  bottom: 0;
+  right: 0;
+  background-color: #342f2f;
+  -webkit-transition: all 300ms ease-out;
+  -moz-transition: all 300ms ease-out;
+  -o-transition: all 300ms ease-out;
+  transition: all 300ms ease-out;
+}
+/* line 40, scss/_pages.scss */
+.page-settings.is-active {
+  height: 200px;
+}
+
 /* line 1, scss/_posts.scss */
 .add-post-container {
   background-color: #d7d7d7;
@@ -761,7 +792,7 @@ p + .drop-cap {
   width: 100%;
   position: relative;
   padding: 0rem 1rem;
-  margin-top: 50px;
+  margin-top: 100px;
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
   opacity: 1;
   -webkit-transition: all 400ms cubic-bezier(0.35, -0.06, 0.15, 1.1);
@@ -838,12 +869,22 @@ p + .drop-cap {
   margin-bottom: 1.5rem;
 }
 
+/* line 1, scss/_blocks.scss */
+.add-block-container {
+  background-color: #d7d7d7;
+}
+
+/* line 5, scss/_blocks.scss */
+.block-option {
+  display: block;
+}
+
 /* line 1, scss/_settings.scss */
 .settings-container {
   background-color: #d7d7d7;
   *zoom: 1;
 }
-/* line 22, ../../../../.rvm/gems/ruby-1.9.3-p547/gems/compass-0.12.7/frameworks/compass/stylesheets/compass/utilities/general/_clearfix.scss */
+/* line 22, ../../../../.rvm/gems/ruby-2.1.2@global/gems/compass-0.12.7/frameworks/compass/stylesheets/compass/utilities/general/_clearfix.scss */
 .settings-container:after {
   content: "\0020";
   display: block;
@@ -894,6 +935,11 @@ p + .drop-cap {
 }
 
 /* line 38, scss/_settings.scss */
+.settings-header-image {
+  max-width: 300px;
+}
+
+/* line 42, scss/_settings.scss */
 .settings-content {
   opacity: 1.0;
   -webkit-transition: opacity 300ms ease-out;
@@ -901,14 +947,14 @@ p + .drop-cap {
   -o-transition: opacity 300ms ease-out;
   transition: opacity 300ms ease-out;
 }
-/* line 42, scss/_settings.scss */
+/* line 46, scss/_settings.scss */
 .settings-content.off-page {
   opacity: 0.0;
 }
 
 /* line 1, scss/_header.scss */
 .main-header {
-  height: 50px;
+  height: 80px;
   width: 100%;
   position: fixed;
   top: 0px;
@@ -916,23 +962,25 @@ p + .drop-cap {
   text-align: center;
   padding: .5rem;
   z-index: 100;
+  border-bottom: 2px solid #f1bd3b;
 }
-/* line 11, scss/_header.scss */
+/* line 12, scss/_header.scss */
 .main-header a {
-  padding: .25rem .5rem;
-  color: #57b0cc;
+  display: block;
+  height: 100%;
+  float: left;
   -webkit-transition: all 300ms ease-out;
   -webkit-transition-delay: 100ms;
   -moz-transition: all 300ms ease-out 100ms;
   -o-transition: all 300ms ease-out 100ms;
   transition: all 300ms ease-out 100ms;
 }
-/* line 16, scss/_header.scss */
-.main-header a:hover {
-  color: #342f2f;
+/* line 19, scss/_header.scss */
+.main-header .header-image {
+  height: 100%;
 }
 
-/* line 23, scss/_header.scss */
+/* line 25, scss/_header.scss */
 .admin-header {
   position: fixed;
   height: 100vh;
@@ -961,7 +1009,7 @@ p + .drop-cap {
   z-index: -1;
   margin-top: 3rem;
 }
-/* line 36, scss/_header.scss */
+/* line 38, scss/_header.scss */
 .admin-header.shown {
   -webkit-transform: rotate3d(0, 0, 0, 0deg);
   -moz-transform: rotate3d(0, 0, 0, 0deg);
@@ -975,7 +1023,7 @@ p + .drop-cap {
   transition: all 600ms cubic-bezier(0.35, -0.06, 0.15, 1.1) 0ms;
   z-index: 99;
 }
-/* line 42, scss/_header.scss */
+/* line 44, scss/_header.scss */
 .admin-header a {
   display: block;
   color: white;
@@ -983,7 +1031,7 @@ p + .drop-cap {
   height: 50px;
   margin-bottom: 5px;
 }
-/* line 50, scss/_header.scss */
+/* line 52, scss/_header.scss */
 .admin-header .menu-item {
   position: relative;
   z-index: 2;
@@ -993,7 +1041,7 @@ p + .drop-cap {
   -o-transform-style: preserve-3d;
   transform-style: preserve-3d;
 }
-/* line 56, scss/_header.scss */
+/* line 58, scss/_header.scss */
 .admin-header .menu-item:hover .sub-menu {
   left: 105px;
   opacity: 1.0;
@@ -1003,7 +1051,7 @@ p + .drop-cap {
   -o-transform: rotate3d(0, 1, 0, 0deg);
   transform: rotate3d(0, 1, 0, 0deg);
 }
-/* line 64, scss/_header.scss */
+/* line 66, scss/_header.scss */
 .admin-header .main-menu {
   color: white;
   position: relative;
@@ -1013,7 +1061,7 @@ p + .drop-cap {
   -o-perspective: 300px;
   perspective: 300px;
 }
-/* line 70, scss/_header.scss */
+/* line 72, scss/_header.scss */
 .admin-header .main-menu:hover .hover-item-1 {
   -webkit-transform: rotate3d(0, 1, 0, 90deg);
   -moz-transform: rotate3d(0, 1, 0, 90deg);
@@ -1023,7 +1071,7 @@ p + .drop-cap {
   border-right: 3px solid #57b0cc;
   opacity: 0.0;
 }
-/* line 78, scss/_header.scss */
+/* line 80, scss/_header.scss */
 .admin-header .hover {
   position: absolute;
   padding: 10px 0px;
@@ -1041,20 +1089,20 @@ p + .drop-cap {
   -o-transition: all 300ms cubic-bezier(0, -0.21, 0.95, -0.25) 0ms;
   transition: all 300ms cubic-bezier(0, -0.21, 0.95, -0.25) 0ms;
 }
-/* line 88, scss/_header.scss */
+/* line 90, scss/_header.scss */
 .admin-header .hover-item-1 {
   color: #342f2f;
   background-color: white;
   z-index: 2;
 }
-/* line 94, scss/_header.scss */
+/* line 96, scss/_header.scss */
 .admin-header .hover-item-2 {
   color: white;
   border-right: 3px solid white;
   background-color: #342f2f;
   z-index: 1;
 }
-/* line 102, scss/_header.scss */
+/* line 104, scss/_header.scss */
 .admin-header .sub-menu {
   z-index: -1;
   opacity: 0.0;
@@ -1078,13 +1126,13 @@ p + .drop-cap {
   -o-transition: all 300ms ease-in-out 100ms;
   transition: all 300ms ease-in-out 100ms;
 }
-/* line 113, scss/_header.scss */
+/* line 115, scss/_header.scss */
 .admin-header .sub-menu a {
   background-color: white;
   color: #342f2f;
   padding: 10px 0px;
 }
-/* line 118, scss/_header.scss */
+/* line 120, scss/_header.scss */
 .admin-header .sub-menu a:hover {
   color: white;
   background-color: #342f2f;
@@ -1102,35 +1150,115 @@ p + .drop-cap {
   padding: .5rem;
   background-color: #342f2f;
   color: white;
-}
-/* line 8, scss/_buttons.scss */
-.btn.red-btn {
-  background-color: #d93a3a;
-}
-
-/* line 13, scss/_buttons.scss */
-.edit-btn {
-  position: absolute;
-  right: 20px;
-  top: 0px;
-  z-index: 300;
   cursor: pointer;
 }
+/* line 9, scss/_buttons.scss */
+.btn.red-btn, .btn.delete-page-btn {
+  background-color: #d93a3a;
+}
+/* line 13, scss/_buttons.scss */
+.btn.plus-btn {
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  -o-transform: rotate(45deg);
+  transform: rotate(45deg);
+  width: 35px;
+  height: 35px;
+}
+/* line 19, scss/_buttons.scss */
+.btn.round-btn {
+  border: 1px dashed #f1bd3b;
+  background-color: white;
+  position: fixed;
+  color: #342f2f;
+  width: 40px;
+  height: 40px;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+  border-radius: 50%;
+}
+/* line 28, scss/_buttons.scss */
+.btn.round-btn:before {
+  content: '';
+  position: absolute;
+  height: 20px;
+  width: 20px;
+  background-color: #f1bd3b;
+  top: 9px;
+  left: 9px;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+  border-radius: 50%;
+  -webkit-transition: all 300ms ease-out;
+  -moz-transition: all 300ms ease-out;
+  -o-transition: all 300ms ease-out;
+  transition: all 300ms ease-out;
+}
+/* line 41, scss/_buttons.scss */
+.btn.round-btn:hover:before {
+  top: -1px;
+  left: -1px;
+  height: 40px;
+  width: 40px;
+}
 
-/* line 21, scss/_buttons.scss */
+/* line 51, scss/_buttons.scss */
+.page-settings-btn {
+  position: absolute;
+  right: 20px;
+  top: 5px;
+  z-index: 300;
+  -webkit-transition: all 300ms ease-out;
+  -moz-transition: all 300ms ease-out;
+  -o-transition: all 300ms ease-out;
+  transition: all 300ms ease-out;
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  -o-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+/* line 59, scss/_buttons.scss */
+.page-settings-btn.active {
+  -webkit-transform: rotate(0deg);
+  -moz-transform: rotate(0deg);
+  -ms-transform: rotate(0deg);
+  -o-transform: rotate(0deg);
+  transform: rotate(0deg);
+}
+
+/* line 64, scss/_buttons.scss */
 .submit-btn {
   position: fixed;
   top: 500px;
   left: 20px;
 }
 
-/* line 27, scss/_buttons.scss */
+/* line 70, scss/_buttons.scss */
+.admin-buttons {
+  position: fixed;
+  top: 90px;
+  right: 20px;
+  z-index: 999;
+}
+/* line 76, scss/_buttons.scss */
+.admin-buttons .btn {
+  position: relative;
+  display: block;
+  margin-bottom: 10px;
+}
+
+/* line 83, scss/_buttons.scss */
 .admin-controls-btn {
   position: fixed;
   top: 10px;
   left: 10px;
   z-index: 999;
-  cursor: pointer;
   height: 30px;
   width: 30px;
   line-height: 0;
@@ -1141,13 +1269,13 @@ p + .drop-cap {
   -ms-transform: rotate(-45deg);
   -o-transform: rotate(-45deg);
   transform: rotate(-45deg);
-  -webkit-transition: all 400ms cubic-bezier(0.35, -0.06, 0.15, 1.1);
+  -webkit-transition: -webkit-transform 400ms cubic-bezier(0.35, -0.06, 0.15, 1.1);
   -webkit-transition-delay: 0ms;
-  -moz-transition: all 400ms cubic-bezier(0.35, -0.06, 0.15, 1.1) 0ms;
-  -o-transition: all 400ms cubic-bezier(0.35, -0.06, 0.15, 1.1) 0ms;
-  transition: all 400ms cubic-bezier(0.35, -0.06, 0.15, 1.1) 0ms;
+  -moz-transition: -moz-transform 400ms cubic-bezier(0.35, -0.06, 0.15, 1.1) 0ms;
+  -o-transition: -o-transform 400ms cubic-bezier(0.35, -0.06, 0.15, 1.1) 0ms;
+  transition: transform 400ms cubic-bezier(0.35, -0.06, 0.15, 1.1) 0ms;
 }
-/* line 41, scss/_buttons.scss */
+/* line 96, scss/_buttons.scss */
 .admin-controls-btn.admin-active {
   background-color: white;
   color: #342f2f;
@@ -1157,59 +1285,28 @@ p + .drop-cap {
   -o-transform: rotate(0deg);
   transform: rotate(0deg);
 }
-/* line 47, scss/_buttons.scss */
+/* line 102, scss/_buttons.scss */
 .admin-controls-btn.off-page {
   left: -50px;
 }
 
-/* line 52, scss/_buttons.scss */
-.page-btn {
+/* line 107, scss/_buttons.scss */
+.page-buttons {
   position: absolute;
-  overflow: hidden;
-  height: 30px;
-  width: 30px;
-  -webkit-transition: all 400ms cubic-bezier(0.35, -0.06, 0.15, 1.1);
-  -webkit-transition-delay: 0ms;
-  -moz-transition: all 400ms cubic-bezier(0.35, -0.06, 0.15, 1.1) 0ms;
-  -o-transition: all 400ms cubic-bezier(0.35, -0.06, 0.15, 1.1) 0ms;
-  transition: all 400ms cubic-bezier(0.35, -0.06, 0.15, 1.1) 0ms;
+  right: 70px;
+  top: 0;
 }
-/* line 59, scss/_buttons.scss */
-.page-btn img {
-  width: 30px;
-  height: 30px;
-  float: right;
-  border: 2px solid #342f2f;
-}
-/* line 66, scss/_buttons.scss */
-.page-btn .save-text {
-  height: 30px;
-  color: #342f2f;
-  line-height: 1.8rem;
-  background-color: white;
-  text-align: left;
-  padding: 0px 6px;
+
+/* line 113, scss/_buttons.scss */
+.page-btn {
+  font-size: .9rem;
+  position: relative;
+  float: left;
   display: block;
 }
-
-/* line 77, scss/_buttons.scss */
-.save-page-btn, .save-post-btn {
-  top: 10px;
-  right: 10px;
-}
-/* line 81, scss/_buttons.scss */
-.save-page-btn:hover, .save-post-btn:hover {
-  width: 90px;
-}
-
-/* line 86, scss/_buttons.scss */
-.delete-page-btn, .delete-post-btn {
-  top: 50px;
-  right: 10px;
-}
-/* line 90, scss/_buttons.scss */
-.delete-page-btn:hover, .delete-post-btn:hover {
-  width: 110px;
+/* line 118, scss/_buttons.scss */
+.page-btn:first-of-type {
+  margin-right: 10px;
 }
 
 /* line 7, scss/_tables.scss */
@@ -1480,7 +1577,7 @@ p + .drop-cap {
   background-color: rgba(111, 186, 35, 0.95);
 }
 
-/* line 21, scss/main.min.scss */
+/* line 22, scss/main.min.scss */
 * {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -1488,22 +1585,22 @@ p + .drop-cap {
   outline: none;
 }
 
-/* line 26, scss/main.min.scss */
+/* line 27, scss/main.min.scss */
 b {
   font-weight: 900;
 }
 
-/* line 30, scss/main.min.scss */
+/* line 31, scss/main.min.scss */
 a {
   text-decoration: none;
 }
 
-/* line 34, scss/main.min.scss */
+/* line 35, scss/main.min.scss */
 hr {
   margin-bottom: 1.5rem;
 }
 
-/* line 38, scss/main.min.scss */
+/* line 39, scss/main.min.scss */
 code {
   background-color: #d7d7d7;
   color: #342f2f;
@@ -1511,27 +1608,17 @@ code {
   display: block;
 }
 
-/* line 45, scss/main.min.scss */
+/* line 46, scss/main.min.scss */
 body {
   background-color: #342f2f;
 }
 
-/* line 49, scss/main.min.scss */
+/* line 50, scss/main.min.scss */
 .application {
   position: relative;
-  -webkit-perspective: 2000px;
-  -moz-perspective: 2000px;
-  -ms-perspective: 2000px;
-  -o-perspective: 2000px;
-  perspective: 2000px;
-  -webkit-transform-style: preserve-3d;
-  -moz-transform-style: preserve-3d;
-  -ms-transform-style: preserve-3d;
-  -o-transform-style: preserve-3d;
-  transform-style: preserve-3d;
 }
 
-/* line 55, scss/main.min.scss */
+/* line 54, scss/main.min.scss */
 .container {
   width: 100%;
   min-height: 100vh;
@@ -1544,13 +1631,13 @@ body {
   -o-transition: all 400ms cubic-bezier(0.49, 0.14, 0.31, 1.25) 100ms;
   transition: all 400ms cubic-bezier(0.49, 0.14, 0.31, 1.25) 100ms;
 }
-/* line 63, scss/main.min.scss */
+/* line 62, scss/main.min.scss */
 .container.admin-controls {
-  -webkit-transform: rotateY(-20deg) translate3d(200px, 0px, 0px);
-  -moz-transform: rotateY(-20deg) translate3d(200px, 0px, 0px);
-  -ms-transform: rotateY(-20deg) translate3d(200px, 0px, 0px);
-  -o-transform: rotateY(-20deg) translate3d(200px, 0px, 0px);
-  transform: rotateY(-20deg) translate3d(200px, 0px, 0px);
+  -webkit-transform: translate3d(200px, 0px, 0px);
+  -moz-transform: translate3d(200px, 0px, 0px);
+  -ms-transform: translate3d(200px, 0px, 0px);
+  -o-transform: translate3d(200px, 0px, 0px);
+  transform: translate3d(200px, 0px, 0px);
   -webkit-transition: all 800ms cubic-bezier(0.35, -0.06, 0.15, 1.1);
   -webkit-transition-delay: 0ms;
   -moz-transition: all 800ms cubic-bezier(0.35, -0.06, 0.15, 1.1) 0ms;
@@ -1558,7 +1645,7 @@ body {
   transition: all 800ms cubic-bezier(0.35, -0.06, 0.15, 1.1) 0ms;
 }
 
-/* line 69, scss/main.min.scss */
+/* line 68, scss/main.min.scss */
 .container.scaled-back {
   -webkit-transform: scale3d(1, 1, 1);
   -moz-transform: scale3d(1, 1, 1);
@@ -1567,7 +1654,7 @@ body {
   transform: scale3d(1, 1, 1);
 }
 
-/* line 73, scss/main.min.scss */
+/* line 72, scss/main.min.scss */
 .modal {
   position: fixed;
   padding: 1rem;
@@ -1596,7 +1683,7 @@ body {
   z-index: 999;
 }
 
-/* line 89, scss/main.min.scss */
+/* line 88, scss/main.min.scss */
 .modal.off-page {
   -webkit-transform: scale3d(1.5, 1.5, 1.5);
   -moz-transform: scale3d(1.5, 1.5, 1.5);
@@ -1607,21 +1694,21 @@ body {
   opacity: 0.0;
 }
 
-/* line 95, scss/main.min.scss */
+/* line 94, scss/main.min.scss */
 .modal-container {
   max-width: 980px;
   margin: 0 auto;
   position: relative;
   padding: 1rem;
 }
-/* line 101, scss/main.min.scss */
+/* line 100, scss/main.min.scss */
 .modal-container.with-sidebar {
   width: 80%;
   left: 20%;
   margin: 0;
 }
 
-/* line 108, scss/main.min.scss */
+/* line 107, scss/main.min.scss */
 .text-view, .markup-view {
   background-color: white;
   width: 100%;
@@ -1639,19 +1726,19 @@ body {
   -o-transition: opacity 300ms ease-out 0ms;
   transition: opacity 300ms ease-out 0ms;
 }
-/* line 121, scss/main.min.scss */
+/* line 120, scss/main.min.scss */
 .text-view:focus, .markup-view:focus {
   outline: none;
 }
 
-/* line 126, scss/main.min.scss */
+/* line 125, scss/main.min.scss */
 .text-view.visible, .markup-view.visible {
   position: relative;
   z-index: 10;
   opacity: 1.0;
 }
 
-/* line 132, scss/main.min.scss */
+/* line 131, scss/main.min.scss */
 #body-output {
   height: 0px;
   overflow: hidden;
@@ -1659,10 +1746,19 @@ body {
   padding: 0px;
 }
 
-/* line 140, scss/main.min.scss */
+/* line 139, scss/main.min.scss */
 .inner {
   position: relative;
   max-width: 980px;
   margin: 0 auto;
-  padding: 1rem;
+  *zoom: 1;
+}
+/* line 22, ../../../../.rvm/gems/ruby-2.1.2@global/gems/compass-0.12.7/frameworks/compass/stylesheets/compass/utilities/general/_clearfix.scss */
+.inner:after {
+  content: "\0020";
+  display: block;
+  height: 0;
+  clear: both;
+  overflow: hidden;
+  visibility: hidden;
 }
