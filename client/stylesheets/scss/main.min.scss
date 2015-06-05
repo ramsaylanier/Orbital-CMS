@@ -1,12 +1,12 @@
-@import "compass/css3";
-@import "compass/reset";
-@import "compass/utilities/general/clearfix";
-@import "colors";
+@import "reset";
+@import "vars";
+
+@import "vendor/typeplate/typeplate";
+
+@import "helpers";
 @import "grid";
 @import "login";
 @import "forms";
-@import "typeplate";
-@import "helpers";
 @import "lists";
 @import "pages";
 @import "posts";
@@ -20,7 +20,7 @@
 @import "alerts";
 
 *{
-	@include box-sizing(border-box);
+	box-sizing: border-box;
 	outline: none;
 }
 
@@ -38,64 +38,78 @@ hr{
 
 code{
 	background-color: $light-grey;
-	color: $dark-grey;
+	color: $dark;
 	padding: 5px 15px;
 	display: block;
 }
 
 body{
-	background-color: $dark-grey;
+	background-color: $dark;
+	font-family: $sansSerif;
 }
 
-.application{
-	position: relative;
+.application.with-admin{
+	.container{
+		transform: translate3d(200px, 0px, 0px);
+		transition:all 800ms cubic-bezier(.35,-0.06,.15,1.10) 0ms;
+	}
+
+	.admin-header{
+		transform:rotate3d(0, 0, 0, 0deg);
+		transition:all 600ms cubic-bezier(.35,-0.06,.15,1.10) 0ms;
+		z-index: 99;
+	}
+
+	.admin-controls-btn{
+		color: white;
+		transform: rotate(0deg);
+	}
 }
 
 .container{
 	width: 100%;
 	min-height: 100vh;
-	position: relative;
 	background-color: white;
-	overflow: auto;
-	@include transition(all 400ms cubic-bezier(.49,.14,.31,1.25) 100ms);
-
-	&.admin-controls{
-		@include transform(translate3d(200px, 0px, 0px));
-		@include transition(all 800ms cubic-bezier(.35,-0.06,.15,1.10) 0ms);
-	}
+	transition: all 400ms cubic-bezier(.49,.14,.31,1.25) 100ms;
 }
 
 .container.scaled-back{
-	@include scale3d(1,1,1);	
+	transform: scale3d(1,1,1);	
 }
 
 .modal{
 	position: fixed;
-	padding: 1rem;
 	width: 100vw;
 	height: 100vh;
 	top: 0px;
 	left: 0px;
-	opacity: 1.0;
+	opacity: 0;
 	overflow: auto;
-	background-color: rgba(255,255,255,.95);
-	@include transform-origin(center, 100px);
-	@include scale3d(1, 1, 1);
-	@include transition(all 400ms cubic-bezier(.49,.14,.31,1.25) 0ms);
+	background-color: fade-out($dark, .1);
+	transform-origin: center 100px;
+	transition: opacity 300ms ease-out;
 	z-index: 999;
 }
 
+.close-modal-btn{
+	position: absolute;
+	top: 20px;
+	left: 20px;
+	padding: 0;
+}
+
 .modal.off-page{
-	@include scale3d(1.5, 1.5, 1.5);
+	transform: scale3d(1.5, 1.5, 1.5);
 	z-index: -1;
 	opacity: 0.0;
 }
 
 .modal-container{
-	max-width: 980px;
-	margin: 0 auto;
+	max-width: 1120px;
+	margin: 1rem auto 0rem;
 	position: relative;
 	padding: 1rem;
+	background-color: white;
 
 	&.with-sidebar{
 		width: 80%;
@@ -115,7 +129,7 @@ body{
 	position: absolute;
 	z-index: -1;
 	opacity: 0.0;
-	@include transition(opacity 300ms ease-out 0ms);
+	transition: opacity 300ms ease-out 0ms;
 
 	&:focus{
 		outline: none;
@@ -138,8 +152,7 @@ body{
 
 .inner{
 	position: relative;
-	max-width: 980px;
+	max-width: 1120px;
 	margin: 0 auto;
-	@include legacy-pie-clearfix;
 }
 

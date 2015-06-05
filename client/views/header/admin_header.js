@@ -1,26 +1,5 @@
 
 Template.adminHeader.events({
-	'click a': function(e){
-		$('.modal').remove();
-		$('.container').addClass('scaled-back');
-		$('.admin-header').removeClass('shown');
-		$('.admin-controls-btn').removeClass('admin-active').addClass('off-page');
-	},
-	'click .view-pages-btn': function(e, template){
-		e.preventDefault();
-
-		if ($('.add-page-modal').length == 0){
-			var data = Pages.find();
-			Blaze.renderWithData(Template.pagesList, data, $('.container').get(0));
-		}
-	},
-	'click .add-page-btn': function(e, template){
-		e.preventDefault();
-
-		if ($('.add-page-modal').length == 0){
-			Blaze.render(Template.addPage, $('.container').get(0));
-		}
-	},
 	'click .view-posts-btn': function(e, template){
 		e.preventDefault();
 
@@ -66,13 +45,6 @@ Template.adminHeader.events({
 		if ($('.view-blocks-container').length == 0){
 			var data = Blocks.find();
 			Blaze.renderWithData(Template.viewBlocks, data, $('.container').get(0));
-		}
-	},
-	'click .add-block-btn': function(e){
-		e.preventDefault();
-
-		if ($('.add-block-container').length == 0){
-			Blaze.render(Template.addBlock, $('.container').get(0));
 		}
 	}
 });

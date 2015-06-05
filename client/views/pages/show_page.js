@@ -1,42 +1,56 @@
-Template.showPage.rendered = function(){
-	Session.set('editMode', false);
-	$('.page-container').addClass('off-page');
-	var $item = $(this.find('.page-container'));
-	Meteor.defer(function() {
-		$item.removeClass('off-page');
-	});
-}
+Template.showPage.onCreated(function(){
+	var instance = this;
 
-Template.showPage.events({
-	'click .edit-page-btn':function(e){
-		e.preventDefault();
-		currentMode = Session.get('editMode');
+	instance.autorun(function(){
+		instance.slug = FlowRouter.getParam('slug') || Pages.findOne(Settings.findOne().landingPage).slug;
+		var subscription = instance.subscribe('singlePage', instance.slug);
 
-		if (currentMode == true){
-			Session.set('editMode', false)
-		} else {
-			Session.set('editMode', true);
+		if (subscription.ready()){
+			Session.set('pageId', instance.page._id);
 		}
+	})
+
+	instance.page = function(){
+		return Pages.findOne({slug: instance.slug});
 	}
 })
+
+Template.showPage.onRendered(function(){
+	var page = $('.page-container');
+	AnimateItem(page, DefaultPageAnimateIn);
+});
 
 Template.showPage.helpers({
 	editMode: function(){
 		return Session.get('editMode');
 	},
 	pageTemplate: function(){
-		var templateName = Pages.findOne({_id: this._id}).pageTemplate.replace(/ /g, '_');
-		return Template[templateName];
+		var templateName = Template.instance().page().pageTemplate.replace(/ /g, '_');
+		return templateName;
+	},
+	page: function(){
+		return Template.instance().page();
 	}
 });
 
+Template.showPage.events({
+	'click .page-edit-btn':function(e){
+		e.preventDefault();
+	}
+})
 
-Template.editPage.rendered = function(){
-	$('.title').focus();
-}
+Template.pageSettings.onRendered(function(){
+	var instance = this;
+	var item = instance.$('.page-settings');
 
+	Meteor.defer(function(){
+		item.velocity({
+			bottom: 0
+		}, {duration: 500, easing:Animations.defaultEasing})
+	})
+})
 
-Template.editPage.events({
+Template.pageSettings.events({
 	'click .save-page-btn': function(e, template){
 		e.preventDefault();
 
@@ -51,7 +65,7 @@ Template.editPage.events({
 
 		var updatedPage = {
 			title: pageTitle,
-			content: $('.page-content').html(),
+			content: $('.content-block').html(),
 			pageTemplate: $('#template-type').val().replace(/_/g, ' '),
 			showTitle: $('#show-title').is(':checked')
 		},
@@ -65,17 +79,18 @@ Template.editPage.events({
 			}
 		})
 	},
-	'click .delete-page-btn': function(e, template){
-		var pageId = template.data._id;
-		var settings = Settings.findOne();
+	'click .delete-page-btn': function(e){
+		var pageId = Template.instance().data._id;
 
 		Meteor.call('deletePage', pageId, function(error, id){
 			if (error){
-				Blaze.renderWithData(Template.settings, settings, $('.container').get(0));
 				throwError(error.reason, 'error');
+
+				if (error.error === 100){
+					FlowRouter.go('/admin/settings');
+				}
 			} else {
-				Router.go('/');
-				Session.set('editMode', false);
+				FlowRouter.go('/');
 			}
 		})
 	},
@@ -84,16 +99,23 @@ Template.editPage.events({
 		$('.page-settings').toggleClass('is-active');
 	},
 	'click .insert-blocks-btn': function(){
-		var blocks = Blocks.find();
+		Session.set('pageId',this._id);
+
 		if ($('.insert-blocks-modal').length){
 			$('.insert-blocks-modal').removeClass('off-page');
 		} else {
-			Blaze.renderWithData(Template.insertBlocks, blocks, $('.container').get(0));
+			Blaze.render(Template.addBlock, $('.container').get(0));
 		}
+	},
+	'click .expand-page-settings-btn': function(){
+		$('.page-settings').toggleClass('expanded');
 	}
 })
 
-Template.editPage.helpers({
+Template.pageSettings.helpers({
+	editMode: function(){
+		return Session.get('editMode');
+	},
 	getTemplates: function(){
 		var templates = _.filter(_.keys(Template), function(name){return name.match('template');});
 		return _.map(templates, function(name){ return name.replace(/_/g, ' ');});
@@ -110,12 +132,5 @@ Template.editPage.helpers({
 	isChecked: function(currentSetting){
 		if (currentSetting)
 			return "checked"
-	}
-})
-
-Template.blocksMenu.helpers({
-	'blockTypes': function(){
-		var blockTypes = _.filter(_.keys(Template), function(name){return name.match('block_template')});
-		console.log(blockTypes);
 	}
 })

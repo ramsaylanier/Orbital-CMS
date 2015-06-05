@@ -1,16 +1,20 @@
 <template name="header">
-	{{setTitle siteTitle}}
-	<div class="main-header">
-		<div class="inner">
-			{{#if headerImage}}
-				<a href="/" class="home-toggle page-toggle logo" data-slug="{{landingPage}}"><img src="{{headerImage}}" class="header-image"/></a>
-			{{/if}}
+	{{#if Template.subscriptionsReady}}
+		{{setTitle siteTitle}}
+		<header class="main-header">
+			<div class="inner">
+				{{#if headerImage}}
+					<a href="/" class="home-toggle page-toggle logo"><img src="{{headerImage}}" class="header-image"/></a>
+				{{/if}}
 
-			{{#if headerMenu}}
-				{{#each menuLinks}}
-					<a href="{{linkUrl}}" class="{{linkTitle}}-toggle page-toggle" data-slug="{{slug}}">{{linkTitle}}</a>
-				{{/each}}
-			{{/if}}
-		</div>
-	</div>
+				{{#if headerMenu}}
+					<nav class="main-nav">
+					{{#each menuLinks}}
+						<a href="{{linkUrl}}" class="{{linkTitle}}-toggle page-toggle nav-link" data-slug="{{slug}}">{{linkTitle}}</a>
+					{{/each}}
+					</nav>
+				{{/if}}
+			</div>
+		</header>
+	{{/if}}
 </template>

@@ -10,7 +10,7 @@
 <template name="postViewExcerpt">
 	<article class="post off-page">
 		<h3 class="post-title title">
-			<a href="{{pathFor 'showPost'}}" class="post-link">{{{title}}}</a>
+			<a href="{{pathFor route='post.show'}}" data-slug="{{slug}}" class="post-link">{{{title}}}</a>
 		</h3>
 
 		<div class="post-content content">

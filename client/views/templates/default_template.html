@@ -5,7 +5,18 @@
 		{{/if}}
 
 		<div class="page-content">
-			{{{content}}}
+
+			{{#if pageBlocks}}
+				{{#each pageBlocks}}
+					{{> blockTemplateView}}
+				{{/each}}
+			{{/if}}
+
+
+			<div class="content-block">
+				{{{content}}}
+			</div>
+
 		</div>
 	</div>
 </template>

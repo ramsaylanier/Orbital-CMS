@@ -1,32 +1,27 @@
 <template name="settings">
-	<div class="settings-modal modal off-page">
-		<button class="close-modal-btn btn">&#10006;</button>
-		<div class="settings-container modal-container off-page">
-			<h3>Settings</h3>
+	<h3>Settings</h3>
 
-			<form name="settings form">
-				<div class="form-control">
-					<label>Site title:</label>
-					<input type="text" name="site-title" value="{{siteTitle}}"/>
-				</div>
-				<div class="form-control">
-					<label>Landing Page</label>
-					<select name="landing-page">
-						{{#each pages}}
-							<option name="{{title}}-page" value="{{title}}">{{title}}</option>
-						{{/each}}
-					</select>
-				</div>
-
-				<div class="form-control">
-					<label>Header Image</label>
-					<button class="btn set-header-image-btn">Set Header Image</button>
-
-					<img src="{{featuredImage}}" class="settings-header-image"/>
-				</div>
-
-				<input type="submit" value="Save settings">
-			</form>
+	<form name="settings form">
+		<div class="form-control">
+			<label>Site title:</label>
+			<input type="text" name="site-title" value="{{siteTitle}}"/>
 		</div>
-	</div>
+		<div class="form-control">
+			<label>Landing Page</label>
+			<select name="landing-page">
+				{{#each pages}}
+					<option name="{{title}}-page" value="{{title}}" {{isLandingPage}}>{{title}}</option>
+				{{/each}}
+			</select>
+		</div>
+
+		<div class="form-control">
+			<label>Header Image</label>
+			<button class="btn set-header-image-btn">Set Header Image</button>
+
+			<img src="{{featuredImage}}" class="settings-header-image"/>
+		</div>
+
+		<input type="submit" value="Save settings">
+	</form>
 </template>

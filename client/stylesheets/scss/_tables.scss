@@ -12,8 +12,7 @@
 }
 
 .table-row{
-	margin-bottom: 1rem;
-	padding: 1rem;
+	padding: .5rem;
 
 	&:nth-of-type(even){
 		background-color: $light-grey;

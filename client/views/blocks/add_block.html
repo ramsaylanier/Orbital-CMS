@@ -1,24 +1,98 @@
 <template name="addBlock">
 	<div class="add-block-modal modal off-page">
 		<button class="close-modal-btn btn">&#10006;</button>
-		<div class="add-block-container modal-container with-sidebar off-page">
-			<h3>Add New Block</h3>
+		<div class="add-block-container modal-container clearfix">
+			<div class="pad-2">
+				{{> addNewBlock}}
+			</div>
 
-			<form class="form" name="new-block-form">
-				<div class="block-content">
-					<div class="form-control">
-						<label class="label" for="title">Block Name:</label>
-						<input id="block-name" name="block-name" type="text"/>
-					</div>
-
-					<div class="form-control">
-						<label class="label" for="template-type">Block Template</label>
-						<input type="text" id="template-type" value="{{this}}"/>
-					</div>
-
-					<input type="submit" value="Save Block"/>
-				</div>
-			</form>
+			<div class="pad-2">
+				{{> insertExistingBlock}}
+			</div>
 		</div>
 	</div>
 </template>
+
+<template name="addNewBlock">
+	<h3>Add New Block</h3>
+
+	<form class="form" name="new-block-form">
+		<div class="block-content">
+			<div class="form-control">
+				<label class="label grid-1-4" for="title">Block Name:</label>
+				<input id="block-name" name="block-name" type="text"/>
+			</div>
+
+			<div class="form-control">
+				<label class="label grid-1-4" for="template-type">Select Block Template:</label>
+				<select type="select" name="template-type" id="block-template-type">
+					{{#each blockTemplates}}
+						<option value="{{this}}">{{this}}</option>
+					{{/each}}
+				</select>
+			</div>
+
+			<div class="form-control">
+				<label class="label grid-1-4" for="template-type">Select Page:</label>
+				<select type="select" name="template-type" id="block-page">
+					{{#each pages}}
+						<option value="{{this.title}}" {{pageSelected}} >{{this.title}}</option>
+					{{/each}}
+				</select>
+			</div>
+
+			<div class="form-control pad-t-2">
+				<input class="btn green-btn" type="submit" value="Save Block"/>
+			</div>
+		</div>
+	</form>
+</template>
+
+
+<template name="insertExistingBlock">
+	<h3>Insert Existing Block</h3>
+
+	<div class="post-table table grid-1">
+		<div class="table-headings grid-1">
+			<div class="block-name-heading heading grid-1-4">
+				Title
+			</div>
+
+			<div class="block-template-heading heading grid-1-4">
+				Block Template
+			</div>
+
+			<div class="block-page-heading heading grid-1-4">
+				Block Page
+			</div>
+		</div>
+
+		<div class="page-data table-data grid-1">
+			{{#each blocks}}
+				{{>insertBlockRow}}
+			{{/each}}
+		</div>
+	</div>
+</template>	
+
+<template name="insertBlockRow">
+	<div class="block-row table-row row grid-1">
+		<div class="block-name table-cell grid-1-4">
+			{{blockName}}
+		</div>
+
+		<div class="block-template table-cell grid-1-4">
+			{{blockTemplate}}
+		</div>
+
+		<div class="block-page table-cell grid-1-4">
+			{{#each blockPages}}
+				<p>{{pageName}}</p>
+			{{/each}}
+		</div>
+
+		<div class="block-page table-cell grid-1-4">
+			<button class="insert-block-btn btn">Insert Block</button>
+		</div>
+	</div>
+</template>	

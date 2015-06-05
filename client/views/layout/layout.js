@@ -6,8 +6,8 @@ UI.registerHelper('setTitle', function(title){
 	}
 });
 
-UI.registerHelper('pages', function(){
-	return Pages.find();
+UI.registerHelper('adminActive', function(){
+	return Session.get('adminActive');
 })
 
 UI.registerHelper('posts', function(){
@@ -22,36 +22,78 @@ UI.registerHelper('images', function(){
 	return Media.find();
 })
 
+UI.registerHelper('pageBlocks', function(){
+	return Blocks.find({blockPages: this._id});
+})
+
+UI.registerHelper('editable', function(){
+	return Session.get('editMode');
+})
+
+UI.registerHelper('blockTemplateView', function(){
+	var templateName = "block" + this.blockTemplate.replace(/ /g, '_');
+	return Template[templateName];
+})
+
+Template.layout.onCreated(function(){
+	var instance = this;
+
+	instance.autorun(function(){
+		var pageListSub = instance.subscribe('pageList');
+		var settingsSub = instance.subscribe('settings');
+	})
+})
+
 Template.layout.events({
 	'click .admin-controls-btn': function(e){
 		e.preventDefault();
+		var adminActive = Session.get('adminActive');
 
-		$('.container').toggleClass('admin-controls');
-		$('.admin-header').toggleClass('shown');
-		$('.admin-controls-btn').toggleClass('admin-active');
-	},
-	'click .close-modal-btn': function(e){
-		e.preventDefault();
-
-		if ($('.container').hasClass('scaled-back')){
-			$('.admin-header').addClass('shown');
-			$('.admin-controls-btn').removeClass('off-page').addClass('admin-active');
-			$('.container').removeClass('scaled-back');
+		if (adminActive){
+			currentSlug = Session.get('currentSlug') || '/';
+			Session.set('adminActive', false);
+			FlowRouter.go(currentSlug);
+		} else {
+			currentSlug = FlowRouter.getParam('slug') || '';
+			Session.set('currentSlug', '/' + currentSlug);
+			FlowRouter.go('/admin');
 		}
-
-		$('.modal').addClass('off-page');
-
 	},
 	'click .set-header-image-btn': function(e){
 		e.preventDefault();
 		var images = Media.find();
 		Blaze.renderWithData(Template.setFeaturedImage, images, $('.container').get(0));
 	},
-	'click .block': function(e){
-		$('.block-tools').remove();
-		if (Session.get('editMode') == true){
-			Blaze.render(Template.blockTools, $(e.target).get(0));
+	'mouseenter .block': function(e){
+		if ($('.application').hasClass('edit-mode')){
+			var blockId = Blocks.findOne(this._id)._id;
+			Blaze.renderWithData(Template.blockTools, blockId, $(e.target).get(0));
 		}
+	},
+	'mouseleave .block': function(e){
+		if ($('.application').hasClass('edit-mode')){
+			$('.block-tools').remove();
+		}
+	},
+	'click .post-link': function(e, template){
+		e.preventDefault();
+
+		var slug = $(e.target).attr('href');
+		var posts = $('.post');
+
+		for (var i = 0; i <= posts.length; i++){
+			delayRemoval(i, $(posts[i]));
+		} 
+
+		function delayRemoval(i, post){
+			Meteor.setTimeout(function(){
+				post.addClass('off-page');
+			}, (i+1) * 50);
+		}
+
+		Meteor.setTimeout(function(){
+			FlowRouter.go(slug);
+		}, posts.length * 150);
 	}
 })
 

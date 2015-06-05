@@ -7,8 +7,8 @@
 	position: relative;
 	padding: 0rem 1rem;
 	margin-top: 100px;
-	@include opacity(1.0);
-	@include transition(all 400ms cubic-bezier(.35,-0.06,.15,1.10) 0ms);
+	opacity:1.0;
+	transition:all 400ms cubic-bezier(.35,-0.06,.15,1.10) 0ms;
 	z-index: 1;
 }
 
@@ -17,29 +17,32 @@
 }
 
 .post-container.off-page{
-	@include transform(rotate3d(0,1,0,-15deg));
-	@include opacity(0.0);
-	@include transform-origin(-300px, bottom);
+	transform: rotate3d(0,1,0,-15deg);
+	opacity:0.0;
+	transform-origin:-300px bottom;
 }
 
 .post{
-	@include transition(all 500ms cubic-bezier(.35,-0.06,.15,.95) 100ms);
-	@include translate3d(0px, 0px, 0px);
+	transition:all 500ms cubic-bezier(.35,-0.06,.15,.95) 100ms;
+	transform: translate3d(0px, 0px, 0px);
 	top: 0px;
 	position: relative;
 	opacity: 1.0;
 
 	&.off-page{
 		opacity: 0.0;
-		@include transition(all 175ms cubic-bezier(.35,-0.06,.15,.95) 0ms);
-		@include translate3d(-500px, 0px, 0px);
-
+		transition:all 175ms cubic-bezier(.35,-0.06,.15,.95) 0ms;
+		transform: translate3d(-500px, 0px, 0px);
 	}
 
 	&.is-active{
-		@include transition(all 800ms cubic-bezier(.35,-0.06,.15,.95) 150ms);
+		transition:all 800ms cubic-bezier(.35,-0.06,.15,.95) 150ms;
 		top: -100px;
 	}
+}
+
+.post-inner{
+	padding: 0rem 1.5rem;
 }
 
 .post-section{
@@ -48,4 +51,16 @@
 
 .post-date{
 
+}
+
+.post-actions{
+	position: absolute;
+	left: 1rem;
+
+	.btn{
+		display: block;
+		float: left;
+		clear: both;
+		margin-bottom: .25rem;
+	}
 }

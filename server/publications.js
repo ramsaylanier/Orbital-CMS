@@ -6,7 +6,19 @@ Meteor.publish('pages', function(){
 	return Pages.find();
 })
 
-Meteor.publish('posts', function(){
+Meteor.publish('pageTitles', function(){
+	return Pages.find({}, {fields: {title: 1, slug: 1}});
+})
+
+Meteor.publish('pageList', function(){
+	return Pages.find({}, {fields: {title: 1, slug: 1, pageTemplate: 1}});
+})
+
+Meteor.publish('singlePage', function(slug){
+	return Pages.find({slug: slug})
+})
+
+Meteor.publish('postList', function(){
 	return Posts.find();
 })
 

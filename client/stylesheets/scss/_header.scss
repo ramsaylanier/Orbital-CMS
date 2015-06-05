@@ -3,17 +3,16 @@
 	width: 100%;
 	position: fixed;
 	top: 0px;
-	background-color: white;
+	background-color: fade-out(white, .05);
 	text-align: center;
 	padding: .5rem;
 	z-index: 100;
-	border-bottom: 2px solid $yellow;
 
 	a{
 		display: block;
 		height: 100%;
 		float: left;
-		@include transition(all 300ms ease-out 100ms);
+		transition: all 300ms ease-out 100ms;
 	}
 
 	.header-image{
@@ -22,43 +21,40 @@
 
 }
 
+.nav-link{
+	padding: 1rem;
+}
+
 .admin-header{
 	position: fixed;
 	height: 100vh;
-	width: 100px;
+	width: 80px;
 	text-align: center;
-	@include transform-style(preserve-3d);
-	@include transition(all 400ms cubic-bezier(.35,-0.06,.15,1.10) 0ms);
-	@include transform-origin(-150px, center);
-	@include transform(rotate3d(0, 1, 0, 90deg));
+	transform-style: preserve-3d;
+	transition: all 400ms cubic-bezier(.35,-0.06,.15,1.10) 0ms;
+	transform-origin: -150px center;
+	transform: rotate3d(0, 1, 0, 90deg);
 	z-index: -1;
 	margin-top: 3rem;
-
-
-	&.shown{
-		@include transform(rotate3d(0, 0, 0, 0deg));
-		@include transition(all 600ms cubic-bezier(.35,-0.06,.15,1.10) 0ms);
-		z-index: 99;
-	}
 
 	a{
 		display: block;
 		color: white;
 		position: relative;
-		height: 50px;
+		height: 35px;
 		margin-bottom: 5px;
 	}
 
 	.menu-item{
 		position: relative;
 		z-index: 2;
-		@include transform-style(preserve-3d);
+		transform-style: preserve-3d;
 
 		&:hover{
 			.sub-menu{
-				left: 105px;
+				left: 85px;
 				opacity: 1.0;
-				@include transform(rotate3d(0,1,0,0deg));
+				transform:rotate3d(0,1,0,0deg);
 			}
 		}
 	}
@@ -66,11 +62,11 @@
 	.main-menu{
 		color: white;
 		position: relative;
-		@include perspective(300px);
+		perspective:300px;
 
 		&:hover{
 			.hover-item-1{
-				@include rotate3d(0,1,0,90deg);
+				transfomr: rotate3d(0,1,0,90deg);
 				border-right: 3px solid $blue;
 				opacity:0.0;
 			}
@@ -79,16 +75,16 @@
 
 	.hover{
 		position: absolute;
-		padding: 10px 0px;
+		padding: 5px 0px;
 		height: 100%;
 		width: 100%;
 		opacity:1.0;
-		@include transform-origin(0px, center);
-		@include transition(all 300ms cubic-bezier(0,-0.21,.95,-0.25) 0ms);
+		transform-origin:0px center;
+		transition:all 300ms cubic-bezier(0,-0.21,.95,-0.25) 0ms;
 	}
 
 	.hover-item-1{
-		color: $dark-grey;
+		color: $dark;
 		background-color: white;
 		z-index: 2;
 	}
@@ -96,7 +92,7 @@
 	.hover-item-2{
 		color: white;
 		border-right: 3px solid white;
-		background-color: $dark-grey;
+		background-color: $dark;
 		z-index: 1;
 
 	}
@@ -107,20 +103,20 @@
 		position: absolute;
 		width: 100px;
 		top: 0px;
-		left: 100px;
-		@include transform(rotate3d(0,1,0,180deg));
-		@include transform-origin(0px,center);
-		@include transition(all 300ms ease-in-out 100ms);
+		left: 80px;
+		transform:rotate3d(0,1,0,180deg);
+		transform-origin:0px center;
+		transition:all 300ms ease-in-out 100ms;
 
 		a{
 			background-color: white;
-			color: $dark-grey;
-			padding: 10px 0px;
+			color: $dark;
+			padding: 5px 0px;
 
 			&:hover{
 				color: white;
-				background-color: $dark-grey;
-				@include transition(all 200ms ease-out 0ms);
+				background-color: $dark;
+				transition:all 200ms ease-out 0ms;
 			}
 		}
 	}

@@ -1,12 +1,11 @@
 <template name="front_page_template">
-	<div class="front-page page-inner inner">
+	<div class="front-page">
 		{{#if showTitle}}
 			<h1 class="page-title">{{title}}</h1>
 		{{/if}}
 
 		<div class="page-content">
-			{{{content}}}
+			<canvas id="cube"></canvas>
 		</div>
-
 	</div>
 </template>

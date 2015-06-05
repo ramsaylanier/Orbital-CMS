@@ -1,3 +1,17 @@
+Template.blog_template.onCreated(function(){
+	var instance = this;
+
+	instance.autorun(function(){
+		var subscription = instance.subscribe('postList');
+	})
+
+	instance.posts = function(){
+		return Posts.find();
+	}
+})
+
+
+
 Template.blog_template.rendered = function(){
 	var item = $(this.findAll('.post'));
 
@@ -14,24 +28,8 @@ Template.blog_template.rendered = function(){
 	});
 }
 
-Template.postView.events({
-	'click .post-link': function(e, template){
-		e.preventDefault();
-
-		var posts = $('.post');
-
-		for (var i = 0; i <= posts.length; i++){
-			delayRemoval(i, $(posts[i]));
-		} 
-
-		function delayRemoval(i, post){
-			Meteor.setTimeout(function(){
-				post.addClass('off-page');
-			}, (i+1) * 50);
-		}
-
-		Meteor.setTimeout(function(){
-			Router.go('showPost', {slug: template.data.slug});
-		}, posts.length * 150);
+Template.blog_template.helpers({
+	posts: function(){
+		return Template.instance().posts();
 	}
 });

@@ -3,7 +3,7 @@
 }
 
 .clearfix{
-	@include pie-clearfix;
+	overflow: hidden;
 }
 
 .inline{
@@ -14,13 +14,28 @@
 	display: block;
 }
 
+.pull-left{
+	float: left;
+}
+
+.pull-right{
+	float: right;
+}
+
 .left-align{
 	text-align: left;
 }
 
+.t-a-center{
+	text-align: center;
+}
 
 .right-align{
 	text-align: right;
+}
+
+.no-pad{
+	padding: 0;
 }
 
 .pad-1{
@@ -37,6 +52,10 @@
 
 .pad-2{
 	padding: 2rem;
+}
+
+.pad-t-2{
+	padding-top: 2rem;
 }
 
 .pad-r-2{

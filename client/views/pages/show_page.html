@@ -1,55 +1,56 @@
 <template name="showPage">	
-	<div class="page-container off-page">
-		{{#if isInRole 'admin'}}
-		<div class="admin-buttons">
-			<button class="edit-page-btn edit-btn btn">Edit</button>
-		</div>
-		{{/if}}
-
+	<div class="page-container {{#if editMode}}page-edit-mode{{/if}}">
 		{{#if editMode}}
-			{{> editPage}}
-		{{else}}
-			<div class="page">
-				{{> pageTemplate}}
-			</div>
+			{{>editor}}
 		{{/if}}
+
+		{{#if Template.subscriptionsReady}}
+		<div class="page">
+			{{> Template.dynamic template=pageTemplate}}
+		</div>
+		{{/if}}
+
+		{{#if isInRole 'admin'}}
+		<div class="page-actions">
+			<a href="/{{page.slug}}/edit" class="page-edit-btn edit-btn post-btn btn">&#10006;</a>
+		</div>
+
+		{{#if Template.subscriptionsReady}}
+			{{#if editMode}}
+				{{> pageSettings page}}
+			{{/if}}
+		{{/if}}
+	{{/if}}
 	</div>
 </template>
 
-<template name="editPage">
-	<button class="insert-blocks-btn round-btn btn"></button>
-	{{>editor}}
+<template name="pageSettings">
+	<div class="page-settings {{editMode}}">
+		<div class="inner">
+			<div class="page-buttons clearfix">
+				<div class="pull-left">
+					<a href="#" class="insert-blocks-btn page-btn btn">ADD BLOCK</a>
+					<a href="#" class="expand-page-settings-btn page-btn btn">MORE</a>
+				</div>
 
-	<div class="page" contenteditable="true">
-		{{> pageTemplate}}
+				<div class="pull-right">
+					<a href="#" class="save-page-btn page-btn btn">SAVE</a>
+					<a href="#" class="delete-page-btn page-btn btn">DELETE</a>
+				</div>
+			</div>
+			<div class="form-control pad-1">
+				<label class="label white" for="template-type">Template: </label>
+				<select type="select" name="template-type" id="template-type">
+					{{#each getTemplates}}
+						<option value="{{this}}" selected={{isSelected ../pageTemplate}}>{{this}}</option>
+					{{/each}}
+				</select>
+			</div>
+
+			<div class="form-control pad-1">
+				<label class="label white" for="template-type">Show Title: </label>
+				<input type="checkbox" name="show-title-checkbox" id="show-title" {{isChecked showTitle}}>
+			</div>
+		</div>
 	</div>
-
-	<div class="page-settings is-active">
-		<div class="form-control pad-1">
-			<label class="label white" for="template-type">Template: </label>
-			<select type="select" name="template-type" id="template-type">
-				{{#each getTemplates}}
-					<option value="{{this}}" selected={{isSelected ../pageTemplate}}>{{this}}</option>
-				{{/each}}
-			</select>
-		</div>
-
-		<div class="form-control pad-1">
-			<label class="label white" for="template-type">Show Title: </label>
-			<input type="checkbox" name="show-title-checkbox" id="show-title" {{isChecked showTitle}}>
-		</div>
-		<div class="page-buttons">
-			<a href="#" class="save-page-btn page-btn btn">SAVE</a>
-			<a href="#" class="delete-page-btn page-btn btn">DELETE</a>
-		</div>
-		<button class="page-settings-btn btn active">&#10006;</button>
-	</div>
-</template>
-
-<template name="blocksMenu">
-	<ul class="blocks-list">
-		{{#each blocks}}
-			<button>{{blockName}}</button>
-		{{/each}}
-	</ul>
 </template>

@@ -1,31 +1,28 @@
 <template name="pagesList">
-<div class="page-list-modal modal off-page">
-	<button class="close-modal-btn btn">&#10006;</button>
-	<div class="modal-container clearfix">
-		<h3>Pages</h3>
-		<div class="page-table table grid-1">
-			<div class="table-headings grid-1">
-				<div class="title-heading heading grid-1-4">
-					Title
-				</div>
-
-				<div class="slug-heading heading grid-1-4">
-					Slug
-				</div>
-
-				<div class="template-heading heading grid-1-4">
-					Template
-				</div>
+{{#if Template.subscriptionsReady}}
+	<h3>Pages</h3>
+	<div class="page-table table grid-1">
+		<div class="table-headings grid-1">
+			<div class="title-heading heading grid-1-4">
+				Title
 			</div>
 
-			<div class="page-data table-data grid-1">
-				{{#each this}}
-					{{> pageRow}}
-				{{/each}}
+			<div class="slug-heading heading grid-1-4">
+				Slug
+			</div>
+
+			<div class="template-heading heading grid-1-4">
+				Template
 			</div>
 		</div>
+
+		<div class="page-data table-data grid-1">
+			{{#each pages}}
+				{{> pageRow}}
+			{{/each}}
+		</div>
 	</div>
-</div>
+{{/if}}
 </template>
 
 <template name="pageRow">
@@ -43,7 +40,7 @@
 		</div>
 
 		<div class="edit-page-btn grid-1-4">
-			<a href="{{pathFor 'showPage'}}" class="edit-page-btn btn">Edit Page</a>
+			<a href="/{{slug}}/edit" class="edit-page-btn close-modal-trigger btn">Edit Page</a>
 		</div>
 	</div>
 </template>

@@ -12,9 +12,9 @@
 
 
 <template name="postView">
-	<article class="post off-page">
+	<article class="post">
 		<h3 class="post-title title">
-			<a href="#" class="post-link">{{{title}}}</a>
+			<a href="/posts/{{slug}}" data-slug="{{slug}}" class="post-link">{{{title}}}</a>
 		</h3>
 
 		<p class="post-date">{{publishedDate this.submitted}}</p>

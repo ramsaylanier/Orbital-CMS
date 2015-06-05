@@ -1,50 +1,38 @@
 .btn{
 	border: none;
-	border-radius: none;
+	border-radius: 2px;
 	padding: .5rem;
-	background-color: $dark-grey;
+	background-color: $dark;
 	color: white;
 	cursor: pointer;
+	font-size: .7rem;
+	transition: all 300ms ease-out;
 
-	&.red-btn, &.delete-page-btn{
+	&.negative-btn{
 		background-color: $red;
 	}
 
+	&.positive-btn{
+		background-color: $green;
+
+		&:hover{
+			background-color: darken($green, 10%);
+		}
+	}
+
 	&.plus-btn{
-		@include rotate(45deg);
+		transform: rotate(45deg);
 		width: 35px;
 		height: 35px;
 	}
 
-	&.round-btn{
-		border: 1px dashed $yellow;
-		background-color: white;
+	&.page-edit-btn{
 		position: fixed;
-		color: $dark-grey;
-		width: 40px;
-		height: 40px;
-		@include border-radius(50%);
-
-		&:before{
-			content: '';
-			position: absolute;
-			height: 20px;
-			width: 20px;
-			background-color: $yellow;
-			top: 9px;
-			left: 9px;
-			@include border-radius(50%);
-			@include transition(all 300ms ease-out);
-		}
-
-		&:hover{
-			&:before{
-				top: -1px;
-				left: -1px;
-				height: 40px;
-				width: 40px;
-			}
-		}
+		bottom: 10px;
+		left: 50%;
+		transform: rotate(45deg) translateX(-50%);
+		background-color: transparent;
+		color: $dark;
 	}
 }
 
@@ -53,11 +41,11 @@
 	right: 20px;
 	top: 5px;
 	z-index: 300;
-	@include transition(all 300ms ease-out);
-	@include rotate(45deg);
+	transition:all 300ms ease-out;
+	transform: rotate(45deg);
 
 	&.active{
-		@include rotate(0deg);
+		transform: rotate(0deg);
 	}
 }
 
@@ -81,42 +69,19 @@
 }
 
 .admin-controls-btn{
+	padding: 0;
 	position: fixed;
-	top: 10px;
-	left: 10px;
+	top: 20px;
+	left: 20px;
 	z-index: 999;
-	height: 30px;
-	width: 30px;
 	line-height: 0;
-	color: $dark-grey;
-	background-color: white;
-	@include transform(rotate(-45deg));
-	@include transition(transform 400ms cubic-bezier(.35,-0.06,.15,1.10) 0ms);
-
-	&.admin-active{
-		background-color: white;
-		color: $dark-grey;
-		@include transform(rotate(0deg));
-	}
+	color: $dark;
+	background-color: transparent;
+	transform: rotate(-45deg);
+	transform-origin: center center;
+	transition: all 400ms cubic-bezier(.35,-0.06,.15,1.10) 0ms;
 
 	&.off-page{
 		left: -50px;
 	}
-}
-
-.page-buttons{
-	position: absolute;
-	right: 70px;
-	top: 0;
-}
-
-.page-btn{
-	font-size: .9rem;
-	position: relative;
-	float: left;
-	display: block;
-	&:first-of-type{
-		margin-right: 10px;
-	}
-
 }

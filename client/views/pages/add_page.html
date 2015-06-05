@@ -1,33 +1,17 @@
 <template name="addPage">
-	<div class="add-page-modal modal off-page">
-		<button class="close-modal-btn btn">X</button>
-		{{> editor}}
-		<div class="add-page-container modal-container with-sidebar off-page">
-			<h3>Add New Page</h3>
+	{{> editor}}
+	<div class="add-page-container modal-container">
+		<h3 class="t-a-center">Add New Page</h3>
 
+		<div class="form-wrapper">
 			<form class="form" name="new-page-form">
 				<div class="page-content">
-					<div class="form-control">
-						<label class="label" for="title">Title</label>
-						<input id="title" name="title" type="text" value="{{title}}"/>
-					</div>
 
-					<div class="edit-slug-box">
-						<span class="sample-slug">
-							Permalink: {{url}}<input type="text" id="slug" class="editable-slug" value="{{value}}"/>
-						</span>
-					</div>
-
-					<div class="form-control">
-						<label class="label" for="template-type">Select Template Type</label>
-						<select type="select" name="template-type" id="template-type">
-							{{#each getTemplates}}
-								<option value="{{this}}">{{this}}</option>
-							{{/each}}
-						</select>
-					</div>
-
-					<input type="submit" value="Save Page"/>
+					{{>formInput label="Title" type="text" value=title name="title" id="title" classes="full"}}
+					{{>formInput label="Permalink" type="text" id="slug" value=value classes="full"}}
+					{{>formSelect label="Select Template Type" name="new-template-type" id="new-template-type" options=templateOptions }}
+					
+					{{>formSubmit value="Save Page"}}
 				</div>
 			</form>
 		</div>

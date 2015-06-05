@@ -1,0 +1,28 @@
+<template name="formInput">
+	<div class="form-control">
+		{{#if label}}
+			<label class="label input-label">{{label}}</label>
+		{{/if}}
+		<input id="{{id}}" type="{{type}}" name="{{name}}" value="{{value}}" class="input-field {{classes}}" />
+		<span class="input-overlay"></span>
+	</div>
+</template>
+
+<template name="formSelect">
+<div class="form-control select-control">
+		{{#if label}}
+			<label class="label select-label">{{label}}</label>
+		{{/if}}
+		<select id="{{id}}" name="{{name}}" class="select-field {{classes}}">
+			{{#each options}}
+				<option value="{{this}}">{{this}}</option>
+			{{/each}}
+		</select>
+	</div>
+</template>
+
+<template name="formSubmit">
+	<div class="form-control submit-control">
+		<input type="submit" value="{{value}}" class="{{classes}} positive-btn btn"/>
+	</div>
+</template>

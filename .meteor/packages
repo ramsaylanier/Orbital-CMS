@@ -4,7 +4,6 @@
 # but you can also edit it by hand.
 
 standard-app-packages
-iron:router
 sacha:spin
 alanning:roles
 accounts-password
@@ -21,5 +20,10 @@ cfs-ui
 ui-dropped-event
 codepoet:medium-editor-npm
 mrt:moment
+infinitedg:three
 ramsay:verbatim
 
+percolate:velocityjs
+reactive-var
+meteorhacks:flow-router
+meteorhacks:flow-layout

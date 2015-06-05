@@ -8,13 +8,14 @@ Template.settings.events({
 			currentSettingsId = Settings.findOne()._id;
 		}
 
+		var landingPageName = $(e.target).find("[name=landing-page]").val();
+		var page = Pages.findOne({title: landingPageName});
+
 		var settings = {
-			landingPage: $(e.target).find("[name=landing-page]").val(),
+			landingPage: page._id,
 			siteTitle: $(e.target).find("[name=site-title]").val(),
 			headerImage: $('.settings-header-image').attr('src')
 		}
-
-		console.log(settings.headerImage);
 
 		Meteor.call('settings', currentSettingsId, settings, function(error, id){
 			if (error){
@@ -35,6 +36,10 @@ Template.settings.helpers({
 			return Session.get('featuredImage');
 		} else 
 			return this.headerImage;
+	},
+	isLandingPage: function(){
+		if (this._id == Settings.findOne().landingPage)
+			return 'selected';
 	}
 })
 

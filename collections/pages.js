@@ -61,25 +61,24 @@ Meteor.methods({
 	deletePage: function(pageId){
 
 		var loggedInUser = Meteor.user();
+		var landingPage = Settings.findOne().landingPage;
 
 		if (Roles.userIsInRole(loggedInUser, ['admin'])){
-			var settings = Settings.findOne();
-			var landingPage = settings.landingPage;
-			var pageTitle = Pages.findOne({_id: pageId}).title;
-			var menus = Menus.find({"links.linkTitle": pageTitle}).fetch();
+			var page = Pages.findOne(pageId);
+			var menus = Menus.find({"links.linkTitle": page.title}).fetch();
 
-			Menus.update({"links.linkTitle": pageTitle}, {$pull: {"links.linkTitle": pageTitle}});
+			//if page is set to landing page, force user to select new landing page before deleting
+			if (page._id === landingPage){
+				throw new Meteor.Error(100, 'Before deleting this page, please select a new landing page.');
+			}
+
+			Menus.update({"links.linkTitle": page.title}, {$pull: {"links.linkTitle": page.title}});
 
 			//remove page from menu before deleting page
 			_.each(menus, function(menu){
 				var menuId = menu._id;
 				Menus.update({_id: menuId}, {$pull: {links: {linkTitle: pageTitle} } } );
 			})
-
-			//if page is set to landing page, force user to select new landing page before deleting
-			if (pageTitle == landingPage){
-				throw new Meteor.Error(422, 'Before deleting this page, please select a new landing page.');
-			}
 
 			Pages.remove({_id: pageId});
 		}

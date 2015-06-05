@@ -1,0 +1,16 @@
+<template name="block_background_image">
+	<div class="block-background-image block centered" style="background-image: url('/images/lunarmodule.jpg')">
+		<div class="block-content">
+
+			{{#if content}}
+				{{{content}}}
+			{{else}}
+			<div class="block-text">
+				<h1 class="block-title white tera">Orbital CMS</h1>
+				<h4 class="block-sub-title white">A CMS for developers, built using Meteor.js</h4>
+			</div>
+			{{/if}}
+
+		</div>
+	</div>
+</template>	

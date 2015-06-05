@@ -5,21 +5,51 @@
 			<h3 class="">Blocks</h3>
 			<div class="post-table table grid-1">
 				<div class="table-headings grid-1">
-					<div class="title-heading heading grid-1-4">
+					<div class="block-name-heading heading grid-1-4">
 						Title
 					</div>
 
-					<div class="slug-heading heading grid-1-4">
-						
+					<div class="block-template-heading heading grid-1-4">
+						Block Template
+					</div>
+
+					<div class="block-page-heading heading grid-1-4">
+						Block Page
 					</div>
 				</div>
 
 				<div class="page-data table-data grid-1">
 					{{#each this}}
-						{{blockName}}
+						{{>blockRow}}
 					{{/each}}
 				</div>
 			</div>
+		</div>
+	</div>
+</template>
+
+<template name="blockRow">
+	<div class="block-row table-row row grid-1">
+		<div class="block-name table-cell grid-1-4">
+			{{blockName}}
+		</div>
+
+		<div class="block-template table-cell grid-1-4">
+			{{blockTemplate}}
+		</div>
+
+		<div class="block-page table-cell grid-1-4">
+			{{#if blockPages}}
+				{{#each blockPages}}
+					<p>{{pageName}}</p>
+				{{/each}}
+			{{else}}
+				<p>None</p>
+			{{/if}}
+		</div>
+
+		<div class="block-page table-cell grid-1-4">
+			<button class="delete-block-btn delete-btn btn">Delete Block</button>
 		</div>
 	</div>
 </template>

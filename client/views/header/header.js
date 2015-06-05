@@ -1,12 +1,15 @@
+Template.header.onCreated(function(){
+	var instance = this;
+
+	instance.autorun(function(){
+		var settingsSub = instance.subscribe('settings');
+	 	var menusSub = instance.subscribe('menus');
+	});
+})
+
 Template.header.helpers({
 	headerImage: function(){
 		return Settings.findOne().headerImage;
-	},
-	landingPage: function(){
-		if (Settings.findOne()){
-			landingPage = Settings.findOne().landingPage;
-			return Pages.findOne({title: landingPage}).slug;
-		}
 	},
 	siteTitle: function(){
 		if (Settings.findOne())

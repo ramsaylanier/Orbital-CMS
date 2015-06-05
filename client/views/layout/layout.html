@@ -6,15 +6,20 @@
 </head>
 
 <template name="layout">
-	<div class="application">
+	{{#if Template.subscriptionsReady}}
+	<div class="application {{#if adminActive}}with-admin{{/if}}">
 		{{#if isInRole 'admin'}}
-			<button class="admin-controls-btn btn">&#10006;</button>
+			<a href='/admin' class="admin-controls-btn btn">&#10006;</a>
 			{{> adminHeader}}
 		{{/if}}
+
 		<div class="container">
 				{{> header}}
-				{{> yield}}
+				{{> Template.dynamic template=main}}
 		</div>
+
+		{{> Template.dynamic template=modal data=data}}
 	</div>
 	{{> errors}}
+	{{/if}}
 </template>

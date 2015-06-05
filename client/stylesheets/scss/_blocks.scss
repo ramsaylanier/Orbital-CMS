@@ -5,3 +5,39 @@
 .block-option{
 	display: block;
 }
+
+.block{
+	position: relative;
+}
+
+.block-background-image{
+	background-size: cover;
+	background-position: center center;
+	padding-bottom: 30%;
+}
+
+
+.block-text{
+	position: absolute;
+	left: 0;
+	right: 0;
+}
+
+.block-tools{
+	position: absolute;
+	left: 10px;
+	top: 10px;
+	z-index: 0;
+}
+
+.block-tools-list{
+	background-color: white;
+	overflow: hidden;
+
+	li{
+		padding: 5px;
+		float: left;
+		width: 30px;
+		height: 30px;
+	}
+}
