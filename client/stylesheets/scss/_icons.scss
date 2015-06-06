@@ -1,0 +1,49 @@
+.icon{
+	cursor: pointer;
+	transition: all 300ms ease-out;
+	path{
+		transition: fill 300ms ease-out;
+		fill: $dark;
+	}
+}
+
+.settings-icon{
+	width: 20px;
+	height: 20px;
+}
+
+.edit-icon{
+	width: 25px;
+	height: 25px;
+	transform: rotate(0deg);
+}
+
+.application.with-admin{
+	.settings-icon{
+		transform: rotate(-45deg);
+		path{
+			fill: $green;
+		}
+	}
+
+	.edit-icon{
+		opacity: 0;
+		transform: translateX(-50px);
+	}
+}
+
+
+
+.application.edit-mode{
+	.edit-icon{
+		transform: rotate(-45deg);
+		path{
+			fill: $green;
+		}
+	}
+
+	.settings-icon{
+		opacity: 0;
+		transform: translateX(-50px);
+	}
+}

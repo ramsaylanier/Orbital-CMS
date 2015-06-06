@@ -7,9 +7,13 @@
 
 <template name="layout">
 	{{#if Template.subscriptionsReady}}
-	<div class="application {{#if adminActive}}with-admin{{/if}}">
+	<div class="application {{#if adminActive}}with-admin{{/if}} {{#if editMode}}edit-mode{{/if}}">
 		{{#if isInRole 'admin'}}
-			<a href='/admin' class="admin-controls-btn btn">&#10006;</a>
+			<div class="admin-controls">
+				<a href='/admin' class="admin-controls-btn btn">{{>settingsIcon}}</a>
+				<a href="/{{currentPage}}{{#unless editMode}}/edit{{/unless}}" class="page-edit-btn edit-btn post-btn btn">{{>editIcon}}</a>
+			</div>
+
 			{{> adminHeader}}
 		{{/if}}
 

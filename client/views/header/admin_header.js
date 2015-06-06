@@ -38,13 +38,5 @@ Template.adminHeader.events({
 			var settings = Settings.findOne();
 			Blaze.renderWithData(Template.menuSettings, settings, $('.container').get(0));
 		}
-	},
-	'click .view-blocks-btn': function(e){
-		e.preventDefault();
-
-		if ($('.view-blocks-container').length == 0){
-			var data = Blocks.find();
-			Blaze.renderWithData(Template.viewBlocks, data, $('.container').get(0));
-		}
 	}
 });

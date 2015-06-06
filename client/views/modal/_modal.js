@@ -1,17 +1,18 @@
-Template.adminModal.onRendered(function(){
-	console.log(this);
+Template.modal.onRendered(function(){
 	var modal = $('.modal');
 	AnimateItem(modal, DefaultModalIn);
 })
 
-Template.adminModal.helpers({
+Template.modal.helpers({
 	adminTemplate: function(){
-		console.log(this);
-		return this.adminTemplate
+		return this.type === 'admin';
+	},
+	slug: function(){
+		return FlowRouter.getParam('slug');
 	}
 })
 
-Template.adminModal.events({
+Template.modal.events({
 	'click .close-modal-trigger':function(e){
 		AnimateItem($('.modal'), DefaultModalOut);
 

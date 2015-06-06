@@ -1,7 +1,7 @@
 <template name="addBlock">
-	<div class="add-block-modal modal off-page">
-		<button class="close-modal-btn btn">&#10006;</button>
-		<div class="add-block-container modal-container clearfix">
+	{{!-- <div class="block-modal modal">
+		<a href="/{{slug}}/edit" class="close-modal-btn close-modal-trigger btn">&#10006;</a> --}}
+		{{!-- <div class="modal-container clearfix"> --}}
 			<div class="pad-2">
 				{{> addNewBlock}}
 			</div>
@@ -9,8 +9,8 @@
 			<div class="pad-2">
 				{{> insertExistingBlock}}
 			</div>
-		</div>
-	</div>
+		{{!-- </div> --}}
+{{!-- 	</div> --}}
 </template>
 
 <template name="addNewBlock">
@@ -18,27 +18,16 @@
 
 	<form class="form" name="new-block-form">
 		<div class="block-content">
-			<div class="form-control">
-				<label class="label grid-1-4" for="title">Block Name:</label>
-				<input id="block-name" name="block-name" type="text"/>
-			</div>
 
-			<div class="form-control">
-				<label class="label grid-1-4" for="template-type">Select Block Template:</label>
-				<select type="select" name="template-type" id="block-template-type">
-					{{#each blockTemplates}}
-						<option value="{{this}}">{{this}}</option>
-					{{/each}}
-				</select>
-			</div>
+			{{> formInput label="Block Name:" id="block-name" name="block-name" type="text"}}
+			{{> formSelect label="Select Block Template:" id="block-template-type" name="template-type" options=blockTemplates}}
 
+			
 			<div class="form-control">
-				<label class="label grid-1-4" for="template-type">Select Page:</label>
-				<select type="select" name="template-type" id="block-page">
-					{{#each pages}}
-						<option value="{{this.title}}" {{pageSelected}} >{{this.title}}</option>
-					{{/each}}
-				</select>
+				<label class="label block-label" for="template-type">Select Page:</label>
+				{{#each pages}}
+					{{> formCheckbox name="block-page" classes="block-page-checkbox" value=title }}
+				{{/each}}
 			</div>
 
 			<div class="form-control pad-t-2">
@@ -63,7 +52,7 @@
 			</div>
 
 			<div class="block-page-heading heading grid-1-4">
-				Block Page
+				Block Pages
 			</div>
 		</div>
 
@@ -87,7 +76,7 @@
 
 		<div class="block-page table-cell grid-1-4">
 			{{#each blockPages}}
-				<p>{{pageName}}</p>
+				<p>{{this}}</p>
 			{{/each}}
 		</div>
 

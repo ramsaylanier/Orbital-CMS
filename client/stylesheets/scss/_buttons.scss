@@ -25,15 +25,13 @@
 		width: 35px;
 		height: 35px;
 	}
+}
 
-	&.page-edit-btn{
-		position: fixed;
-		bottom: 10px;
-		left: 50%;
-		transform: rotate(45deg) translateX(-50%);
-		background-color: transparent;
-		color: $dark;
-	}
+.toggle-btn{
+	padding: 0;
+	background-color: transparent;
+	color: $dark;
+	line-height: 0;
 }
 
 .page-settings-btn{
@@ -41,8 +39,6 @@
 	right: 20px;
 	top: 5px;
 	z-index: 300;
-	transition:all 300ms ease-out;
-	transform: rotate(45deg);
 
 	&.active{
 		transform: rotate(0deg);
@@ -69,19 +65,17 @@
 }
 
 .admin-controls-btn{
-	padding: 0;
-	position: fixed;
+	@extend .toggle-btn;
 	top: 20px;
 	left: 20px;
-	z-index: 999;
-	line-height: 0;
-	color: $dark;
-	background-color: transparent;
-	transform: rotate(-45deg);
-	transform-origin: center center;
-	transition: all 400ms cubic-bezier(.35,-0.06,.15,1.10) 0ms;
 
 	&.off-page{
 		left: -50px;
 	}
+}
+
+.page-edit-btn{
+	@extend .toggle-btn;
+	bottom: 20px;
+	left: 20px;
 }

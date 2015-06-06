@@ -12,17 +12,6 @@
 	.page-title{
 		margin-bottom: 1.5rem;
 		transition:all 300ms ease-out;
-
-		&.off-page{
-			display: none;
-		}
-	}
-}
-
-.page-edit-mode{
-	.page-edit-btn{
-		background-color: $dark;
-		color: white;
 	}
 }
 
@@ -36,11 +25,15 @@
 .page-settings{
 	position: fixed;
 	width: 100%;
-	height: 40px;
+	height: 60px;
 	bottom: -100px;
 	right: 0;
 	background-color: $dark;
 	backface-visibility: hidden;
+
+	&.expanded{
+		height: 200px;
+	}
 }
 
 .page-actions{
@@ -50,7 +43,8 @@
 
 .page-buttons{
 	width: 100%;
-	padding-right: 60px;
+	height: 60px;
+	@extend .flex-container;
 }
 
 .page-btn{

@@ -1,5 +1,5 @@
 Animations = {
-	defaultEasing: [.49,.14,.31,1.25]
+	defaultEasing: [.49,.14,.31,1]
 }
 
 DefaultModalIn = {

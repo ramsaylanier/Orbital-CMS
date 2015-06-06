@@ -1,29 +1,24 @@
-<template name="viewBlocks">
-	<div class="view-blocks-modal modal off-page">
-		<button class="close-modal-btn btn">&#10006;</button>
-		<div class="modal-container clearfix">
-			<h3 class="">Blocks</h3>
-			<div class="post-table table grid-1">
-				<div class="table-headings grid-1">
-					<div class="block-name-heading heading grid-1-4">
-						Title
-					</div>
-
-					<div class="block-template-heading heading grid-1-4">
-						Block Template
-					</div>
-
-					<div class="block-page-heading heading grid-1-4">
-						Block Page
-					</div>
-				</div>
-
-				<div class="page-data table-data grid-1">
-					{{#each this}}
-						{{>blockRow}}
-					{{/each}}
-				</div>
+<template name="blockList">
+	<h3 class="">Blocks</h3>
+	<div class="post-table table grid-1">
+		<div class="table-headings grid-1">
+			<div class="block-name-heading heading grid-1-4">
+				Title
 			</div>
+
+			<div class="block-template-heading heading grid-1-4">
+				Block Template
+			</div>
+
+			<div class="block-page-heading heading grid-1-4">
+				Block Pages
+			</div>
+		</div>
+
+		<div class="page-data table-data grid-1">
+			{{#each blocks}}
+				{{>blockRow}}
+			{{/each}}
 		</div>
 	</div>
 </template>
@@ -41,10 +36,10 @@
 		<div class="block-page table-cell grid-1-4">
 			{{#if blockPages}}
 				{{#each blockPages}}
-					<p>{{pageName}}</p>
+					<p>{{this}}</p>
 				{{/each}}
 			{{else}}
-				<p>None</p>
+				<p>You haven't created any blocks, yet.</p>
 			{{/if}}
 		</div>
 

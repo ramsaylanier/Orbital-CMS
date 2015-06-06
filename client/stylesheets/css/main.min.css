@@ -358,6 +358,26 @@ p + .typl8-drop-cap {
 .pad-l-2 {
   padding-left: 2rem; }
 
+.admin-controls {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-flow: column;
+      -ms-flex-flow: column;
+          flex-flow: column;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center; }
+  .admin-controls a {
+    display: block; }
+    .admin-controls a:not(:last-child) {
+      margin-bottom: .5rem; }
+
 [class*="grid-"] {
   float: left;
   *display: inline;
@@ -455,8 +475,18 @@ p + .typl8-drop-cap {
   margin-right: auto; }
 
 .form-control {
-  margin-bottom: 1.5rem;
   position: relative; }
+  .form-control:not(.checkbox-control) {
+    margin-bottom: 1.5rem; }
+
+.checkbox-control {
+  background-color: rgba(39, 7, 58, 0.1);
+  color: #27073A;
+  float: left;
+  padding: .25rem .5rem;
+  border-radius: 2px; }
+  .checkbox-control:not(:last-child) {
+    margin-right: .5rem; }
 
 input.no-pad {
   padding: 0; }
@@ -482,6 +512,33 @@ input.full {
       height: 100%;
       z-index: 1; }
 
+.checkbox-control {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center; }
+
+.checkbox-field {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border: 1px solid #27073A;
+  border-radius: 2px;
+  height: 15px;
+  width: 15px;
+  margin-right: 5px;
+  -webkit-transition: all 200ms ease-out;
+          transition: all 200ms ease-out; }
+  .checkbox-field:hover {
+    background-color: #27073A; }
+  .checkbox-field:checked {
+    background-color: #6fba23;
+    border-color: #6fba23; }
+
 label {
   font-size: .8rem;
   margin-bottom: 5px;
@@ -491,7 +548,7 @@ label {
     position: absolute;
     left: 0;
     bottom: 15px; }
-  label.select-label {
+  label.select-label, label.block-label {
     display: block; }
 
 .input-overlay {
@@ -521,12 +578,6 @@ label {
     margin-bottom: 1.5rem;
     -webkit-transition: all 300ms ease-out;
             transition: all 300ms ease-out; }
-    .page-container .page-title.off-page {
-      display: none; }
-
-.page-edit-mode .page-edit-btn {
-  background-color: #27073A;
-  color: white; }
 
 .page-container.off-page {
   -webkit-transform: rotate3d(0, 1, 0, -15deg);
@@ -539,12 +590,14 @@ label {
 .page-settings {
   position: fixed;
   width: 100%;
-  height: 40px;
+  height: 60px;
   bottom: -100px;
   right: 0;
   background-color: #27073A;
   -webkit-backface-visibility: hidden;
           backface-visibility: hidden; }
+  .page-settings.expanded {
+    height: 200px; }
 
 .page-actions {
   position: absolute;
@@ -552,7 +605,7 @@ label {
 
 .page-buttons {
   width: 100%;
-  padding-right: 60px; }
+  height: 60px; }
 
 .page-btn {
   font-size: .9rem;
@@ -820,26 +873,18 @@ label {
             transform: rotate(45deg);
     width: 35px;
     height: 35px; }
-  .btn.page-edit-btn {
-    position: fixed;
-    bottom: 10px;
-    left: 50%;
-    -webkit-transform: rotate(45deg) translateX(-50%);
-        -ms-transform: rotate(45deg) translateX(-50%);
-            transform: rotate(45deg) translateX(-50%);
-    background-color: transparent;
-    color: #27073A; }
+
+.toggle-btn, .admin-controls-btn, .page-edit-btn {
+  padding: 0;
+  background-color: transparent;
+  color: #27073A;
+  line-height: 0; }
 
 .page-settings-btn {
   position: absolute;
   right: 20px;
   top: 5px;
-  z-index: 300;
-  -webkit-transition: all 300ms ease-out;
-          transition: all 300ms ease-out;
-  -webkit-transform: rotate(45deg);
-      -ms-transform: rotate(45deg);
-          transform: rotate(45deg); }
+  z-index: 300; }
   .page-settings-btn.active {
     -webkit-transform: rotate(0deg);
         -ms-transform: rotate(0deg);
@@ -861,24 +906,14 @@ label {
     margin-bottom: 10px; }
 
 .admin-controls-btn {
-  padding: 0;
-  position: fixed;
   top: 20px;
-  left: 20px;
-  z-index: 999;
-  line-height: 0;
-  color: #27073A;
-  background-color: transparent;
-  -webkit-transform: rotate(-45deg);
-      -ms-transform: rotate(-45deg);
-          transform: rotate(-45deg);
-  -webkit-transform-origin: center center;
-      -ms-transform-origin: center center;
-          transform-origin: center center;
-  -webkit-transition: all 400ms cubic-bezier(.35, -0.06, .15, 1.1) 0ms;
-          transition: all 400ms cubic-bezier(.35, -0.06, .15, 1.1) 0ms; }
+  left: 20px; }
   .admin-controls-btn.off-page {
     left: -50px; }
+
+.page-edit-btn {
+  bottom: 20px;
+  left: 20px; }
 
 .table-headings .heading {
   font-size: 1.3rem;
@@ -1037,6 +1072,24 @@ label {
   height: 39px;
   width: 39px; }
 
+.flex-container, .page-buttons {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center; }
+
+.flex-item {
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+      -ms-flex: 1;
+          flex: 1; }
+  .flex-item.right {
+    text-align: right; }
+
 .alert {
   position: fixed;
   bottom: 0px;
@@ -1050,6 +1103,62 @@ label {
   z-index: 1000; }
   .alert.success {
     background-color: rgba(111, 186, 35, 0.95); }
+
+.icon {
+  cursor: pointer;
+  -webkit-transition: all 300ms ease-out;
+          transition: all 300ms ease-out; }
+  .icon path {
+    -webkit-transition: fill 300ms ease-out;
+            transition: fill 300ms ease-out;
+    fill: #27073A; }
+
+.settings-icon {
+  width: 20px;
+  height: 20px; }
+
+.edit-icon {
+  width: 25px;
+  height: 25px;
+  -webkit-transform: rotate(0deg);
+      -ms-transform: rotate(0deg);
+          transform: rotate(0deg); }
+
+.application.with-admin .settings-icon {
+  -webkit-transform: rotate(-45deg);
+      -ms-transform: rotate(-45deg);
+          transform: rotate(-45deg); }
+  .application.with-admin .settings-icon path {
+    fill: #6fba23; }
+.application.with-admin .edit-icon {
+  opacity: 0;
+  -webkit-transform: translateX(-50px);
+      -ms-transform: translateX(-50px);
+          transform: translateX(-50px); }
+
+.application.edit-mode .edit-icon {
+  -webkit-transform: rotate(-45deg);
+      -ms-transform: rotate(-45deg);
+          transform: rotate(-45deg); }
+  .application.edit-mode .edit-icon path {
+    fill: #6fba23; }
+.application.edit-mode .settings-icon {
+  opacity: 0;
+  -webkit-transform: translateX(-50px);
+      -ms-transform: translateX(-50px);
+          transform: translateX(-50px); }
+
+.admin-controls {
+  z-index: 999; }
+
+.page-actions {
+  z-index: 100; }
+
+.page-settings {
+  z-index: 90; }
+
+.page {
+  z-index: 1; }
 
 * {
   box-sizing: border-box;
@@ -1073,6 +1182,9 @@ code {
 body {
   background-color: #27073A;
   font-family: 'Source Sans Pro', Helvetica, sans-serif; }
+
+.application {
+  overflow: hidden; }
 
 .application.with-admin .container {
   -webkit-transform: translate3d(200px, 0px, 0px);

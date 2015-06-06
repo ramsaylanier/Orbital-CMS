@@ -5,8 +5,23 @@
 }
 
 .form-control{
-	margin-bottom: 1.5rem;
 	position: relative;
+
+	&:not(.checkbox-control){
+		margin-bottom: 1.5rem;
+	}
+}
+
+.checkbox-control{
+	background-color: fade-out($dark, .9);
+	color: $dark;
+	float: left;
+	padding: .25rem .5rem;
+	border-radius: 2px;
+
+	&:not(:last-child){
+		margin-right: .5rem;
+	}
 }
 
 input{
@@ -42,6 +57,32 @@ input{
 	}
 }
 
+.checkbox-control{
+	display: flex;
+	align-items: center;
+}
+
+.checkbox-field{
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+	border: 1px solid $dark;
+	border-radius: 2px;
+	height: 15px;
+	width: 15px;
+	margin-right: 5px;
+	transition: all 200ms ease-out;
+
+	&:hover{
+		background-color: $dark;
+	}
+
+	&:checked{
+		background-color: $green;
+		border-color: $green;
+	}
+}
+
 label{
 	font-size: .8rem;
 	margin-bottom: 5px;
@@ -54,7 +95,7 @@ label{
 		bottom: 15px;
 	}
 
-	&.select-label{
+	&.select-label, &.block-label{
 		display: block;
 	}
 }

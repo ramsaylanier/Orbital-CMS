@@ -21,8 +21,14 @@
 	</div>
 </template>
 
+<template name="formCheckbox">
+	<div class="form-control checkbox-control">
+		<input type="checkbox" value="{{value}}" class="checkbox-field {{classes}}" name="{{name}}">{{value}}
+	</div>
+</template>
+
 <template name="formSubmit">
 	<div class="form-control submit-control">
-		<input type="submit" value="{{value}}" class="{{classes}} positive-btn btn"/>
+		<input type="submit" value={{value}} class="{{classes}} positive-btn btn"/>
 	</div>
 </template>

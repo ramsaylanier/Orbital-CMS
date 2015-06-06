@@ -1,0 +1,12 @@
+<template name="modal">
+	<div class="{{type}}-modal modal">
+		{{#if adminTemplate}}
+			<a href="/admin" class="close-modal-btn close-modal-trigger btn">&#10006;</a>
+		{{else}}
+			<a href="/{{slug}}/edit" class="close-modal-btn close-modal-trigger btn">&#10006;</a>
+		{{/if}}
+		<div class="modal-container clearfix">
+			{{> Template.dynamic template=modalTemplate}}
+		</div>
+	</div>
+</template>

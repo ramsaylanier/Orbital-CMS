@@ -21,9 +21,6 @@ Template.showPage.onRendered(function(){
 });
 
 Template.showPage.helpers({
-	editMode: function(){
-		return Session.get('editMode');
-	},
 	pageTemplate: function(){
 		var templateName = Template.instance().page().pageTemplate.replace(/ /g, '_');
 		return templateName;
@@ -32,12 +29,6 @@ Template.showPage.helpers({
 		return Template.instance().page();
 	}
 });
-
-Template.showPage.events({
-	'click .page-edit-btn':function(e){
-		e.preventDefault();
-	}
-})
 
 Template.pageSettings.onRendered(function(){
 	var instance = this;
@@ -97,15 +88,6 @@ Template.pageSettings.events({
 	'click .page-settings-btn': function(e){
 		$(e.target).toggleClass('active');
 		$('.page-settings').toggleClass('is-active');
-	},
-	'click .insert-blocks-btn': function(){
-		Session.set('pageId',this._id);
-
-		if ($('.insert-blocks-modal').length){
-			$('.insert-blocks-modal').removeClass('off-page');
-		} else {
-			Blaze.render(Template.addBlock, $('.container').get(0));
-		}
 	},
 	'click .expand-page-settings-btn': function(){
 		$('.page-settings').toggleClass('expanded');

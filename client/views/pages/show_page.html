@@ -6,21 +6,17 @@
 
 		{{#if Template.subscriptionsReady}}
 		<div class="page">
-			{{> Template.dynamic template=pageTemplate}}
+			{{> Template.dynamic template=pageTemplate data=page}}
 		</div>
 		{{/if}}
 
 		{{#if isInRole 'admin'}}
-		<div class="page-actions">
-			<a href="/{{page.slug}}/edit" class="page-edit-btn edit-btn post-btn btn">&#10006;</a>
-		</div>
-
-		{{#if Template.subscriptionsReady}}
-			{{#if editMode}}
-				{{> pageSettings page}}
+			{{#if Template.subscriptionsReady}}
+				{{#if editMode}}
+					{{> pageSettings page}}
+				{{/if}}
 			{{/if}}
 		{{/if}}
-	{{/if}}
 	</div>
 </template>
 
@@ -28,14 +24,14 @@
 	<div class="page-settings {{editMode}}">
 		<div class="inner">
 			<div class="page-buttons clearfix">
-				<div class="pull-left">
-					<a href="#" class="insert-blocks-btn page-btn btn">ADD BLOCK</a>
+				<div class="flex-item left">
+					<a href="/{{slug}}/edit/addBlock" class="insert-blocks-btn page-btn btn">ADD BLOCK</a>
 					<a href="#" class="expand-page-settings-btn page-btn btn">MORE</a>
 				</div>
 
-				<div class="pull-right">
-					<a href="#" class="save-page-btn page-btn btn">SAVE</a>
-					<a href="#" class="delete-page-btn page-btn btn">DELETE</a>
+				<div class="flex-item right">
+					<button href="#" class="save-page-btn page-btn positive-btn btn">SAVE</button>
+					<button href="#" class="delete-page-btn page-btn negative-btn btn">DELETE</button>
 				</div>
 			</div>
 			<div class="form-control pad-1">

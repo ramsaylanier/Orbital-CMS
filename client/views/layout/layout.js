@@ -6,8 +6,17 @@ UI.registerHelper('setTitle', function(title){
 	}
 });
 
+UI.registerHelper('currentPage', function(){
+	var url = FlowRouter.getParam('slug');
+	return url;
+})
+
 UI.registerHelper('adminActive', function(){
 	return Session.get('adminActive');
+})
+
+UI.registerHelper('pages', function(){
+	return Pages.find();
 })
 
 UI.registerHelper('posts', function(){
@@ -22,11 +31,16 @@ UI.registerHelper('images', function(){
 	return Media.find();
 })
 
+
+UI.registerHelper('blocks', function(){
+	return Blocks.find();
+})
+
 UI.registerHelper('pageBlocks', function(){
 	return Blocks.find({blockPages: this._id});
 })
 
-UI.registerHelper('editable', function(){
+UI.registerHelper('editMode', function(){
 	return Session.get('editMode');
 })
 
@@ -57,6 +71,23 @@ Template.layout.events({
 			currentSlug = FlowRouter.getParam('slug') || '';
 			Session.set('currentSlug', '/' + currentSlug);
 			FlowRouter.go('/admin');
+		}
+	},
+	'click .page-edit-btn':function(e){
+		var editMode = Session.get('editMode');
+		var url = $(e.currentTarget).attr('href');
+
+		if (editMode){
+			e.preventDefault();
+			var item = $('.page-settings');
+
+			item.velocity({
+				bottom: -60,
+			}, {duration: 300, easing:Animations.defaultEasing});
+
+			Meteor.setTimeout(function(){
+				FlowRouter.go(url);
+			}, 300)
 		}
 	},
 	'click .set-header-image-btn': function(e){

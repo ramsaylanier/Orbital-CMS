@@ -4,6 +4,7 @@
 @import "vendor/typeplate/typeplate";
 
 @import "helpers";
+@import "admin";
 @import "grid";
 @import "login";
 @import "forms";
@@ -17,7 +18,10 @@
 @import "tables";
 @import "media";
 @import "editor";
+@import "flexbox";
 @import "alerts";
+@import "icons";
+@import "zindex";
 
 *{
 	box-sizing: border-box;
@@ -46,6 +50,10 @@ code{
 body{
 	background-color: $dark;
 	font-family: $sansSerif;
+}
+
+.application{
+	overflow: hidden;
 }
 
 .application.with-admin{
